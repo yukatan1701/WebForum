@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.Post" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="post">
+        <id name="postId" type="int">
+            <column name="post_id"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="forum.Topic" embed-xml="true" fetch="select" insert="true" name="topic" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="topic_id" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="forum.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="user_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="text" optimistic-lock="true" type="string" unique="false">
+            <column length="4096" name="text" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="datetime" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="29" name="datetime" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>

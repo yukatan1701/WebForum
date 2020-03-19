@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.Attachment" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="attachment">
+        <composite-id class="forum.AttachmentId" mapped="false" name="id" unsaved-value="undefined">
+            <key-property name="postId" type="int">
+                <column name="post_id"/>
+            </key-property>
+            <key-property name="fileLink" type="string">
+                <column length="4096" name="file_link"/>
+            </key-property>
+        </composite-id>
+    </class>
+</hibernate-mapping>
