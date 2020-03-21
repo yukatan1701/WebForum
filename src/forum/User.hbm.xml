@@ -15,11 +15,19 @@
         <property generated="never" lazy="false" name="dateOfRegistration" optimistic-lock="true" type="date" unique="false">
             <column length="13" name="date_of_registration" not-null="true"/>
         </property>
-        <property generated="never" lazy="false" name="permissions" optimistic-lock="true" type="string" unique="false">
+        <property generated="never" lazy="false" name="permissions" optimistic-lock="true" unique="false">
             <column name="permissions" not-null="true"/>
+            <type name="org.hibernate.type.EnumType">
+            	<param name="enumClass">forum.enums.Permissions</param>
+            	<param name="useNamed">true</param>
+            </type>
         </property>
-        <property generated="never" lazy="false" name="status" optimistic-lock="true" type="string" unique="false">
+        <property generated="never" lazy="false" name="status" optimistic-lock="true" unique="false">
             <column name="status" not-null="true"/>
+            <type name="org.hibernate.type.EnumType">
+            	<param name="enumClass">forum.enums.Status</param>
+            	<param name="useNamed">true</param>
+            </type>
         </property>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="posts" optimistic-lock="true" sort="unsorted" table="post">
             <key on-delete="noaction">
