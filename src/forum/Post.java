@@ -8,6 +8,10 @@ import java.util.Date;
  */
 public class Post implements java.io.Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 3477267745021312717L;
 	private int postId;
 	private Topic topic;
 	private User user;

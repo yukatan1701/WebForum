@@ -15,6 +15,10 @@ public class Section implements java.io.Serializable {
 
 	public Section() {
 	}
+	
+	public Section(String title) {
+		this.title = title;
+	}
 
 	public Section(int sectionId, String title) {
 		this.sectionId = sectionId;

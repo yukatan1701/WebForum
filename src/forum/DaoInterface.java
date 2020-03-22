@@ -3,7 +3,7 @@ package forum;
 import java.io.Serializable;
 import java.util.List;
 
-public interface UserDaoInterface<T, Id extends Serializable> {
+public interface DaoInterface<T, Id extends Serializable> {
 	public void persist(T entity);
 	
 	public void update(T entity);

@@ -4,9 +4,9 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.Section" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="section">
         <id name="sectionId" type="int">
             <column name="section_id"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
-        <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="false">
+        <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="true">
             <column length="256" name="title" not-null="true"/>
         </property>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="topics" optimistic-lock="true" sort="unsorted" table="topic">

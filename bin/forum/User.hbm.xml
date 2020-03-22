@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.User" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="user">
         <id name="userId" type="int">
             <column name="user_id"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <property generated="never" lazy="false" name="login" optimistic-lock="true" type="string" unique="false">
             <column length="32" name="login" not-null="true" unique="true"/>
@@ -19,14 +19,14 @@
             <column name="permissions" not-null="true"/>
             <type name="org.hibernate.type.EnumType">
             	<param name="enumClass">forum.enums.Permissions</param>
-            	<param name="useNamed">true</param>
+            	<param name="useNamed">false</param>
             </type>
         </property>
         <property generated="never" lazy="false" name="status" optimistic-lock="true" unique="false">
             <column name="status" not-null="true"/>
             <type name="org.hibernate.type.EnumType">
             	<param name="enumClass">forum.enums.Status</param>
-            	<param name="useNamed">true</param>
+            	<param name="useNamed">false</param>
             </type>
         </property>
         <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="posts" optimistic-lock="true" sort="unsorted" table="post">

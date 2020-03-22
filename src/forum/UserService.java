@@ -34,14 +34,14 @@ public class UserService {
         userDao.closeCurrentSessionwithTransaction();
     }
  
-    public User findById(String id) {
+    public User findById(Integer id) {
     	userDao.openCurrentSession();
         User user = userDao.findById(id);
         userDao.closeCurrentSession();
         return user;
     }
  
-    public void delete(String id) {
+    public void delete(Integer id) {
     	userDao.openCurrentSessionwithTransaction();
         User user = userDao.findById(id);
         userDao.delete(user);

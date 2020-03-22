@@ -3,15 +3,15 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
-public class UserDao extends DBSession implements DaoInterface<User, Integer> {
+public class PostDao extends DBSession implements DaoInterface<Post, String> {
 	
-	public UserDao() {
-		super(UserDao.class.getName());
+	public PostDao() {
+		super(PostDao.class.getName());
 	}
 	
 	@Override
-    public void persist(User entity) {
-		logger.log(Level.INFO, "persisting User instance");
+    public void persist(Post entity) {
+		logger.log(Level.INFO, "persisting Post instance");
 		try {
 			getCurrentSession().save(entity);
 			logger.log(Level.INFO, "persist successful");
@@ -22,8 +22,8 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     }
  
 	@Override
-    public void update(User entity) {
-		logger.log(Level.INFO, "updating User instance");
+    public void update(Post entity) {
+		logger.log(Level.INFO, "updating Post instance");
 		try {
 			getCurrentSession().update(entity);
 			logger.log(Level.INFO, "update successful");
@@ -34,16 +34,16 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     }
     
 	@Override
-    public User findById(Integer id) {
-		logger.log(Level.INFO, "getting User instance with id: " + id);
+    public Post findById(String id) {
+		logger.log(Level.INFO, "getting Post instance with id: " + id);
 		try {
-			User user = (User) getCurrentSession().get(User.class, id);
-			if (user == null) {
+			Post post = (Post) getCurrentSession().get(Post.class, id);
+			if (post == null) {
 				logger.log(Level.INFO, "get successful, no instance found");
 			} else {
 				logger.log(Level.INFO, "get successful, instance found");
 			}
-			return user; 
+			return post; 
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "get failed", re);
 			throw re;
@@ -51,8 +51,8 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     }
  
 	@Override
-    public void delete(User entity) {
-		logger.log(Level.INFO, "deleting User instance");
+    public void delete(Post entity) {
+		logger.log(Level.INFO, "deleting Post instance");
 		try {
 			getCurrentSession().delete(entity);
 			logger.log(Level.INFO, "delete successful");
@@ -64,12 +64,12 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
  
     @SuppressWarnings("unchecked")
     @Override
-    public List<User> findAll() {
-    	logger.log(Level.INFO, "finding all on User instance");
+    public List<Post> findAll() {
+    	logger.log(Level.INFO, "finding all on Post instance");
 		try {
-			List<User> users = (List<User>) getCurrentSession().createQuery("FROM User").list();
+			List<Post> posts = (List<Post>) getCurrentSession().createQuery("FROM Post").list();
 			logger.log(Level.INFO, "find all successful");
-			return users;
+			return posts;
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "find all failed", re);
 			throw re;
@@ -78,10 +78,10 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 
     @Override
     public void deleteAll() {
-    	logger.log(Level.INFO, "deleting all on User instance");
+    	logger.log(Level.INFO, "deleting all on Post instance");
 		try {
-	        List<User> entityList = findAll();
-	        for (User entity : entityList) {
+	        List<Post> entityList = findAll();
+	        for (Post entity : entityList) {
 	            delete(entity);
 	        }
 	        logger.log(Level.INFO, "delete all successful");

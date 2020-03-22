@@ -4,7 +4,7 @@
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.Post" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="post">
         <id name="postId" type="int">
             <column name="post_id"/>
-            <generator class="assigned"/>
+            <generator class="identity"/>
         </id>
         <many-to-one class="forum.Topic" embed-xml="true" fetch="select" insert="true" name="topic" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="topic_id" not-null="true"/>
