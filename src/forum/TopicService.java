@@ -2,12 +2,6 @@ package forum;
 // Generated 26.02.2020 21:11:44 by Hibernate Tools 5.4.7.Final
 
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import javax.naming.InitialContext;
-import org.hibernate.LockMode;
-import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Example;
 
 /**
  * Home object for domain model class Topic.
@@ -61,8 +55,14 @@ public class TopicService {
     	topicDao.closeCurrentSessionwithTransaction();
     }
     
-    public void createTopic(Topic entity) {
-    	persist(entity);
+    public void createTopic(Topic topic) {
+    	persist(topic);
+    }
+    
+    public void deleteTopic(Topic topic) {
+    	topicDao.openCurrentSessionwithTransaction();
+    	topicDao.delete(topic);
+    	topicDao.closeCurrentSessionwithTransaction();
     }
  
     public TopicDao topicDao() {

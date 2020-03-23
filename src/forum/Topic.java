@@ -2,6 +2,7 @@ package forum;
 // Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final
 
 import java.util.HashSet;
+
 import java.util.Set;
 
 /**
