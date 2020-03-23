@@ -3,7 +3,7 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
-public class PostDao extends DBSession implements DaoInterface<Post, String> {
+public class PostDao extends DBSession implements DaoInterface<Post, Integer> {
 	
 	public PostDao() {
 		super(PostDao.class.getName());
@@ -34,7 +34,7 @@ public class PostDao extends DBSession implements DaoInterface<Post, String> {
     }
     
 	@Override
-    public Post findById(String id) {
+    public Post findById(Integer id) {
 		logger.log(Level.INFO, "getting Post instance with id: " + id);
 		try {
 			Post post = (Post) getCurrentSession().get(Post.class, id);

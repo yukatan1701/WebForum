@@ -3,8 +3,6 @@ package forum;
 
 import java.sql.SQLException;
 import java.util.List;
-
-import org.hibernate.HibernateException;
 /**
  * Home object for domain model class Section.
  * @see forum.Section

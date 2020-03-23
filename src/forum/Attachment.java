@@ -6,21 +6,68 @@ package forum;
  */
 public class Attachment implements java.io.Serializable {
 
-	private AttachmentId id;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -3714351733658352937L;
+	private int attachmentId;
+	private Post post;
+	private String fileLink;
 
 	public Attachment() {
 	}
 
-	public Attachment(AttachmentId id) {
-		this.id = id;
+	public Attachment(Post post, String fileLink) {
+		this.post = post;
+		this.fileLink = fileLink;
+	}
+	
+	/**
+	 * @return the attachmentId
+	 */
+	public int getAttachmentId() {
+		return attachmentId;
 	}
 
-	public AttachmentId getId() {
-		return this.id;
+	/**
+	 * @param attachmentId the attachmentId to set
+	 */
+	public void setAttachmentId(int attachmentId) {
+		this.attachmentId = attachmentId;
 	}
 
-	public void setId(AttachmentId id) {
-		this.id = id;
+	/**
+	 * @return the post
+	 */
+	public Post getPost() {
+		return post;
 	}
+
+	/**
+	 * @param post the post to set
+	 */
+	public void setPost(Post post) {
+		this.post = post;
+	}
+
+	/**
+	 * @return the fileLink
+	 */
+	public String getFileLink() {
+		return fileLink;
+	}
+
+	/**
+	 * @param fileLink the fileLink to set
+	 */
+	public void setFileLink(String fileLink) {
+		this.fileLink = fileLink;
+	}
+
+	@Override
+	public String toString() {
+		return "Attachment [attachmentId=" + attachmentId + ", post=" + post + ", fileLink=" + fileLink + "]";
+	}
+
 
 }

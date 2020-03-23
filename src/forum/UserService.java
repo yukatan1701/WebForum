@@ -11,8 +11,6 @@ import java.util.Set;
 
 import forum.enums.Status;
 
-import java.util.Map.Entry;
-
 /**
  * Home object for domain model class User.
  * @see forum.User
@@ -43,6 +41,13 @@ public class UserService {
         User user = userDao.findById(id);
         userDao.closeCurrentSession();
         return user;
+    }
+    
+    public User findByLogin(String login) {
+    	userDao.openCurrentSession();
+    	User user = userDao.findByLogin(login);
+    	userDao.closeCurrentSession();
+    	return user;
     }
  
     public void delete(Integer id) {

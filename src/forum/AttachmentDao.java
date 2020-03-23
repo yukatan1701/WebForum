@@ -3,18 +3,15 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
-import org.hibernate.Criteria;
-import org.hibernate.criterion.Restrictions;
-
-public class UserDao extends DBSession implements DaoInterface<User, Integer> {
+public class AttachmentDao extends DBSession implements DaoInterface<Attachment, Integer> {
 	
-	public UserDao() {
-		super(UserDao.class.getName());
+	public AttachmentDao() {
+		super(AttachmentDao.class.getName());
 	}
 	
 	@Override
-    public void persist(User entity) {
-		logger.log(Level.INFO, "persisting User instance");
+    public void persist(Attachment entity) {
+		logger.log(Level.INFO, "persisting Attachment instance");
 		try {
 			getCurrentSession().save(entity);
 			logger.log(Level.INFO, "persist successful");
@@ -25,8 +22,8 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     }
  
 	@Override
-    public void update(User entity) {
-		logger.log(Level.INFO, "updating User instance");
+    public void update(Attachment entity) {
+		logger.log(Level.INFO, "updating Attachment instance");
 		try {
 			getCurrentSession().update(entity);
 			logger.log(Level.INFO, "update successful");
@@ -37,32 +34,25 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     }
     
 	@Override
-    public User findById(Integer id) {
-		logger.log(Level.INFO, "getting User instance with id: " + id);
+    public Attachment findById(Integer id) {
+		logger.log(Level.INFO, "getting Attachment instance with id: " + id);
 		try {
-			User user = (User) getCurrentSession().get(User.class, id);
-			if (user == null) {
+			Attachment attachment = (Attachment) getCurrentSession().get(Attachment.class, id);
+			if (attachment == null) {
 				logger.log(Level.INFO, "get successful, no instance found");
 			} else {
 				logger.log(Level.INFO, "get successful, instance found");
 			}
-			return user; 
+			return attachment; 
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "get failed", re);
 			throw re;
 		}
     }
-	
-	public User findByLogin(String login) {
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
-		criteria.add(Restrictions.like("login", login));
-		User user = (User) criteria.uniqueResult();
-		return user;
-	}
  
 	@Override
-    public void delete(User entity) {
-		logger.log(Level.INFO, "deleting User instance");
+    public void delete(Attachment entity) {
+		logger.log(Level.INFO, "deleting Attachment instance");
 		try {
 			getCurrentSession().delete(entity);
 			logger.log(Level.INFO, "delete successful");
@@ -74,12 +64,12 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
  
     @SuppressWarnings("unchecked")
     @Override
-    public List<User> findAll() {
-    	logger.log(Level.INFO, "finding all on User instance");
+    public List<Attachment> findAll() {
+    	logger.log(Level.INFO, "finding all on Attachment instance");
 		try {
-			List<User> users = (List<User>) getCurrentSession().createQuery("FROM User").list();
+			List<Attachment> attachments = (List<Attachment>) getCurrentSession().createQuery("FROM Attachment").list();
 			logger.log(Level.INFO, "find all successful");
-			return users;
+			return attachments;
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "find all failed", re);
 			throw re;
@@ -88,10 +78,10 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 
     @Override
     public void deleteAll() {
-    	logger.log(Level.INFO, "deleting all on User instance");
+    	logger.log(Level.INFO, "deleting all on Attachment instance");
 		try {
-	        List<User> entityList = findAll();
-	        for (User entity : entityList) {
+	        List<Attachment> entityList = findAll();
+	        for (Attachment entity : entityList) {
 	            delete(entity);
 	        }
 	        logger.log(Level.INFO, "delete all successful");

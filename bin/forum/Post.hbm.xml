@@ -18,5 +18,11 @@
         <property generated="never" lazy="false" name="datetime" optimistic-lock="true" type="timestamp" unique="false">
             <column length="29" name="datetime" not-null="true"/>
         </property>
+        <set embed-xml="true" cascade="all" fetch="select" inverse="true" lazy="false" mutable="true" name="attachments" optimistic-lock="true" sort="unsorted" table="attachment">
+            <key on-delete="cascade">
+                <column name="post_id" not-null="true"/>
+            </key>
+            <one-to-many class="forum.Attachment" embed-xml="true" not-found="exception"/>
+        </set>
     </class>
 </hibernate-mapping>

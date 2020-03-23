@@ -2,13 +2,15 @@
 <!-- Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
     <class dynamic-insert="false" dynamic-update="false" mutable="true" name="forum.Attachment" optimistic-lock="version" polymorphism="implicit" schema="public" select-before-update="false" table="attachment">
-        <composite-id class="forum.AttachmentId" mapped="false" name="id" unsaved-value="undefined">
-            <key-property name="postId" type="int">
-                <column name="post_id"/>
-            </key-property>
-            <key-property name="fileLink" type="string">
-                <column length="4096" name="file_link"/>
-            </key-property>
-        </composite-id>
+        <id name="attachmentId" type="int">
+            <column name="attachment_id"/>
+            <generator class="identity"/>
+        </id>
+        <many-to-one class="forum.Post" embed-xml="true" fetch="select" insert="true" name="post" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="post_id" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="fileLink" optimistic-lock="true" type="string" unique="false">
+            <column length="4096" name="file_link" not-null="true"/>
+        </property>
     </class>
 </hibernate-mapping>

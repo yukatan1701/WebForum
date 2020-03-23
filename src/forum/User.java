@@ -2,12 +2,15 @@ package forum;
 // Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final
 
 import forum.enums.*;
+
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
 
-public class User {
+public class User implements java.io.Serializable {
+	private static final long serialVersionUID = -1181755035581891610L;
 	private int userId;
 	private String login;
 	private byte[] password;
@@ -99,6 +102,13 @@ public class User {
 	@SuppressWarnings("rawtypes")
 	public void setPosts(Set posts) {
 		this.posts = posts;
+	}
+
+	@Override
+	public String toString() {
+		return "User [userId=" + userId + ", login=" + login + ", password=" + Arrays.toString(password)
+				+ ", dateOfRegistration=" + dateOfRegistration + ", permissions=" + permissions + ", status=" + status
+				+ ", posts=" + posts + "]";
 	}
 
 }
