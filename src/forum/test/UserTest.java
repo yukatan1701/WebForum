@@ -55,7 +55,7 @@ public class UserTest {
 		Assert.assertEquals(user.toString(), sameUser.toString());
 	}
 	
-	@Test
+	@Test(dependsOnMethods={"testAddNotNullUser"})
 	public void testDeleteUser() {
 		User user = new User();
 		forum.userService.delete(user);
@@ -63,9 +63,9 @@ public class UserTest {
 		forum.userService.delete(testUser);
 	}
 	
-	@Test
+	@Test(dependsOnMethods={"testDeleteUser"})
 	public void testGetActiveUsers() {
-		Timestamp begin = Timestamp.valueOf("2015-01-01 00:00:00.0"), end = Timestamp.valueOf("2016-01-01 00:00:00.0");
+		Timestamp begin = Timestamp.valueOf("2010-01-01 00:00:00.0"), end = Timestamp.valueOf("2020-01-01 00:00:00.0");
 		LinkedHashMap<User, Integer> activeUsers = forum.userService.getActiveUsers(begin, end);
 		java.util.List<User> realUsers = forum.userService.findAll();
 		Assert.assertEquals(realUsers.size(), activeUsers.size());

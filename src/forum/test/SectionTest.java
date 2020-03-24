@@ -54,7 +54,7 @@ public class SectionTest {
 		Assert.assertEquals(sameSection.toString(), section.toString());
 	}
 	
-	@Test
+	@Test(dependsOnMethods={"testAddNotNullSection"})
 	public void testDeleteSection() {
 		Section section = new Section();
 		forum.sectionService.delete(section);

@@ -77,7 +77,7 @@ public class TopicTest {
 		Assert.assertEquals(topic.toString(), sameTopic.toString());
 	}
 	
-	@Test
+	@Test(dependsOnMethods={"testAddTopic"})
 	public void testDeleteTopic() {
 		Topic topic = new Topic();
 		forum.topicService.delete(topic);

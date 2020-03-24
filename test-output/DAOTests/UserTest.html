@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>UserTest</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>31/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>30/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Tue Mar 24 18:13:27 MSK 2020</td>
+<td>Started on:</td><td>Tue Mar 24 18:35:15 MSK 2020</td>
 </tr>
-<tr><td>Total time:</td><td>7 seconds (7908 ms)</td>
+<tr><td>Total time:</td><td>9 seconds (9422 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,58 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='forum.test.UserTest.testGetActiveUsers()'><b>testGetActiveUsers</b><br>Test class: forum.test.UserTest</td>
+<td><div><pre>java.lang.AssertionError: expected [6] but found [7]
+	at forum.test.UserTest.testGetActiveUsers(UserTest.java:71)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 32 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace110687402", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace110687402'><pre>java.lang.AssertionError: expected [6] but found [7]
+	at org.testng.Assert.fail(Assert.java:97)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+	at org.testng.Assert.assertEquals(Assert.java:118)
+	at org.testng.Assert.assertEquals(Assert.java:839)
+	at org.testng.Assert.assertEquals(Assert.java:849)
+	at forum.test.UserTest.testGetActiveUsers(UserTest.java:71)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+</pre></div></td>
+<td>0</td>
+<td>forum.test.UserTest@7d0587f1</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -78,15 +130,15 @@ function toggleAllBoxes() {
 <td title='forum.test.AttachmentTest.testAddAttachment()'><b>testAddAttachment</b><br>Test class: forum.test.AttachmentTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.AttachmentTest@5d76b067</td></tr>
+<td>forum.test.AttachmentTest@1e6d1014</td></tr>
 <tr>
 <td title='forum.test.AttachmentTest.testAddAttachmentWithNullFields()'><b>testAddAttachmentWithNullFields</b><br>Test class: forum.test.AttachmentTest</td>
 <td><div><pre>java.lang.NullPointerException
 	at forum.AttachmentService.addAttachment(AttachmentService.java:60)
 	at forum.test.AttachmentTest.testAddAttachmentWithNullFields(AttachmentTest.java:23)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace579647029", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace579647029'><pre>java.lang.NullPointerException
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1633612848", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1633612848'><pre>java.lang.NullPointerException
 	at forum.AttachmentService.addAttachment(AttachmentService.java:60)
 	at forum.test.AttachmentTest.testAddAttachmentWithNullFields(AttachmentTest.java:23)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -119,7 +171,7 @@ function toggleAllBoxes() {
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.AttachmentTest@5d76b067</td></tr>
+<td>forum.test.AttachmentTest@1e6d1014</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testAddExistingSection()'><b>testAddExistingSection</b><br>Test class: forum.test.SectionTest</td>
 <td><div><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
@@ -166,8 +218,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
 	... 54 more
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace365067109", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace365067109'><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2054592756", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace2054592756'><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
@@ -240,15 +292,15 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	... 54 more
 </pre></div></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testAddExistingTopic()'><b>testAddExistingTopic</b><br>Test class: forum.test.TopicTest</td>
 <td><div><pre>java.lang.RuntimeException: Topic &apos;Отечественный шансон&apos; already exists in section &apos;Музыка&apos;.
 	at forum.TopicService.addTopic(TopicService.java:90)
 	at forum.test.TopicTest.testAddExistingTopic(TopicTest.java:50)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace763291932", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace763291932'><pre>java.lang.RuntimeException: Topic &apos;Отечественный шансон&apos; already exists in section &apos;Музыка&apos;.
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1305557472", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1305557472'><pre>java.lang.RuntimeException: Topic &apos;Отечественный шансон&apos; already exists in section &apos;Музыка&apos;.
 	at forum.TopicService.addTopic(TopicService.java:90)
 	at forum.test.TopicTest.testAddExistingTopic(TopicTest.java:50)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -281,7 +333,7 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.UserTest.testAddExistingUser()'><b>testAddExistingUser</b><br>Test class: forum.test.UserTest</td>
 <td><div><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
@@ -328,8 +380,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
 	... 54 more
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1351247295", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1351247295'><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1450133081", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1450133081'><pre>org.hibernate.exception.ConstraintViolationException: could not execute statement
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
 	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
@@ -401,18 +453,18 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
 	... 54 more
 </pre></div></td>
-<td>1</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>0</td>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testAddNotNullSection()'><b>testAddNotNullSection</b><br>Test class: forum.test.SectionTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.UserTest.testAddNotNullUser()'><b>testAddNotNullUser</b><br>Test class: forum.test.UserTest</td>
 <td></td>
-<td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>2</td>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testAddNullSection()'><b>testAddNullSection</b><br>Test class: forum.test.SectionTest</td>
 <td><div><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Section.title
@@ -442,8 +494,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at forum.SectionService.addSection(SectionService.java:74)
 	at forum.test.SectionTest.testAddNullSection(SectionTest.java:36)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1798744962", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1798744962'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Section.title
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace331402961", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace331402961'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Section.title
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
 	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
@@ -499,7 +551,7 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.UserTest.testAddNullUser()'><b>testAddNullUser</b><br>Test class: forum.test.UserTest</td>
 <td><div><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.User.login
@@ -529,8 +581,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at forum.UserService.addUser(UserService.java:80)
 	at forum.test.UserTest.testAddNullUser(UserTest.java:37)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace2322399", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace2322399'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.User.login
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace164183318", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace164183318'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.User.login
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
 	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
@@ -586,12 +638,12 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.PostTest.testAddPost()'><b>testAddPost</b><br>Test class: forum.test.PostTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.PostTest@7d0587f1</td></tr>
+<td>forum.test.PostTest@4f063c0a</td></tr>
 <tr>
 <td title='forum.test.PostTest.testAddPostWithNullFields()'><b>testAddPostWithNullFields</b><br>Test class: forum.test.PostTest</td>
 <td><div><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Post.topic
@@ -621,8 +673,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at forum.PostService.addPost(PostService.java:69)
 	at forum.test.PostTest.testAddPostWithNullFields(PostTest.java:25)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1872900980", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1872900980'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Post.topic
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace710977520", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace710977520'><pre>org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Post.topic
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
 	at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
 	at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
@@ -678,12 +730,12 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.PostTest@7d0587f1</td></tr>
+<td>forum.test.PostTest@4f063c0a</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testAddTopic()'><b>testAddTopic</b><br>Test class: forum.test.TopicTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testAddTopicInEmptySection()'><b>testAddTopicInEmptySection</b><br>Test class: forum.test.TopicTest</td>
 <td><div><pre>org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : forum.Topic.section -&gt; forum.Section
@@ -698,8 +750,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at forum.TopicService.addTopic(TopicService.java:92)
 	at forum.test.TopicTest.testAddTopicInEmptySection(TopicTest.java:31)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace550975541", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace550975541'><pre>org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : forum.Topic.section -&gt; forum.Section
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1652685125", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1652685125'><pre>org.hibernate.TransientPropertyValueException: Not-null property references a transient value - transient instance must be saved before current operation : forum.Topic.section -&gt; forum.Section
 	at org.hibernate.action.internal.UnresolvedEntityInsertActions.checkNoUnresolvedActionsAfterOperation(UnresolvedEntityInsertActions.java:122)
 	at org.hibernate.engine.spi.ActionQueue.checkNoUnresolvedActionsAfterOperation(ActionQueue.java:436)
 	at org.hibernate.internal.SessionImpl.checkNoUnresolvedActionsAfterOperation(SessionImpl.java:581)
@@ -740,7 +792,7 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testAddTopicInNullSection()'><b>testAddTopicInNullSection</b><br>Test class: forum.test.TopicTest</td>
 <td><div><pre>java.lang.RuntimeException: Failed to check if topic is in section: topic or section is null.
@@ -748,8 +800,8 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at forum.TopicService.addTopic(TopicService.java:89)
 	at forum.test.TopicTest.testAddTopicInNullSection(TopicTest.java:24)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1831324475", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1831324475'><pre>java.lang.RuntimeException: Failed to check if topic is in section: topic or section is null.
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace321431006", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace321431006'><pre>java.lang.RuntimeException: Failed to check if topic is in section: topic or section is null.
 	at forum.TopicDao.ifTopicInSection(TopicDao.java:119)
 	at forum.TopicService.addTopic(TopicService.java:89)
 	at forum.test.TopicTest.testAddTopicInNullSection(TopicTest.java:24)
@@ -783,75 +835,75 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.UserTest.testBlockUnblockUser()'><b>testBlockUnblockUser</b><br>Test class: forum.test.UserTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testDeleteSection()'><b>testDeleteSection</b><br>Test class: forum.test.SectionTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testDeleteTopic()'><b>testDeleteTopic</b><br>Test class: forum.test.TopicTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.UserTest.testDeleteUser()'><b>testDeleteUser</b><br>Test class: forum.test.UserTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.UserTest.testFindById()'><b>testFindById</b><br>Test class: forum.test.UserTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testFindById()'><b>testFindById</b><br>Test class: forum.test.SectionTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testFindById()'><b>testFindById</b><br>Test class: forum.test.TopicTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.PostTest.testFindById()'><b>testFindById</b><br>Test class: forum.test.PostTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.PostTest@7d0587f1</td></tr>
+<td>forum.test.PostTest@4f063c0a</td></tr>
 <tr>
 <td title='forum.test.AttachmentTest.testFindById()'><b>testFindById</b><br>Test class: forum.test.AttachmentTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.AttachmentTest@5d76b067</td></tr>
+<td>forum.test.AttachmentTest@1e6d1014</td></tr>
 <tr>
 <td title='forum.test.UserTest.testFindByLogin()'><b>testFindByLogin</b><br>Test class: forum.test.UserTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testFindByTitle()'><b>testFindByTitle</b><br>Test class: forum.test.SectionTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testFindByTitle()'><b>testFindByTitle</b><br>Test class: forum.test.TopicTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testFindByTitleNull()'><b>testFindByTitleNull</b><br>Test class: forum.test.TopicTest</td>
 <td><div><pre>java.lang.NullPointerException
 	at forum.TopicService.findByTitle(TopicService.java:43)
 	at forum.test.TopicTest.testFindByTitleNull(TopicTest.java:56)
 	at java.util.ArrayList.forEach(ArrayList.java:1257)
-... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace542359292", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace542359292'><pre>java.lang.NullPointerException
+... Removed 27 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace205246907", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace205246907'><pre>java.lang.NullPointerException
 	at forum.TopicService.findByTitle(TopicService.java:43)
 	at forum.test.TopicTest.testFindByTitleNull(TopicTest.java:56)
 	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -884,27 +936,22 @@ Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяюще
 	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
 </pre></div></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
-<tr>
-<td title='forum.test.UserTest.testGetActiveUsers()'><b>testGetActiveUsers</b><br>Test class: forum.test.UserTest</td>
-<td></td>
-<td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.SectionTest.testGetUsersBySections()'><b>testGetUsersBySections</b><br>Test class: forum.test.SectionTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.SectionTest@5e853265</td></tr>
+<td>forum.test.SectionTest@5d76b067</td></tr>
 <tr>
 <td title='forum.test.TopicTest.testIfTopicInSection()'><b>testIfTopicInSection</b><br>Test class: forum.test.TopicTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.TopicTest@67205a84</td></tr>
+<td>forum.test.TopicTest@2a17b7b6</td></tr>
 <tr>
 <td title='forum.test.UserTest.testSHA512()'><b>testSHA512</b><br>Test class: forum.test.UserTest</td>
 <td></td>
 <td>0</td>
-<td>forum.test.UserTest@6c49835d</td></tr>
+<td>forum.test.UserTest@7d0587f1</td></tr>
 </table><p>
 </body>
 </html>
