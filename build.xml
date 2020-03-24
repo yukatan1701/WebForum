@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<project name="Web Forum" default="init" basedir=".">
+    <description>Web Forum database</description>
+	
+	<property name="jdbc.driver.jar" value="postgresql-42.2.10.jar"/>
+	<property name="dbname" value="web_forum"></property>
+	
+    <property name="sql.driver" value="org.postgresql.Driver"/>
+    <property name="sql.url" value="jdbc:postgresql://localhost:5432/"/>
+    <property name="sql.user" value="postgres"/>
+    <property name="sql.pass" value="436813"/>
+    <property name="sql.classpath" value="lib/${jdbc.driver.jar}"/>
+	
+	<property name="src.dir" location="src"/>
+	<property name="build.dir" location="build"/>
+	<property name="lib.dir" location="lib"/>
+	<property name="classes" location="${build}/classes"/>
+	
+	<path id="libraries">
+	  <fileset dir="${lib.dir}">
+	    <include name="**/*.jar"/>
+	  </fileset>
+	</path>
+	
+	<path id="toolslib">
+		<fileset dir="lib">
+			<include name="**/*.jar"/>
+		</fileset>
+		<fileset dir="${src.dir}/forum">
+			<include name="**/*.hbm.xml"/>
+		</fileset>
+	</path>
+
+	  
+	<taskdef name="hibernatetool" 
+	         classname="org.hibernate.tool.ant.HibernateToolTask" 
+	         classpathref="toolslib" />
+	
+    <target name="create_db" description="Database creation.">
+    	<echo>Creating database...</echo>
+	        <sql driver="${sql.driver}"
+	            classpath="${sql.classpath}"
+	            url="${sql.url}"
+	            userid="${sql.user}"
+	            password="${sql.pass}"
+	            autocommit="true">
+	            CREATE DATABASE ${dbname};
+	        </sql>
+    		<echo>OK. Creating tables...</echo>
+    		<sql driver="${sql.driver}"
+	            classpath="${sql.classpath}"
+	            url="${sql.url}${dbname}"
+	            userid="${sql.user}"
+	            password="${sql.pass}"
+	            autocommit="true">
+	            <transaction src="db/db_create.sql" />
+	            <transaction src="db/db_init.sql" />
+	        </sql>
+        	<echo>OK.</echo>
+    </target>
+	
+	<target name="drop_db" description="Database dropping.">
+		<echo>Trying to drop database...</echo>
+        <sql driver="${sql.driver}"
+            classpath="${sql.classpath}"
+            url="${sql.url}"
+            userid="${sql.user}"
+            password="${sql.pass}"
+            autocommit="true">
+        	<transaction src="db/db_drop.sql" />
+            DROP DATABASE ${dbname};
+        </sql>
+	    <echo>OK.</echo>
+	</target>
+	
+	<target name="copy-resources">
+		<copy todir="${build.dir}">
+			<fileset dir="${src.dir}">
+                <exclude name="**/*.java"/>
+                <include name="**/*.xml"/>
+                <include name="**/*.properties"/>
+            </fileset>
+		</copy>
+	</target>
+	
+	<target name="compile" depends="clean, copy-resources">
+		<javac srcdir="${src.dir}" destdir="${build.dir}" includeantruntime="false">
+			<classpath refid="libraries"/>
+		</javac>
+	</target>
+	
+	<target name="run" depends="compile">
+		<java classname="forum.App" classpathref="libraries">
+			<classpath path="${build.dir}"/>
+		</java>
+	</target>
+	
+	<target name="clean">
+        <delete dir="${build.dir}"/>
+		<mkdir dir="${build.dir}"/>
+    </target>
+
+    <target name="init" description="Creating project." depends="clean, compile">
+        <hibernatetool destdir="${build.dir}">
+            <classpath>
+                <path location="bin" />
+            </classpath>
+            <annotationconfiguration configurationfile="${src}/hibernate.cfg.xml"/>
+            <hbm2dao destdir="${build.dir}"/>           
+        </hibernatetool>
+    </target>
+	
+</project>
