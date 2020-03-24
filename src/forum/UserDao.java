@@ -20,6 +20,11 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 			logger.log(Level.INFO, "persist successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "persist failed", re);
+			try {
+				getCurrentSession().getTransaction().rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "rollback failed", e);
+			}
 			throw re;
 		}
     }
@@ -32,6 +37,11 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 			logger.log(Level.INFO, "update successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "update failed", re);
+			try {
+				getCurrentSession().getTransaction().rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "rollback failed", e);
+			}
 			throw re;
 		}
     }
@@ -48,16 +58,22 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 			}
 			return user; 
 		} catch (RuntimeException re) {
-			logger.log(Level.SEVERE, "get failed", re);
-			throw re;
+			logger.log(Level.INFO, "get failed", re);
+			return null;
 		}
     }
 	
 	public User findByLogin(String login) {
-		Criteria criteria = getCurrentSession().createCriteria(User.class);
-		criteria.add(Restrictions.like("login", login));
-		User user = (User) criteria.uniqueResult();
-		return user;
+		logger.log(Level.INFO, "getting User instance with login: " + login);
+		try {
+			Criteria criteria = getCurrentSession().createCriteria(User.class);
+			criteria.add(Restrictions.like("login", login));
+			User user = (User) criteria.uniqueResult();
+			return user;
+		} catch (RuntimeException re) {
+			logger.log(Level.INFO, "get failed", re);
+			return null;
+		}
 	}
  
 	@Override
@@ -68,6 +84,11 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 			logger.log(Level.INFO, "delete successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "delete failed", re);
+			try {
+				getCurrentSession().getTransaction().rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "rollback failed", e);
+			}
 			throw re;
 		}
     }

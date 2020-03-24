@@ -1,7 +1,10 @@
 package forum;
 import forum.enums.*;
 
-import java.util.*;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.NoSuchProviderException;
+import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -21,12 +24,10 @@ public class App {
 		forum.postService.deletePost(post);
 		List<Attachment> ats = forum.attachmentService.findAll();
 		ats.forEach(a -> System.out.println(a.getFileLink()));*/
-		User user = forum.userService.findByLogin("belarus");
-		if (user == null) {
-			System.out.println("User not found.");
-		} else {
-			System.out.println(user.getLogin());
-		}
+		User user = forum.userService.findByLogin("finland");
+		
+		//byte[] password = mda.digest("helsinki".getBytes());
+		//System.out.println(MessageDigest.isEqual(password, user.getPassword()));
 		//forum.postService.createPost(post);
 		//System.out.printf("%d %d\n", post.getPostId(), at.getPost().getPostId());
 	}

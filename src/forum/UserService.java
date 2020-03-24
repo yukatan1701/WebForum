@@ -50,11 +50,17 @@ public class UserService {
     	return user;
     }
  
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
     	userDao.openCurrentSessionwithTransaction();
         User user = userDao.findById(id);
         userDao.delete(user);
         userDao.closeCurrentSessionwithTransaction();
+    }
+    
+    public void delete(User user) {
+    	userDao.openCurrentSessionwithTransaction();
+    	userDao.delete(user);
+    	userDao.closeCurrentSessionwithTransaction();
     }
 
     public List<User> findAll() {
@@ -71,7 +77,7 @@ public class UserService {
     }
     
     public void addUser(User user) {
-    	update(user);
+    	persist(user);
     }
     
     public LinkedHashMap<User, Integer> getActiveUsers(Date begin, Date end) {
@@ -83,14 +89,13 @@ public class UserService {
     		@SuppressWarnings("unchecked")
 			Set<Post> posts = user.getPosts();
     		for (Post post : posts) {
-    			if (post.getDatetime().after(begin) && post.getDatetime().before(end)) {
+    			if (post.getDatetime().compareTo(begin) >= 0 && post.getDatetime().compareTo(end) < 0) {
     				postsPerDate++;
     			}
     		}
     		if (postsPerDate > 0) {
     			activeUsers.put(user, postsPerDate);
     		}
-    		//System.out.printf("[%s]: %d messages\n", user.getLogin(), user.getPosts().size());
     	}
     	userDao.closeCurrentSession();
 		LinkedHashMap<User, Integer> sortedMap = new LinkedHashMap<>();
@@ -100,14 +105,14 @@ public class UserService {
     	return sortedMap;
     }
  
-    void blockUser(User user) {
+    public void blockUser(User user) {
     	userDao.openCurrentSessionwithTransaction();
     	user.setStatus(Status.BLOCKED);
     	userDao.update(user);
     	userDao.closeCurrentSessionwithTransaction();
     }
     
-    void unblockUser(User user) {
+    public void unblockUser(User user) {
     	userDao.openCurrentSessionwithTransaction();
     	user.setStatus(Status.NORMAL);
     	userDao.update(user);

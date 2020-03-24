@@ -4,7 +4,9 @@ package forum;
 import forum.enums.*;
 
 import java.util.Arrays;
-import java.util.Date;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.sql.Date;
 import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.*;
@@ -23,6 +25,14 @@ public class User implements java.io.Serializable {
 	private Set posts = new HashSet(0);
 
 	public User() {
+	}
+	
+	public User(String login, byte[] password, Date dateOfRegistration, Permissions permissions, Status status) {
+		this.login = login;
+		this.password = password;
+		this.dateOfRegistration = dateOfRegistration;
+		this.permissions = permissions;
+		this.status = status;
 	}
 
 	public User(int userId, String login, byte[] password, Date dateOfRegistration, Permissions permissions, Status status) {
@@ -103,12 +113,23 @@ public class User implements java.io.Serializable {
 	public void setPosts(Set posts) {
 		this.posts = posts;
 	}
+	
+	public static byte[] getSHA512(String password) {
+		MessageDigest mda = null;
+		try {
+			mda = MessageDigest.getInstance("SHA-512");
+		} catch (NoSuchAlgorithmException e) {
+			e.printStackTrace();
+			return null;
+		}
+		return mda.digest(password.getBytes());
+	}
 
 	@Override
 	public String toString() {
 		return "User [userId=" + userId + ", login=" + login + ", password=" + Arrays.toString(password)
 				+ ", dateOfRegistration=" + dateOfRegistration + ", permissions=" + permissions + ", status=" + status
-				+ ", posts=" + posts + "]";
+				+ "]";
 	}
 
 }

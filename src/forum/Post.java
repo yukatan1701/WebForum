@@ -1,7 +1,7 @@
 package forum;
 // Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final
 
-import java.util.Date;
+import java.sql.Timestamp;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -15,7 +15,7 @@ public class Post implements java.io.Serializable {
 	private Topic topic;
 	private User user;
 	private String text;
-	private Date datetime;
+	private Timestamp datetime;
 	@SuppressWarnings("rawtypes")
 	private Set attachments = new HashSet(0);
 	
@@ -23,14 +23,14 @@ public class Post implements java.io.Serializable {
 		
 	}
 	
-	public Post(Topic topic, User user, String text, Date datetime) {
+	public Post(Topic topic, User user, String text, Timestamp datetime) {
 		this.topic = topic;
 		this.user = user;
 		this.text = text;
 		this.datetime = datetime;
 	}
 
-	public Post(int postId, Topic topic, User user, String text, Date datetime) {
+	public Post(int postId, Topic topic, User user, String text, Timestamp datetime) {
 		this.postId = postId;
 		this.topic = topic;
 		this.user = user;
@@ -70,11 +70,11 @@ public class Post implements java.io.Serializable {
 		this.text = text;
 	}
 
-	public Date getDatetime() {
+	public Timestamp getDatetime() {
 		return this.datetime;
 	}
 
-	public void setDatetime(Date datetime) {
+	public void setDatetime(Timestamp datetime) {
 		this.datetime = datetime;
 	}
 	
