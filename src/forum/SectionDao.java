@@ -3,6 +3,9 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Restrictions;
+
 public class SectionDao extends DBSession implements DaoInterface<Section, Integer> {
 	
 	public SectionDao() {
@@ -56,9 +59,23 @@ public class SectionDao extends DBSession implements DaoInterface<Section, Integ
 			return section; 
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "get failed", re);
-			throw re;
+			return null;
 		}
     }
+	
+	@SuppressWarnings("deprecation")
+	public Section findByTitle(String title) {
+		logger.log(Level.INFO, "getting Section instance with title: " + title);
+		try {
+			Criteria criteria = getCurrentSession().createCriteria(Section.class);
+			criteria.add(Restrictions.like("title", title));
+			Section section = (Section) criteria.uniqueResult();
+			return section;
+		} catch (RuntimeException re) {
+			logger.log(Level.INFO, "get failed", re);
+			return null;
+		}
+	}
  
 	@Override
     public void delete(Section entity) {
@@ -110,4 +127,5 @@ public class SectionDao extends DBSession implements DaoInterface<Section, Integ
 			throw re;
 		}
     }
+   
 }

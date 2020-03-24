@@ -9,7 +9,7 @@
         <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="true">
             <column length="256" name="title" not-null="true"/>
         </property>
-        <set embed-xml="true" cascade="all" fetch="select" inverse="true" lazy="true" mutable="true" name="topics" optimistic-lock="true" sort="unsorted" table="topic">
+        <set embed-xml="true" cascade="all" fetch="join" inverse="true" lazy="true" mutable="true" name="topics" optimistic-lock="true" sort="unsorted" table="topic">
             <key on-delete="cascade">
                 <column name="section_id" not-null="true"/>
             </key>

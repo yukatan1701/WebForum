@@ -17,9 +17,12 @@ public class PostService {
 		postDao = new PostDao();
 	}
 
-	public void persist(Post transientInstance) {
+	@SuppressWarnings("unchecked")
+	public void persist(Post post) {
 		postDao.openCurrentSessionwithTransaction();
-		postDao.persist(transientInstance);
+		postDao.persist(post);
+		post.getTopic().getPosts().add(post);
+		post.getUser().getPosts().add(post);
 		postDao.closeCurrentSessionwithTransaction();
 	}
 	
@@ -36,9 +39,15 @@ public class PostService {
         return post;
     }
  
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
     	postDao.openCurrentSessionwithTransaction();
         Post post = postDao.findById(id);
+        postDao.delete(post);
+        postDao.closeCurrentSessionwithTransaction();
+    }
+    
+    public void delete(Post post) {
+    	postDao.openCurrentSessionwithTransaction();
         postDao.delete(post);
         postDao.closeCurrentSessionwithTransaction();
     }
@@ -56,7 +65,7 @@ public class PostService {
     	postDao.closeCurrentSessionwithTransaction();
     }
     
-    public void createPost(Post post) {
+    public void addPost(Post post) {
     	persist(post);
     }
     

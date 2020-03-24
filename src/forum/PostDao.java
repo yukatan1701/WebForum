@@ -17,6 +17,11 @@ public class PostDao extends DBSession implements DaoInterface<Post, Integer> {
 			logger.log(Level.INFO, "persist successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "persist failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
     }
@@ -29,6 +34,11 @@ public class PostDao extends DBSession implements DaoInterface<Post, Integer> {
 			logger.log(Level.INFO, "update successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "update failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
     }
@@ -46,7 +56,7 @@ public class PostDao extends DBSession implements DaoInterface<Post, Integer> {
 			return post; 
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "get failed", re);
-			throw re;
+			return null;
 		}
     }
  

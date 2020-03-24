@@ -6,13 +6,13 @@
             <column name="topic_id"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="forum.Section" embed-xml="true" fetch="select" insert="true" name="section" not-found="exception" optimistic-lock="true" unique="false" update="true">
+        <many-to-one class="forum.Section" embed-xml="true" fetch="join" insert="true" name="section" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="section_id" not-null="true"/>
         </many-to-one>
         <property generated="never" lazy="false" name="title" optimistic-lock="true" type="string" unique="false">
             <column length="256" name="title" not-null="true"/>
         </property>
-        <set embed-xml="true" cascade="all" fetch="select" inverse="true" lazy="true" mutable="true" name="posts" optimistic-lock="true" sort="unsorted" table="post">
+        <set embed-xml="true" cascade="all" fetch="join" inverse="true" lazy="true" mutable="true" name="posts" optimistic-lock="true" sort="unsorted" table="post">
             <key on-delete="cascade">
                 <column name="topic_id" not-null="true"/>
             </key>

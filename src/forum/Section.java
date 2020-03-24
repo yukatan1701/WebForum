@@ -61,7 +61,7 @@ public class Section implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Section [sectionId=" + sectionId + ", title=" + title + ", topics=" + topics + "]";
+		return "Section [sectionId=" + sectionId + ", title=" + title + "]";
 	}
 
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="DAOTests">
+  <test thread-count="5" name="UserTest">
+    <classes>
+      <class name="forum.test.UserTest"/>
+      <class name="forum.test.SectionTest"/>
+      <class name="forum.test.TopicTest"/>
+      <class name="forum.test.PostTest"/>
+      <class name="forum.test.AttachmentTest"/>
+    </classes>
+  </test> <!-- UserTest -->
+</suite> <!-- DAOTests -->

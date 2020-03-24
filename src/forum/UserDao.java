@@ -63,6 +63,7 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 		}
     }
 	
+	@SuppressWarnings("deprecation")
 	public User findByLogin(String login) {
 		logger.log(Level.INFO, "getting User instance with login: " + login);
 		try {

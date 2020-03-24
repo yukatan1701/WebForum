@@ -35,7 +35,7 @@ public class AttachmentService {
         return attachment;
     }
  
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
     	attachmentDao.openCurrentSessionwithTransaction();
         Attachment attachment = attachmentDao.findById(id);
         attachmentDao.delete(attachment);
@@ -55,11 +55,13 @@ public class AttachmentService {
     	attachmentDao.closeCurrentSessionwithTransaction();
     }
     
-    public void createAttachment(Attachment attachment) {
+    @SuppressWarnings("unchecked")
+	public void addAttachment(Attachment attachment) {
+    	attachment.getPost().getAttachments().add(attachment);
     	persist(attachment);
     }
     
-    public void deleteAttachment(Attachment attachment) {
+    public void delete(Attachment attachment) {
     	attachmentDao.openCurrentSessionwithTransaction();
     	attachmentDao.delete(attachment);
     	attachmentDao.closeCurrentSessionwithTransaction();

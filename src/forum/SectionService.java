@@ -1,8 +1,10 @@
 package forum;
 // Generated 26.02.2020 21:11:44 by Hibernate Tools 5.4.7.Final
 
-import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 /**
  * Home object for domain model class Section.
  * @see forum.Section
@@ -34,10 +36,23 @@ public class SectionService {
         sectionDao.closeCurrentSession();
         return section;
     }
+    
+    public Section findByTitle(String title) {
+    	sectionDao.openCurrentSession();
+        Section section = sectionDao.findByTitle(title);
+        sectionDao.closeCurrentSession();
+        return section;
+    }
  
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
     	sectionDao.openCurrentSessionwithTransaction();
         Section section = sectionDao.findById(id);
+        sectionDao.delete(section);
+        sectionDao.closeCurrentSessionwithTransaction();
+    }
+    
+    public void delete(Section section) {
+    	sectionDao.openCurrentSessionwithTransaction();
         sectionDao.delete(section);
         sectionDao.closeCurrentSessionwithTransaction();
     }
@@ -55,26 +70,28 @@ public class SectionService {
     	sectionDao.closeCurrentSessionwithTransaction();
     }
     
-    public void createSection(Section entity) {
-    	try {
-    		persist(entity);
-    	} catch (RuntimeException e) {
-    		Throwable cause = e.getCause();
-    		if (cause instanceof SQLException) {
-    			String state = ((SQLException) cause).getSQLState();
-    			if (state.equals("23505")) {
-    				System.out.printf("Section '%s' already exists.\n", entity.getTitle());
-    				return;
-    			}
-    		}
-    		throw e;
-    	}
+    public void addSection(Section entity) {
+		persist(entity);
     }
     
-    public void deleteSection(Section entity) {
-    	sectionDao.openCurrentSessionwithTransaction();
-    	sectionDao.delete(entity);
-    	sectionDao.closeCurrentSessionwithTransaction();
+    @SuppressWarnings("unchecked")
+	public HashMap<Section, HashSet<User>> getUsersBySections() {
+    	sectionDao.openCurrentSession();
+    	List<Section> sections = sectionDao.findAll();
+    	HashMap<Section, HashSet<User>> usersInSections = new HashMap<>(0);
+    	for (Section section : sections) {
+    		Set<Topic> topics = section.getTopics();
+    		HashSet<User> sectionUsers = new HashSet<>(0);
+    		for (Topic topic : topics) {
+    			Set<Post> posts = topic.getPosts();
+    			for (Post post: posts) {
+    				sectionUsers.add(post.getUser());
+    			}
+    		}
+    		usersInSections.put(section, sectionUsers);
+    	}
+    	sectionDao.closeCurrentSession();
+    	return usersInSections;
     }
  
     public SectionDao sectionDao() {

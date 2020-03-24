@@ -6,7 +6,7 @@
             <column name="attachment_id"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="forum.Post" embed-xml="true" fetch="select" insert="true" name="post" not-found="exception" optimistic-lock="true" unique="false" update="true">
+        <many-to-one class="forum.Post" embed-xml="true" fetch="join" insert="true" name="post" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="post_id" not-null="true"/>
         </many-to-one>
         <property generated="never" lazy="true" name="fileLink" optimistic-lock="true" type="string" unique="false">

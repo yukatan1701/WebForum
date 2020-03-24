@@ -1,6 +1,7 @@
 package forum;
 
 import java.util.List;
+import java.util.Set;
 import java.util.logging.Level;
 
 public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
@@ -17,6 +18,11 @@ public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 			logger.log(Level.INFO, "persist successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "persist failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
 	}
@@ -29,6 +35,11 @@ public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 			logger.log(Level.INFO, "update successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "update failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
 	}
@@ -46,7 +57,7 @@ public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 			return topic; 
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "get failed", re);
-			throw re;
+			return null;
 		}
 	}
 
@@ -58,6 +69,11 @@ public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 			logger.log(Level.INFO, "delete successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "delete failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
 	}
@@ -87,8 +103,27 @@ public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 	        logger.log(Level.INFO, "delete all successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "delete all failed", re);
+			try {
+				currentTransaction.rollback();
+			} catch (RuntimeException e) {
+				logger.log(Level.SEVERE, "Couldn't roll back transaction.", e);
+			}
 			throw re;
 		}
 	}
+	
+    @SuppressWarnings("unchecked")
+	public boolean ifTopicInSection(Topic topic) {
+    	boolean exists = false;
+    	if (topic == null || topic.getSection() == null)
+    		throw new RuntimeException("Failed to check if topic is in section: topic or section is null.");
+    	for (Topic top : (Set<Topic>) topic.getSection().getTopics()) {
+    		if (topic.getTitle().equals(top.getTitle())) {
+    			exists = true;
+    			break;
+    		}
+    	}
+    	return exists;
+    }
 
 }

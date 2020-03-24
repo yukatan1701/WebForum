@@ -1,9 +1,7 @@
-package forum;
+package forum.test;
 
-import org.testng.asserts.*;
-
-import forum.enums.Permissions;
-import forum.enums.Status;
+import forum.*;
+import forum.enums.*;
 
 import org.testng.annotations.Test;
 

@@ -6,10 +6,10 @@
             <column name="post_id"/>
             <generator class="identity"/>
         </id>
-        <many-to-one class="forum.Topic" embed-xml="true" fetch="select" insert="true" name="topic" not-found="exception" optimistic-lock="true" unique="false" update="true">
+        <many-to-one class="forum.Topic" embed-xml="true" fetch="join" insert="true" name="topic" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="topic_id" not-null="true"/>
         </many-to-one>
-        <many-to-one class="forum.User" embed-xml="true" fetch="select" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
+        <many-to-one class="forum.User" embed-xml="true" fetch="join" insert="true" name="user" not-found="exception" optimistic-lock="true" unique="false" update="true">
             <column name="user_id" not-null="true"/>
         </many-to-one>
         <property generated="never" lazy="false" name="text" optimistic-lock="true" type="string" unique="false">
@@ -18,7 +18,7 @@
         <property generated="never" lazy="false" name="datetime" optimistic-lock="true" type="timestamp" unique="false">
             <column length="29" name="datetime" not-null="true"/>
         </property>
-        <set embed-xml="true" cascade="all" fetch="select" inverse="true" lazy="false" mutable="true" name="attachments" optimistic-lock="true" sort="unsorted" table="attachment">
+        <set embed-xml="true" cascade="all" fetch="join" inverse="true" lazy="false" mutable="true" name="attachments" optimistic-lock="true" sort="unsorted" table="attachment">
             <key on-delete="cascade">
                 <column name="post_id" not-null="true"/>
             </key>

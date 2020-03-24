@@ -88,6 +88,7 @@ public class Post implements java.io.Serializable {
 		this.attachments = attachments;
 	}
 	
+	@SuppressWarnings("unchecked")
 	public void addAttachment(Attachment at) {
 		this.attachments.add(at);
 		at.setPost(this);
@@ -95,8 +96,8 @@ public class Post implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Post [postId=" + postId + ", topic=" + topic + ", user=" + user + ", text=" + text + ", datetime="
-				+ datetime + ", attachments=" + attachments + "]";
+		return "Post [postId=" + postId + ", topic=" + topic + ", user=" + user.getLogin() + ", text=" + text + ", datetime="
+				+ datetime + ", attachments=" + attachments.size() + "]";
 	}
 
 }

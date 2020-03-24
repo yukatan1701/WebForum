@@ -18,6 +18,12 @@ public class Topic implements java.io.Serializable {
 
 	public Topic() {
 	}
+	
+	
+	public Topic(Section section, String title) {
+		this.section = section;
+		this.title = title;
+	}
 
 	public Topic(int topicId, Section section, String title) {
 		this.topicId = topicId;
@@ -69,7 +75,7 @@ public class Topic implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Topic [topicId=" + topicId + ", section=" + section + ", title=" + title + ", posts=" + posts + "]";
+		return "Topic [topicId=" + topicId + ", section=" + section + ", title=" + title + "]";
 	}
 
 }

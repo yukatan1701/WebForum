@@ -8,6 +8,8 @@ import java.sql.Date;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.HashMap;
+import java.util.HashSet;
 
 public class App {
 
@@ -24,8 +26,12 @@ public class App {
 		forum.postService.deletePost(post);
 		List<Attachment> ats = forum.attachmentService.findAll();
 		ats.forEach(a -> System.out.println(a.getFileLink()));*/
-		User user = forum.userService.findByLogin("finland");
-		
+		HashMap<Section, HashSet<User>> all = forum.sectionService.getUsersBySections();
+		for (Section sec : all.keySet()) {
+			System.out.print(sec.getTitle() + ": ");
+			all.get(sec).forEach(user -> System.out.print(user.getLogin() + " "));
+			System.out.println();
+		}
 		//byte[] password = mda.digest("helsinki".getBytes());
 		//System.out.println(MessageDigest.isEqual(password, user.getPassword()));
 		//forum.postService.createPost(post);

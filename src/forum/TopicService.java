@@ -2,6 +2,7 @@ package forum;
 // Generated 26.02.2020 21:11:44 by Hibernate Tools 5.4.7.Final
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * Home object for domain model class Topic.
@@ -16,9 +17,11 @@ public class TopicService {
 		topicDao = new TopicDao();
 	}
 
-	public void persist(Topic transientInstance) {
+	@SuppressWarnings("unchecked")
+	public void persist(Topic topic) {
 		topicDao.openCurrentSessionwithTransaction();
-		topicDao.persist(transientInstance);
+		topicDao.persist(topic);
+		topic.getSection().getTopics().add(topic);
 		topicDao.closeCurrentSessionwithTransaction();
 	}
 	
@@ -34,10 +37,27 @@ public class TopicService {
         topicDao.closeCurrentSession();
         return topic;
     }
+    
+    @SuppressWarnings("unchecked")
+	public Topic findByTitle(Section section, String title) {
+    	Set<Topic> topics = section.getTopics();
+    	for (Topic topic : topics) {
+    		if (topic.getTitle().equals(title)) {
+    			return topic;
+    		}
+    	}
+    	return null;
+    }
  
-    public void delete(Integer id) {
+    public void deleteById(Integer id) {
     	topicDao.openCurrentSessionwithTransaction();
         Topic topic = topicDao.findById(id);
+        topicDao.delete(topic);
+        topicDao.closeCurrentSessionwithTransaction();
+    }
+    
+    public void delete(Topic topic) {
+    	topicDao.openCurrentSessionwithTransaction();
         topicDao.delete(topic);
         topicDao.closeCurrentSessionwithTransaction();
     }
@@ -55,7 +75,20 @@ public class TopicService {
     	topicDao.closeCurrentSessionwithTransaction();
     }
     
-    public void createTopic(Topic topic) {
+    public boolean ifTopicInSection(Section section, Topic topic) {
+    	topicDao.openCurrentSessionwithTransaction();
+    	boolean exists = topicDao.ifTopicInSection(topic);
+    	topicDao.closeCurrentSessionwithTransaction();
+    	return exists;
+    }
+    
+    public void addTopic(Topic topic) {
+    	if (topic.getTitle() == null) {
+    		throw new RuntimeException("Failed to add topic: null title.");
+    	}
+    	if (topicDao.ifTopicInSection(topic))
+			throw new RuntimeException(String.format("Topic '%s' already exists in section '%s'.",
+					topic.getTitle(), topic.getSection().getTitle()));
     	persist(topic);
     }
     
