@@ -12,7 +12,7 @@
     <property name="sql.classpath" value="lib/${jdbc.driver.jar}"/>
 	
 	<property name="src.dir" location="src"/>
-	<property name="build.dir" location="build"/>
+	<property name="build.dir" location="bin"/>
 	<property name="lib.dir" location="lib"/>
 	<property name="classes" location="${build}/classes"/>
 	
@@ -36,7 +36,11 @@
 	         classname="org.hibernate.tool.ant.HibernateToolTask" 
 	         classpathref="toolslib" />
 	
-    <target name="create_db" description="Database creation.">
+	<taskdef name="testng" classname="org.testng.TestNGAntTask">
+		<classpath location="${lib.dir}/testng/org.testng_7.0.0.r201908191551.jar"/>
+	</taskdef>
+	
+    <target name="setupDB" description="Database creation.">
     	<echo>Creating database...</echo>
 	        <sql driver="${sql.driver}"
 	            classpath="${sql.classpath}"
@@ -59,7 +63,7 @@
         	<echo>OK.</echo>
     </target>
 	
-	<target name="drop_db" description="Database dropping.">
+	<target name="dropDB" description="Database dropping.">
 		<echo>Trying to drop database...</echo>
         <sql driver="${sql.driver}"
             classpath="${sql.classpath}"
@@ -109,5 +113,12 @@
             <hbm2dao destdir="${build.dir}"/>           
         </hibernatetool>
     </target>
+	
+	<target name="testng" depends="compile">
+		<testng classpathref="libraries" outputDir="test-output" haltOnFailure="true">
+			<classpath location="${build.dir}"></classpath>
+			<xmlfileset dir="." includes="testng.xml"/>
+		</testng>
+	</target>
 	
 </project>
