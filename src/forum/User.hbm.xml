@@ -9,8 +9,8 @@
         <property generated="never" lazy="false" name="login" optimistic-lock="true" type="string" unique="false">
             <column length="32" name="login" not-null="true" unique="true"/>
         </property>
-        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="binary" unique="false">
-            <column name="password" not-null="true"/>
+        <property generated="never" lazy="false" name="password" optimistic-lock="true" type="string" unique="false">
+            <column length="512" name="password" not-null="true"/>
         </property>
         <property generated="never" lazy="false" name="dateOfRegistration" optimistic-lock="true" type="date" unique="false">
             <column length="13" name="date_of_registration" not-null="true"/>

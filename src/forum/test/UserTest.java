@@ -39,13 +39,13 @@ public class UserTest {
 	
 	@Test(expectedExceptions = org.hibernate.exception.ConstraintViolationException.class)
 	public void testAddExistingUser() {
-		User user = new User("finland", User.getSHA512("helsinki"), Date.valueOf("2017-04-24"), Permissions.USER, Status.NORMAL);
+		User user = new User("finland", User.getMD5("helsinki"), Date.valueOf("2017-04-24"), Permissions.USER, Status.NORMAL);
 		forum.userService.addUser(user);
 	}
 	
 	@Test
 	public void testAddNotNullUser() {
-		User user = new User("testUser", "t".getBytes(), new Date(System.currentTimeMillis()), Permissions.USER, Status.NORMAL);
+		User user = new User("testUser", User.getMD5("pwd"), new Date(System.currentTimeMillis()), Permissions.USER, Status.NORMAL);
 		try {
 			forum.userService.addUser(user);
 		} catch (org.hibernate.exception.ConstraintViolationException ex) {
@@ -85,9 +85,9 @@ public class UserTest {
 	}
 	
 	@Test
-	public void testSHA512() {
+	public void testMD5() {
 		User user = forum.userService.findByLogin("finland");
-		Assert.assertEquals(User.getSHA512("helsinki"), user.getPassword());
+		Assert.assertEquals(User.getMD5("helsinki"), user.getPassword());
 	}
 	
 	@Test

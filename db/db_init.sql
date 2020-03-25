@@ -1,9 +1,9 @@
-INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('admin', sha512('moder'), '2015-01-01', 0);
-INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('vasya777', sha512('vasya'), '2015-01-01', 1);
-INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('medved', sha512('preved'), '2015-01-10', 1);
-INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('moder', sha512('moder123'), '2015-02-26', 0);
-INSERT INTO "user"(login, "password", date_of_registration, permissions, status) VALUES('belarus', sha512('traktor'), '2016-03-18', 1, 1);
-INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('finland', sha512('helsinki'), '2017-04-24', 1);
+INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('admin', md5('moder'), '2015-01-01', 0);
+INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('vasya777', md5('vasya'), '2015-01-01', 1);
+INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('medved', md5('preved'), '2015-01-10', 1);
+INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('moder', md5('moder123'), '2015-02-26', 0);
+INSERT INTO "user"(login, "password", date_of_registration, permissions, status) VALUES('belarus', md5('traktor'), '2016-03-18', 1, 1);
+INSERT INTO "user"(login, "password", date_of_registration, permissions) VALUES('finland', md5('helsinki'), '2017-04-24', 1);
 
 INSERT INTO "section"(title) VALUES('Музыка');
 INSERT INTO "section"(title) VALUES('Фильмы');

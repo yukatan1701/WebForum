@@ -4,6 +4,7 @@ package forum;
 import forum.enums.*;
 
 import java.util.Arrays;
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.sql.Date;
@@ -15,7 +16,7 @@ public class User implements java.io.Serializable {
 	private static final long serialVersionUID = -1181755035581891610L;
 	private int userId;
 	private String login;
-	private byte[] password;
+	private String password;
 	private Date dateOfRegistration;
 	@Convert(converter = PermissionsAttributeConverter.class)
 	private Permissions permissions;
@@ -27,7 +28,7 @@ public class User implements java.io.Serializable {
 	public User() {
 	}
 	
-	public User(String login, byte[] password, Date dateOfRegistration, Permissions permissions, Status status) {
+	public User(String login, String password, Date dateOfRegistration, Permissions permissions, Status status) {
 		this.login = login;
 		this.password = password;
 		this.dateOfRegistration = dateOfRegistration;
@@ -35,7 +36,7 @@ public class User implements java.io.Serializable {
 		this.status = status;
 	}
 
-	public User(int userId, String login, byte[] password, Date dateOfRegistration, Permissions permissions, Status status) {
+	public User(int userId, String login, String password, Date dateOfRegistration, Permissions permissions, Status status) {
 		this.userId = userId;
 		this.login = login;
 		this.password = password;
@@ -45,7 +46,7 @@ public class User implements java.io.Serializable {
 	}
 
 	@SuppressWarnings("rawtypes")
-	public User(int userId, String login, byte[] password, Date dateOfRegistration, Permissions permissions, Status status,
+	public User(int userId, String login, String password, Date dateOfRegistration, Permissions permissions, Status status,
 			Set posts) {
 		this.userId = userId;
 		this.login = login;
@@ -72,11 +73,11 @@ public class User implements java.io.Serializable {
 		this.login = login;
 	}
 
-	public byte[] getPassword() {
+	public String getPassword() {
 		return this.password;
 	}
 
-	public void setPassword(byte[] password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 
@@ -114,20 +115,30 @@ public class User implements java.io.Serializable {
 		this.posts = posts;
 	}
 	
-	public static byte[] getSHA512(String password) {
-		MessageDigest mda = null;
-		try {
-			mda = MessageDigest.getInstance("SHA-512");
-		} catch (NoSuchAlgorithmException e) {
-			e.printStackTrace();
-			return null;
+	public static String getMD5(String password) {
+		
+		String result = password;
+		if (password != null) {
+			MessageDigest mda;
+			try {
+				mda = MessageDigest.getInstance("MD5");
+				mda.update(password.getBytes());
+			    BigInteger hash = new BigInteger(1, mda.digest());
+			    result = hash.toString(16);
+			    while (result.length() < 32) { // 40 for SHA-1
+			        result = "0" + result;
+			    }
+			} catch (NoSuchAlgorithmException e) {
+				e.printStackTrace();
+				return null;
+			}
 		}
-		return mda.digest(password.getBytes());
+		return result;
 	}
 
 	@Override
 	public String toString() {
-		return "User [userId=" + userId + ", login=" + login + ", password=" + Arrays.toString(password)
+		return "User [userId=" + userId + ", login=" + login + ", password=" + password
 				+ ", dateOfRegistration=" + dateOfRegistration + ", permissions=" + permissions + ", status=" + status
 				+ "]";
 	}

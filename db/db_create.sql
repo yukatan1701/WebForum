@@ -4,7 +4,7 @@
 CREATE TABLE "user" (
 	user_id SERIAL PRIMARY KEY,
 	login VARCHAR(32) NOT NULL UNIQUE,
-	"password" BYTEA NOT NULL,
+	"password" VARCHAR(512) NOT NULL,
 	date_of_registration DATE NOT NULL,
 	permissions SMALLINT NOT NULL,
 	status SMALLINT NOT NULL DEFAULT 0

@@ -5,7 +5,7 @@
     <classes>
       <class name="forum.test.UserTest">
         <methods>
-          <include name="testGetActiveUsers"/>
+          <include name="testSHA512"/>
         </methods>
       </class> <!-- forum.test.UserTest -->
     </classes>
