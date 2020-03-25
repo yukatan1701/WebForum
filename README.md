@@ -6,11 +6,11 @@ Web application for forum based on PostgreSQL and Hibernate.
 ```
 ant setupDB
 ```
-1. Run tests:
+2. Run tests:
 ```
 ant testng
 ```
-1. Drop database:
+3. Drop database:
 ```
 ant dropDB
 ```
