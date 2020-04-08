@@ -3,7 +3,6 @@ package forum;
 
 import forum.enums.*;
 
-import java.util.Arrays;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

@@ -4,24 +4,43 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.hibernate.Criteria;
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
+@Component
 public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 	
-	public UserDao() {
+	private SessionFactory sessionFactory;
+	
+	public UserDao(SessionFactory sessionFactory) {
 		super(UserDao.class.getName());
+		this.sessionFactory = sessionFactory;
 	}
+	
+	public void setSessionFactory(SessionFactory sessionFactory) {
+		this.sessionFactory = sessionFactory;
+	}
+	
+	public SessionFactory getSessionFactory() {
+		return sessionFactory;
+	}
+	
 	
 	@Override
     public void persist(User entity) {
 		logger.log(Level.INFO, "persisting User instance");
 		try {
-			getCurrentSession().save(entity);
+			this.sessionFactory.getCurrentSession().save(entity);
 			logger.log(Level.INFO, "persist successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "persist failed", re);
 			try {
-				getCurrentSession().getTransaction().rollback();
+				this.sessionFactory.getCurrentSession().getTransaction().rollback();
 			} catch (RuntimeException e) {
 				logger.log(Level.SEVERE, "rollback failed", e);
 			}
@@ -50,7 +69,7 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     public User findById(Integer id) {
 		logger.log(Level.INFO, "getting User instance with id: " + id);
 		try {
-			User user = (User) getCurrentSession().get(User.class, id);
+			User user = (User) this.sessionFactory.getCurrentSession().get(User.class, id);
 			if (user == null) {
 				logger.log(Level.INFO, "get successful, no instance found");
 			} else {
@@ -67,7 +86,7 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 	public User findByLogin(String login) {
 		logger.log(Level.INFO, "getting User instance with login: " + login);
 		try {
-			Criteria criteria = getCurrentSession().createCriteria(User.class);
+			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(User.class);
 			criteria.add(Restrictions.like("login", login));
 			User user = (User) criteria.uniqueResult();
 			return user;
@@ -81,12 +100,12 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     public void delete(User entity) {
 		logger.log(Level.INFO, "deleting User instance");
 		try {
-			getCurrentSession().delete(entity);
+			this.sessionFactory.getCurrentSession().delete(entity);
 			logger.log(Level.INFO, "delete successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "delete failed", re);
 			try {
-				getCurrentSession().getTransaction().rollback();
+				this.sessionFactory.getCurrentSession().getTransaction().rollback();
 			} catch (RuntimeException e) {
 				logger.log(Level.SEVERE, "rollback failed", e);
 			}
@@ -97,13 +116,19 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> findAll() {
+    	Session session = sessionFactory.openSession();
+    	Transaction transaction = session.beginTransaction();
     	logger.log(Level.INFO, "finding all on User instance");
 		try {
-			List<User> users = (List<User>) getCurrentSession().createQuery("FROM User").list();
+			List<User> users = (List<User>) session.createQuery("FROM User").list();
 			logger.log(Level.INFO, "find all successful");
+			transaction.commit();
+			session.close();
 			return users;
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "find all failed", re);
+			transaction.commit();
+			session.close();
 			throw re;
 		}
     }
