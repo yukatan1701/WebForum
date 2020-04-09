@@ -21,7 +21,7 @@
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving 
 		up static resources in the ${webappRoot}/resources directory -->
-	<mvc:resources mapping="/resources/**" location="/resources/" />
+	<mvc:resources mapping="/**" location="/" />
 	<context:component-scan base-package="forum" />
 
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources 
@@ -61,21 +61,5 @@
 	        <ref bean="sessionFactory" />
 	    </constructor-arg>
 	</bean>
-	<!--
-	
-	<bean id="personDAO" class="com.journaldev.spring.dao.PersonDAOImpl">
-		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-	</bean>
-	<bean id="personService" class="com.journaldev.spring.service.PersonServiceImpl">
-		<property name="personDAO" ref="personDAO"></property>
-	</bean>
-	<context:component-scan base-package="com.journaldev.spring" />
-	
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-	
-	<bean id="transactionManager" class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="hibernate4AnnotatedSessionFactory" />
-	</.bean>
-	-->
 
 </beans>
