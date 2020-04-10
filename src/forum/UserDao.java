@@ -12,10 +12,8 @@ import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
-@Component
+
 public class UserDao extends DBSession implements DaoInterface<User, Integer> {
-	
-	private SessionFactory sessionFactory;
 	
 	public UserDao(SessionFactory sessionFactory) {
 		super(UserDao.class.getName());
@@ -116,19 +114,13 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     @SuppressWarnings("unchecked")
     @Override
     public List<User> findAll() {
-    	Session session = sessionFactory.openSession();
-    	Transaction transaction = session.beginTransaction();
     	logger.log(Level.INFO, "finding all on User instance");
 		try {
-			List<User> users = (List<User>) session.createQuery("FROM User").list();
+			List<User> users = (List<User>) currentSession.createQuery("FROM User").list();
 			logger.log(Level.INFO, "find all successful");
-			transaction.commit();
-			session.close();
 			return users;
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "find all failed", re);
-			transaction.commit();
-			session.close();
 			throw re;
 		}
     }

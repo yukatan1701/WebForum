@@ -12,7 +12,7 @@ import forum.*;
 
 public class SectionTest {
 	private Forum forum = new Forum();
-
+/*
 	@Test
 	public void testFindById() {
 		Section section = forum.sectionService.findById(1);
@@ -87,5 +87,5 @@ public class SectionTest {
 				Assert.assertEquals(usersInSections.get(sec).size(), 0);
 			}
 		}
-	}
+	}*/
 }

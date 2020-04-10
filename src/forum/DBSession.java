@@ -11,6 +11,7 @@ import org.hibernate.cfg.Configuration;
 public class DBSession {
 	protected Session currentSession;
 	protected Transaction currentTransaction;
+	protected SessionFactory sessionFactory;
 	
 	protected static Logger logger;
 	
@@ -19,12 +20,12 @@ public class DBSession {
 	}
 	
 	public Session openCurrentSession() {
-        currentSession = getSessionFactory().openSession();
+        currentSession = sessionFactory.openSession();
         return currentSession;
     }
  
     public Session openCurrentSessionwithTransaction() {
-        currentSession = getSessionFactory().openSession();
+        currentSession = sessionFactory.openSession();
         currentTransaction = currentSession.beginTransaction();
         return currentSession;
     }

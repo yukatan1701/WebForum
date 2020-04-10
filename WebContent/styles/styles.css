@@ -3,6 +3,17 @@
     padding: 0;
 }
 
+#shadowing {
+    position: fixed;
+    display: none;
+    margin: -30px 0 0 0;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+}
+
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
@@ -147,4 +158,48 @@ header {
 
 .new-post button {
     padding: 5px;
+}
+
+.form-popup {
+    border: 1px solid green;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    background-color: silver;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+
+.form-popup h3 {
+    padding: 0;
+}
+
+.form-popup input {
+    padding: 5px;
+    margin: 10px 0 10px 0;
+    width: 200px;
+}
+
+.buttons {
+    width: 100%;
+    height: 100%;
+}
+
+.buttons button {
+    padding: 5px;
+    width: 45%;
+}
+
+.buttons .add {
+    float: left;
+}
+
+.buttons .cancel {
+    float: right;
+}
+
+#add-section-form {
+    display: none;
+    z-index: 100;
 }

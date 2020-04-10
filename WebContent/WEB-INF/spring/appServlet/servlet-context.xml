@@ -56,7 +56,13 @@
 	<tx:annotation-driven proxy-target-class="true"
         transaction-manager="transactionManager" />
 	
-	<bean id="userDao" class="forum.UserDao">
+	<bean id="userService" class="forum.UserService">
+	    <constructor-arg>
+	        <ref bean="sessionFactory" />
+	    </constructor-arg>
+	</bean>
+	
+	<bean id="sectionService" class="forum.SectionService">
 	    <constructor-arg>
 	        <ref bean="sessionFactory" />
 	    </constructor-arg>

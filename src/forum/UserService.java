@@ -9,81 +9,79 @@ import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Set;
 
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import forum.enums.Status;
 
-/**
- * Home object for domain model class User.
- * @see forum.User
- * @author Hibernate Tools
- */
+@Component
 public class UserService {
 	
-	private static UserDao userDao;
+	private UserDao userDao;
 	
-	public UserService(UserDao userDao) {
-		this.userDao = userDao;
+	public UserService(SessionFactory sessionFactory) {
+		this.userDao = new UserDao(sessionFactory);
 	}
 
 	@Transactional
 	public void persist(User transientInstance) {
-		//userDao.openCurrentSessionwithTransaction();
+		userDao.openCurrentSessionwithTransaction();
 		userDao.persist(transientInstance);
-		//userDao.closeCurrentSessionwithTransaction();
+		userDao.closeCurrentSessionwithTransaction();
 	}
 	
 	@Transactional
 	public void update(User entity) {
-        //userDao.openCurrentSessionwithTransaction();
+        userDao.openCurrentSessionwithTransaction();
         userDao.update(entity);
-        //userDao.closeCurrentSessionwithTransaction();
+        userDao.closeCurrentSessionwithTransaction();
     }
  
 	@Transactional
     public User findById(Integer id) {
-    	//userDao.openCurrentSession();
+    	userDao.openCurrentSession();
         User user = userDao.findById(id);
-        //userDao.closeCurrentSession();
+        userDao.closeCurrentSession();
         return user;
     }
     
 	@Transactional
     public User findByLogin(String login) {
-    	//userDao.openCurrentSession();
+    	userDao.openCurrentSession();
     	User user = userDao.findByLogin(login);
-    	//userDao.closeCurrentSession();
+    	userDao.closeCurrentSession();
     	return user;
     }
  
 	@Transactional
     public void deleteById(Integer id) {
-    	//userDao.openCurrentSessionwithTransaction();
+    	userDao.openCurrentSessionwithTransaction();
         User user = userDao.findById(id);
         userDao.delete(user);
-        //userDao.closeCurrentSessionwithTransaction();
+        userDao.closeCurrentSessionwithTransaction();
     }
     
 	@Transactional
     public void delete(User user) {
-    	//userDao.openCurrentSessionwithTransaction();
+    	userDao.openCurrentSessionwithTransaction();
     	userDao.delete(user);
-    	//userDao.closeCurrentSessionwithTransaction();
+    	userDao.closeCurrentSessionwithTransaction();
     }
 
 	@Transactional
     public List<User> findAll() {
-        //userDao.openCurrentSession();
+        userDao.openCurrentSession();
         List<User> users = userDao.findAll();
-        //userDao.closeCurrentSession();
+        userDao.closeCurrentSession();
         return users;
     }
  
 	@Transactional
     public void deleteAll() {
-    	//userDao.openCurrentSessionwithTransaction();
+    	userDao.openCurrentSessionwithTransaction();
     	userDao.deleteAll();
-    	//userDao.closeCurrentSessionwithTransaction();
+    	userDao.closeCurrentSessionwithTransaction();
     }
     
 	@Transactional
@@ -93,7 +91,7 @@ public class UserService {
     
 	@Transactional
     public LinkedHashMap<User, Integer> getActiveUsers(Date begin, Date end) {
-    	//userDao.openCurrentSession();
+    	userDao.openCurrentSession();
     	List<User> users = userDao.findAll();
     	HashMap<User, Integer> activeUsers = new HashMap<>(0);
     	for (User user : users) {
@@ -109,28 +107,28 @@ public class UserService {
     			activeUsers.put(user, postsPerDate);
     		}
     	}
-    	//userDao.closeCurrentSession();
 		LinkedHashMap<User, Integer> sortedMap = new LinkedHashMap<>();
 		activeUsers.entrySet().stream().sorted(Map.Entry.comparingByValue(
 				Comparator.reverseOrder())).forEachOrdered(
 				x -> sortedMap.put(x.getKey(), x.getValue()));
+		userDao.closeCurrentSession();
     	return sortedMap;
     }
  
 	@Transactional
     public void blockUser(User user) {
-    	//userDao.openCurrentSessionwithTransaction();
+    	userDao.openCurrentSessionwithTransaction();
     	user.setStatus(Status.BLOCKED);
     	userDao.update(user);
-    	//userDao.closeCurrentSessionwithTransaction();
+    	userDao.closeCurrentSessionwithTransaction();
     }
     
 	@Transactional
     public void unblockUser(User user) {
-    	//userDao.openCurrentSessionwithTransaction();
+    	userDao.openCurrentSessionwithTransaction();
     	user.setStatus(Status.NORMAL);
     	userDao.update(user);
-    	//userDao.closeCurrentSessionwithTransaction();
+    	userDao.closeCurrentSessionwithTransaction();
     }
     
     public UserDao userDao() {

@@ -4,12 +4,14 @@ import java.util.List;
 import java.util.logging.Level;
 
 import org.hibernate.Criteria;
+import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Restrictions;
 
 public class SectionDao extends DBSession implements DaoInterface<Section, Integer> {
 	
-	public SectionDao() {
+	public SectionDao(SessionFactory sessionFactory) {
 		super(SectionDao.class.getName());
+		this.sessionFactory = sessionFactory;
 	}
 	
 	@Override

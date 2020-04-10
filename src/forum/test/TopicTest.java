@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 public class TopicTest {
 	
 	private Forum forum = new Forum();
-	
+	/*
 	@Test
 	public void testFindById() {
 		Topic topic = forum.topicService.findById(1);
@@ -84,5 +84,5 @@ public class TopicTest {
 		Section section = forum.sectionService.findByTitle("Фильмы");
 		Topic testTopic = forum.topicService.findByTitle(section, "Финское кино");
 		forum.topicService.delete(testTopic);
-	}
+	}*/
 }
