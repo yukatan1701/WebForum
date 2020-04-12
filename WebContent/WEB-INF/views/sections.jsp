@@ -2,6 +2,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
 
 <html>
     <head>
@@ -50,13 +51,10 @@
         <div class="content">
             <header>
                 <div class="header-title"><h1>Главная страница</h1></div>
+				                
                 <form class="sign-in">
-                    <label for="login">Логин:</label><br>
-                    <input type="text" id="login" name="login" value="admin"><br>
-                    <label for="password">Пароль:</label><br>
-                    <input type="password" id="password" name="password" value="password"><br>
-                    <button type="submit">Войти</button>
-                    <button type="submit">Регистрация</button>
+                	<p>Вы вошли как <b><security:authentication property="principal.username" /></b></p>
+                    <button type="submit">Выйти</button>
                 </form>
             </header>
             <div class="sections">

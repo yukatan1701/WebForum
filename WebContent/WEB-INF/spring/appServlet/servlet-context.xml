@@ -67,5 +67,4 @@
 	        <ref bean="sessionFactory" />
 	    </constructor-arg>
 	</bean>
-
 </beans>

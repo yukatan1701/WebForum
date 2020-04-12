@@ -1,6 +1,8 @@
 package forum;
 // Generated 26.02.2020 21:11:44 by Hibernate Tools 5.4.7.Final
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
@@ -10,13 +12,22 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.dao.DataAccessException;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import forum.enums.Status;
 
 @Component
-public class UserService {
+public class UserService implements UserDetailsService {
 	
 	private UserDao userDao;
 	
@@ -133,5 +144,35 @@ public class UserService {
     
     public UserDao userDao() {
         return userDao;
+    }
+    
+    @Transactional(readOnly=true)
+    @Override
+    public UserDetails loadUserByUsername(String username)
+            throws UsernameNotFoundException, DataAccessException
+    {
+    	User user = findByLogin(username);
+        Collection<GrantedAuthority> auts = new ArrayList<GrantedAuthority>();
+        auts.add(new SimpleGrantedAuthority("ROLE_USER"));
+        if (user == null)
+        	throw new UsernameNotFoundException("Failed to find username " + username);
+        System.out.println("User: " + user.getLogin() + "; password: " + user.getPassword());
+        UserDetails userDet = new org.springframework.security.core.userdetails.User(user.getLogin(), "{noop}" + user.getPassword(), true, true, true, true, auts) {};
+        return userDet;
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+    	return new PasswordEncoder() {
+            @Override
+            public String encode(CharSequence charSequence) {
+                return User.getMD5(charSequence.toString());
+            }
+
+            @Override
+            public boolean matches(CharSequence charSequence, String s) {
+                return User.getMD5(charSequence.toString()).equals(s);
+            }
+        };
     }
 }
