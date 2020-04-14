@@ -9,74 +9,19 @@
 <html>
     <head>
         <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/styles/styles.css" />
-        <script>
-            function openForm(id) {
-                element = document.getElementById(id);
-                style = element.style;
-                style.display = "block";
-                width = element.clientWidth;
-                height = element.clientHeight;
-                style.marginTop = Math.floor(-height / 2) + "px";
-                style.marginLeft = Math.floor(-width / 2)+ "px";
-            }
-            
-            function closeForm(id) {
-                document.getElementById(id).style.display = "none";
-                document.getElementById("shadowing").style.display = "none";
-            }
-
-            function hideOrShowShadowing(id) {
-                element = document.getElementById("shadowing");
-                if (element.style.display === "block") {
-                    element.style.display = "none";
-                    closeForm(id);
-                } else {
-                	element.style.display = "block";
-                	openForm(id);
-                }
-            }
-
-            function hideAll() {
-           		cols = document.getElementsByClassName('popup');
-           		for(i = 0; i < cols.length; i++) {
-           			cols[i].style.display = "none";
-           		}
-           		document.getElementById("shadowing").style.display = "none";
-            }
-        </script>
+        <script src="${pageContext.servletContext.contextPath}/scripts/forms.js"></script>
         <title>Главная страница</title>
     </head>
     <body>
     	<div id="shadowing" onclick="hideAll()"></div>
         <div class="content">
-            <header>
-                <div class="header-title"><h1>Главная страница</h1></div>
-				<div class="user-info">
-                    <div class="user-info-container">
-                    	<sec:authentication var="principal" property="principal" />
-                        <p class="username"><b><security:authentication property="principal.username" /></b></p>
-                        <p>Тип:
-                        	<b>
-	                        	<c:choose>
-									<c:when test = "${principal.authorities == '[ROLE_USER]'}">
-										обычный
-									</c:when>
-									<c:otherwise>модератор</c:otherwise>
-								</c:choose>
-							</b>
-						</p>
-                        <p>Статус: <b>нормальный</b></p>
-                        <c:url value="/j_spring_security_logout" var="logoutUrl" />
-                        <a class="logout" href="${logoutUrl}">Выйти</a>
-                    </div>
-                </div>
-            </header>
+        	<%@ include file="parts/header.jsp" %>
             <div class="sections">
                 <h3>Разделы форума</h3>
                 <ul>
                 	<c:forEach var="section" items="${sectionList}" varStatus="status">
 	                    <li>
-	                        <a href="topics.html">${section.title}</a>
+	                        <a href="topics?section_id=${section.sectionId}">${section.title}</a>
 	                        <!-- <a href="sections/delete_section?id=${section.sectionId}" class="delete"></a> -->
 	                        <button type="submit" class="delete" onclick="hideOrShowShadowing('delete-confirm-${section.sectionId}')"></button>
 

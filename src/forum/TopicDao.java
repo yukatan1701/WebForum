@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.Set;
 import java.util.logging.Level;
 
+import org.hibernate.SessionFactory;
+
 public class TopicDao extends DBSession implements DaoInterface<Topic, Integer>{
 	
-	public TopicDao() {
+	public TopicDao(SessionFactory sessionFactory) {
 		super(TopicDao.class.getName());
+		this.sessionFactory = sessionFactory;
 	}
 	
 	@Override
