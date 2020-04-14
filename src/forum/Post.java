@@ -2,6 +2,7 @@ package forum;
 // Generated 26.02.2020 21:11:41 by Hibernate Tools 5.4.7.Final
 
 import java.sql.Timestamp;
+import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -93,6 +94,12 @@ public class Post implements java.io.Serializable {
 		this.attachments.add(at);
 		at.setPost(this);
 	}
+	
+	public static Comparator<Post> postComparator = new Comparator<Post>() {
+
+		public int compare(Post p1, Post p2) {
+			return p1.getDatetime().compareTo(p2.getDatetime());
+		}};
 
 	@Override
 	public String toString() {

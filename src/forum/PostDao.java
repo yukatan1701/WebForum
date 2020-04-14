@@ -3,10 +3,13 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.hibernate.SessionFactory;
+
 public class PostDao extends DBSession implements DaoInterface<Post, Integer> {
 	
-	public PostDao() {
+	public PostDao(SessionFactory sessionFactory) {
 		super(PostDao.class.getName());
+		this.sessionFactory = sessionFactory;
 	}
 	
 	@Override

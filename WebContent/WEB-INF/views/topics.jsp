@@ -21,7 +21,7 @@
             <ul>
             	<c:forEach var="topic" items="${topicList}" varStatus="status">
 	    			<li>
-	                   <a href="#">${topic.title}</a>
+	                   <a href="posts?topic_id=${topic.topicId}">${topic.title}</a>
 	                   <button type="submit" class="delete" onclick="hideOrShowShadowing('delete-confirm-${topic.topicId}')"></button>
 	
 	                   <div class="popup delete-popup" id="delete-confirm-${topic.topicId}">

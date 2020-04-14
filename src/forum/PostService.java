@@ -4,20 +4,27 @@ package forum;
 import java.util.List;
 import java.util.Set;
 
+import org.hibernate.SessionFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
+
 /**
  * Home object for domain model class Post.
  * @see forum.Post
  * @author Hibernate Tools
  */
+
+@Component
 public class PostService {
 	
 	private static PostDao postDao;
 	
-	public PostService() {
-		postDao = new PostDao();
+	public PostService(SessionFactory sessionFactory) {
+		postDao = new PostDao(sessionFactory);
 	}
 
 	@SuppressWarnings("unchecked")
+	@Transactional
 	public void persist(Post post) {
 		postDao.openCurrentSessionwithTransaction();
 		postDao.persist(post);
@@ -26,12 +33,14 @@ public class PostService {
 		postDao.closeCurrentSessionwithTransaction();
 	}
 	
+	@Transactional
 	public void update(Post entity) {
         postDao.openCurrentSessionwithTransaction();
         postDao.update(entity);
         postDao.closeCurrentSessionwithTransaction();
     }
  
+	@Transactional
     public Post findById(Integer id) {
     	postDao.openCurrentSession();
         Post post = postDao.findById(id);
@@ -39,6 +48,7 @@ public class PostService {
         return post;
     }
  
+	@Transactional
     public void deleteById(Integer id) {
     	postDao.openCurrentSessionwithTransaction();
         Post post = postDao.findById(id);
@@ -46,12 +56,14 @@ public class PostService {
         postDao.closeCurrentSessionwithTransaction();
     }
     
+	@Transactional
     public void delete(Post post) {
     	postDao.openCurrentSessionwithTransaction();
         postDao.delete(post);
         postDao.closeCurrentSessionwithTransaction();
     }
 
+	@Transactional
     public List<Post> findAll() {
         postDao.openCurrentSession();
         List<Post> posts = postDao.findAll();
@@ -59,22 +71,26 @@ public class PostService {
         return posts;
     }
  
+	@Transactional
     public void deleteAll() {
     	postDao.openCurrentSessionwithTransaction();
     	postDao.deleteAll();
     	postDao.closeCurrentSessionwithTransaction();
     }
     
+	@Transactional
     public void addPost(Post post) {
     	persist(post);
     }
     
+	@Transactional
     public void deletePost(Post post) {
     	postDao.openCurrentSessionwithTransaction();
     	postDao.delete(post);
     	postDao.closeCurrentSessionwithTransaction();
     }
     
+	@Transactional
     @SuppressWarnings("unchecked")
 	public void printAttachments() {
     	postDao.openCurrentSession();

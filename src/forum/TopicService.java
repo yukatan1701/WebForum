@@ -63,6 +63,7 @@ public class TopicService {
     public void deleteById(Integer id) {
     	topicDao.openCurrentSessionwithTransaction();
         Topic topic = topicDao.findById(id);
+        topic.getSection().getTopics().remove(topic);
         topicDao.delete(topic);
         topicDao.closeCurrentSessionwithTransaction();
     }
