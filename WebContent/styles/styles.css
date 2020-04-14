@@ -42,20 +42,48 @@ header {
     text-align: left;
 }
 
-.sign-in {
+.user-info {
     font-size: 0.9em;
     height: 100%;
     display: block;
     float: right;
     width: 25%;
-    padding: 5px 10px 0 5px;
+    text-align: center;
 }
 
-.sign-in input {
-    margin-bottom: 10px;
-    width: 100%;
+.user-info-container {
+    width: 90%;
+    margin-top: 8%;
+    background-color: seashell;
 }
 
+.user-info p {
+    font-size: 0.9em;
+    padding: 0 !important; 
+    margin: 0;
+}
+
+.user-info .username {
+    font-size: 1em;
+    background-color: slategrey;
+    color: white;
+    padding: 2px;
+    margin-bottom: 3px;
+}
+
+.user-info .logout {
+    display: inline-block;
+    text-decoration: none;
+    background-color: darkslategray;
+    color: white;
+    padding: 0px 9px;
+    margin: 5px 0;
+    border-radius: 3px;
+}
+
+.user-info .logout:hover {
+    background-color: slategray;
+}
 .user-list {
     background-color:rgb(230, 230, 230);
     padding-bottom: 10px;
@@ -129,7 +157,7 @@ header {
     padding: 5px;
 }
 
-.sections ul button {
+.sections .delete {
     display: block;
     float: right;
     border-radius: 50%;
@@ -232,4 +260,14 @@ header {
     font-size: 1.1em;
     padding: 10px;
     margin-bottom: 20px;
+}
+
+.login-content .error {
+    border: 1px solid red;
+    background-color: lightcoral;
+    padding: 5px;
+    margin: 15px auto;
+    width: 70%;
+    color: maroon;
+    text-align: center;
 }

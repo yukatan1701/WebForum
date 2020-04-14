@@ -12,15 +12,12 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -146,7 +143,8 @@ public class UserService implements UserDetailsService {
         return userDao;
     }
     
-    @Transactional(readOnly=true)
+    @SuppressWarnings("serial")
+	@Transactional(readOnly=true)
     @Override
     public UserDetails loadUserByUsername(String username)
             throws UsernameNotFoundException, DataAccessException
@@ -159,20 +157,5 @@ public class UserService implements UserDetailsService {
         System.out.println("User: " + user.getLogin() + "; password: " + user.getPassword());
         UserDetails userDet = new org.springframework.security.core.userdetails.User(user.getLogin(), "{noop}" + user.getPassword(), true, true, true, true, auts) {};
         return userDet;
-    }
-    
-    @Bean
-    public PasswordEncoder passwordEncoder() {
-    	return new PasswordEncoder() {
-            @Override
-            public String encode(CharSequence charSequence) {
-                return User.getMD5(charSequence.toString());
-            }
-
-            @Override
-            public boolean matches(CharSequence charSequence, String s) {
-                return User.getMD5(charSequence.toString()).equals(s);
-            }
-        };
     }
 }

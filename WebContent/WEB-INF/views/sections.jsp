@@ -3,6 +3,8 @@
    "http://www.w3.org/TR/html4/loose.dtd">
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
 
 <html>
     <head>
@@ -51,11 +53,25 @@
         <div class="content">
             <header>
                 <div class="header-title"><h1>Главная страница</h1></div>
-				                
-                <form class="sign-in">
-                	<p>Вы вошли как <b><security:authentication property="principal.username" /></b></p>
-                    <button type="submit">Выйти</button>
-                </form>
+				<div class="user-info">
+                    <div class="user-info-container">
+                    	<sec:authentication var="principal" property="principal" />
+                        <p class="username"><b><security:authentication property="principal.username" /></b></p>
+                        <p>Тип:
+                        	<b>
+	                        	<c:choose>
+									<c:when test = "${principal.authorities == '[ROLE_USER]'}">
+										обычный
+									</c:when>
+									<c:otherwise>модератор</c:otherwise>
+								</c:choose>
+							</b>
+						</p>
+                        <p>Статус: <b>нормальный</b></p>
+                        <c:url value="/j_spring_security_logout" var="logoutUrl" />
+                        <a class="logout" href="${logoutUrl}">Выйти</a>
+                    </div>
+                </div>
             </header>
             <div class="sections">
                 <h3>Разделы форума</h3>
@@ -63,21 +79,21 @@
                 	<c:forEach var="section" items="${sectionList}" varStatus="status">
 	                    <li>
 	                        <a href="topics.html">${section.title}</a>
-	                        <button type="submit"></button>
+	                        <a href="sections/delete_section?id=${section.sectionId}" class="delete"></a>
 	                    </li>
                     </c:forEach>
                 </ul>
                 <button type="submit" onclick="hideOrShowShadowing()">Добавить раздел</button>
                 <div class="form-popup" id="add-section-form">
-                    <form class="form-container">
+                    <form:form class="form-container" action="sections/add_section" method="post" modelAttribute="section">
                         <h3>Добавить раздел</h3>
                         <input type="text" placeholder="Введите название" id="section-title"
-                            name="section-title" required><br>
+                            name="title" path="title" required><br>
                         <div class="buttons">
                             <button type="submit" class="add">Добавить</button>
                             <button type="reset" class="cancel" onclick="closeForm()">Отмена</button>
                         </div>
-                    </form>
+                    </form:form>
                 </div>
             </div>
             <div class="user-list">

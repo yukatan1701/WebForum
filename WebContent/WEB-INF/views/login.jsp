@@ -14,14 +14,18 @@
         <div class="login-content">
             <h1>Добро пожаловать на форум!</h1>
             <h2>Авторизуйтесь, чтобы продолжить</h2>
-            <c:if test="${not empty error}">
-				<div class="error">${error}</div>
-			</c:if>
-			<c:if test="${not empty msg}">
-				<div class="msg">${msg}</div>
+            <c:if test="${not empty SPRING_SECURITY_LAST_EXCEPTION.message}">
+				<div class="error">
+					<c:choose>
+						<c:when test = "${SPRING_SECURITY_LAST_EXCEPTION.message == 'Bad credentials'}">
+							Неверное имя пользователя или пароль
+						</c:when>
+						<c:otherwise><c:out value="${SPRING_SECURITY_LAST_EXCEPTION.message}" /></c:otherwise>
+					</c:choose>
+			  	</div>
 			</c:if>
             <form name="login" method="POST" action="<c:url value='j_spring_security_check'/>">
-                <input type="text" name="j_username" placeholder="Логин" /><br>
+                <input type="text" name="j_username" placeholder="Логин" autofocus/><br>
                 <input type="password" name="j_password" placeholder="Пароль" /><br>
                 <button name="submit" type="submit">Войти</button>
                 <!-- <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/> -->
