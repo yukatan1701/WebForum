@@ -10,8 +10,8 @@
     <head>
         <link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/styles/styles.css" />
         <script>
-            function openForm() {
-                element = document.getElementById("add-section-form");
+            function openForm(id) {
+                element = document.getElementById(id);
                 style = element.style;
                 style.display = "block";
                 width = element.clientWidth;
@@ -20,36 +20,34 @@
                 style.marginLeft = Math.floor(-width / 2)+ "px";
             }
             
-            function closeForm() {
-                document.getElementById("add-section-form").style.display = "none";
+            function closeForm(id) {
+                document.getElementById(id).style.display = "none";
                 document.getElementById("shadowing").style.display = "none";
-                document.getElementById("section-title").value = '';
-                
             }
 
-            function hideOrShow() {
-                if (document.getElementById("add-section-form").style.display === "block") {
-                    closeForm();
-                } else {
-                    openForm();
-                }
-            }
-
-            function hideOrShowShadowing() {
+            function hideOrShowShadowing(id) {
                 element = document.getElementById("shadowing");
                 if (element.style.display === "block") {
                     element.style.display = "none";
-                    closeForm();
+                    closeForm(id);
                 } else {
                 	element.style.display = "block";
-                	openForm();
+                	openForm(id);
                 }
+            }
+
+            function hideAll() {
+           		cols = document.getElementsByClassName('popup');
+           		for(i = 0; i < cols.length; i++) {
+           			cols[i].style.display = "none";
+           		}
+           		document.getElementById("shadowing").style.display = "none";
             }
         </script>
         <title>Главная страница</title>
     </head>
     <body>
-    	<div id="shadowing" onclick="hideOrShowShadowing()"></div>
+    	<div id="shadowing" onclick="hideAll()"></div>
         <div class="content">
             <header>
                 <div class="header-title"><h1>Главная страница</h1></div>
@@ -79,19 +77,29 @@
                 	<c:forEach var="section" items="${sectionList}" varStatus="status">
 	                    <li>
 	                        <a href="topics.html">${section.title}</a>
-	                        <a href="sections/delete_section?id=${section.sectionId}" class="delete"></a>
+	                        <!-- <a href="sections/delete_section?id=${section.sectionId}" class="delete"></a> -->
+	                        <button type="submit" class="delete" onclick="hideOrShowShadowing('delete-confirm-${section.sectionId}')"></button>
+
+	                        <div class="popup delete-popup" id="delete-confirm-${section.sectionId}">
+	                            <h3>Подтверждение</h3>
+	                            <p>Вы действительно хотите удалить раздел <b>${section.title}?</b></p>
+	                            <div class="buttons">
+	                                <button type="submit" class="a-delete"><a href="sections/delete_section?id=${section.sectionId}">Да</a></button>
+	                                <button type="reset" class="cancel" onclick="closeForm('delete-confirm-${section.sectionId}')">Отмена</button>
+	                            </div>
+	                        </div>
 	                    </li>
                     </c:forEach>
                 </ul>
-                <button type="submit" onclick="hideOrShowShadowing()">Добавить раздел</button>
-                <div class="form-popup" id="add-section-form">
+                <button type="submit" onclick="hideOrShowShadowing('add-section-form')">Добавить раздел</button>
+                <div class="popup form-popup" id="add-section-form">
                     <form:form class="form-container" action="sections/add_section" method="post" modelAttribute="section">
                         <h3>Добавить раздел</h3>
                         <input type="text" placeholder="Введите название" id="section-title"
                             name="title" path="title" required><br>
                         <div class="buttons">
                             <button type="submit" class="add">Добавить</button>
-                            <button type="reset" class="cancel" onclick="closeForm()">Отмена</button>
+                            <button type="reset" class="cancel" onclick="closeForm('add-section-form')">Отмена</button>
                         </div>
                     </form:form>
                 </div>
