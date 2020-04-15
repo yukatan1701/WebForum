@@ -51,13 +51,15 @@
             </div>
             <div class="user-list">
                 <h3>Пользователи</h3>
-                <h4>Топ активных за все время: </h4>
+                <h4>Топ-5 активных за все время: </h4>
                 <ol>
 	                <c:forEach var="pair" items="${userMap}" varStatus="status">
 	                    <li>${pair.key.login} (${pair.value} сообщений)</li>
 	                </c:forEach>   
                 </ol>
-                <a href="users.html">Подробнее...</a>
+                <p class="link-container">
+                	<a href="user_lists">Подробнее...</a>
+                </p>
             </div>
         </div>
     </body>

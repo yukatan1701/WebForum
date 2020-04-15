@@ -94,6 +94,15 @@ header {
     padding-bottom: 10px;
 }
 
+.user-list a {
+	margin: 0px !important;
+	padding: 0px !important;
+}
+
+.link-container {
+	margin: 0 10px;
+}
+
 .user-list h3{
     padding-top: 10px;
     text-align: center;
@@ -179,6 +188,80 @@ header {
     z-index: 100;
 }
 
+.row {
+    padding-right: 2px !important;
+}
+
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+}
+  
+.left {
+    width: 15%;
+}
+
+.middle {
+    width: 79%;
+    margin-left: 10px;
+}
+
+.right {
+    width: 4%;
+}
+
+.username {
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.usertype {
+    font-size: 0.8em;
+}
+
+.user {
+    border-radius: 3px;
+    text-align: center;
+    background-color: seashell;
+    padding: 5px 0;
+}
+
+.message-date {
+    padding: 2px 8px;
+    background-color: slategray;
+    color: seashell;
+    font-size: 0.8em;
+}
+
+.img-attachment {
+    border-radius: 5px;
+    margin: 5px auto;
+    display: block;
+}
+
+.message-text {
+    padding: 8px;
+    font-size: 0.9em;
+    background-color: seashell;
+}
+
+.sections ul .message-delete {
+    display: block;
+    border-radius: 50%;
+    border: none;
+    background: url('delete2.png') no-repeat;
+    height: 21px;
+    width: 21px;
+    float: right;
+    text-align: right;
+    cursor: pointer;
+}
+
 .delete-popup {
     border: 1px solid green;
     position: fixed;
@@ -232,8 +315,24 @@ header {
     padding: 5px;
 }
 
+.date-popup {
+	width: 214px;
+}
+
+.date-popup input {
+	font-size: 1em;
+}
+
+.date-change {
+	display: inline;
+	border: none;
+	background: none;
+	font-size: 1em;
+	text-decoration: underline;
+	color: blue;
+}
+
 .form-popup {
-    border: 1px solid green;
     position: fixed;
     top: 50%;
     left: 50%;

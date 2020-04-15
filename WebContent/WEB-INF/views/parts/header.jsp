@@ -1,6 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <header>
-<div class="header-title"><h1>Главная страница</h1></div>
+<div class="header-title"><h1>Форум "Городок"</h1></div>
 	<div class="user-info">
     	<div class="user-info-container">
         	<sec:authentication var="principal" property="principal" />

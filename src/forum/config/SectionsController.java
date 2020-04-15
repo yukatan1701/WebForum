@@ -1,8 +1,10 @@
 package forum.config;
 
 import java.sql.Date;
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map.Entry;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -50,7 +52,16 @@ public class SectionsController {
 	 
 	@RequestMapping(value = "/sections", method = RequestMethod.GET)
 	public ModelAndView sections() {
-		LinkedHashMap<User, Integer> users = userService.getActiveUsers(Date.valueOf("2010-01-01"), Date.valueOf("2030-01-01"));
+		LinkedHashMap<User, Integer> all_users = userService.getActiveUsers(Date.valueOf("2010-01-01"), Date.valueOf("2030-01-01"));
+		LinkedHashMap<User, Integer> users = new LinkedHashMap<User, Integer>();
+		int limit = 5;
+		for (Entry<User, Integer> entry : all_users.entrySet()) {
+			if (limit == 0) {
+				break;
+			}
+		    users.put(entry.getKey(), entry.getValue());
+		    limit--;
+		}
 		ModelAndView model = new ModelAndView("sections");
 		model.addObject("userMap", users);
 		List<Section> sections = sectionService.findAll();
