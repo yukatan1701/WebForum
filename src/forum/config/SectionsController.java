@@ -52,6 +52,8 @@ public class SectionsController {
 	 
 	@RequestMapping(value = "/sections", method = RequestMethod.GET)
 	public ModelAndView sections() {
+		System.out.println(System.getProperty("catalina.base"));
+		System.out.println(System.getProperty("com.sun.aas.instanceRoot"));
 		LinkedHashMap<User, Integer> all_users = userService.getActiveUsers(Date.valueOf("2010-01-01"), Date.valueOf("2030-01-01"));
 		LinkedHashMap<User, Integer> users = new LinkedHashMap<User, Integer>();
 		int limit = 5;

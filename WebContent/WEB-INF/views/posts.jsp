@@ -6,7 +6,7 @@
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>   
 
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 	<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/styles/styles.css" />
 	<script src="${pageContext.servletContext.contextPath}/scripts/forms.js"></script>
@@ -31,7 +31,10 @@
                         </div>
                         <div class="column middle">
                             <div class="message-date">${post.datetime}</div>
-                            <div class="message-text">${post.text}
+                            <div class="message-text">${post.text}<br>
+                            <c:forEach var="attachment" items="${post.attachments}" varStatus="number">
+                            	<a href="${attachment.fileLink}">Файл ${number.count}</a><br>
+                            </c:forEach>
                             	<!-- <img class="img-attachment" src="eclipse/WebForum/WebContent/files/krug.jpg" width="70%"> -->
                             </div>
                         </div>
@@ -52,11 +55,12 @@
             </ul>
             <div class="new-post">
                 <h4>Добавить сообщение</h4>
-                <form action="posts/add_post" method="post">
+                <form action="posts/add_post" method="post" enctype="multipart/form-data">
                 	<input type="hidden" name="topic_id" value="${topic.topicId}"/>
                 	<sec:authentication var="principal" property="principal" />
                 	<input type="hidden" name="username" value="${principal.username}"/>
-	                <textarea name="text" placeholder="Введите текст для нового сообщения."></textarea>
+	                <textarea name="text" placeholder="Введите текст для нового сообщения." required></textarea>
+	                <input type="file" name="file" multiple/><br><br>
 	                <button type="submit">Отправить</button>
                 </form>
             </div>

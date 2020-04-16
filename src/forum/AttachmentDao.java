@@ -3,10 +3,13 @@ package forum;
 import java.util.List;
 import java.util.logging.Level;
 
+import org.hibernate.SessionFactory;
+
 public class AttachmentDao extends DBSession implements DaoInterface<Attachment, Integer> {
 	
-	public AttachmentDao() {
+	public AttachmentDao(SessionFactory sessionFactory) {
 		super(AttachmentDao.class.getName());
+		this.sessionFactory = sessionFactory;
 	}
 	
 	@Override

@@ -92,7 +92,6 @@ public class Post implements java.io.Serializable {
 	@SuppressWarnings("unchecked")
 	public void addAttachment(Attachment at) {
 		this.attachments.add(at);
-		at.setPost(this);
 	}
 	
 	public static Comparator<Post> postComparator = new Comparator<Post>() {
