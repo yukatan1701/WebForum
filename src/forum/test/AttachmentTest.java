@@ -8,7 +8,7 @@ import forum.*;
 public class AttachmentTest {
 	
 	private Forum forum = new Forum();
-
+/*
 	@Test
 	public void testFindById() {
 		Attachment attachment = forum.attachmentService.findById(1);
@@ -31,5 +31,5 @@ public class AttachmentTest {
 		Attachment sameAttachment = forum.attachmentService.findById(attachment.getAttachmentId());
 		Assert.assertEquals(sameAttachment.toString(), attachment.toString());
 	}
-	
+	*/
 }

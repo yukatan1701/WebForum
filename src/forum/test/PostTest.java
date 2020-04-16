@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import forum.*;
 
 public class PostTest {
-	
+	/*
 	private Forum forum = new Forum();
 
 	@Test
@@ -32,7 +32,7 @@ public class PostTest {
 		Post post = new Post(topic, user, "Михаил Круг топ.", Timestamp.valueOf("2017-02-01 00:00:02.0"));
 		forum.postService.addPost(post);
 		Post samePost = forum.postService.findById(post.getPostId());
-		Assert.assertEquals(samePost.toString(), post.toString());*/
+		Assert.assertEquals(samePost.toString(), post.toString());
 	}
-	
+	*/
 }

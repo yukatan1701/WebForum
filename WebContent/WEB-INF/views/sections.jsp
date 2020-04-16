@@ -54,9 +54,10 @@
                 <h4>Топ-5 активных за все время: </h4>
                 <ol>
 	                <c:forEach var="pair" items="${userMap}" varStatus="status">
-	                    <li>${pair.key.login} (${pair.value} сообщений)</li>
+	                    <li><a href="user?id=${pair.key.userId}">${pair.key.login}</a> (${pair.value} сообщений)</li>
 	                </c:forEach>   
                 </ol>
+                <br>
                 <p class="link-container">
                 	<a href="user_lists">Подробнее...</a>
                 </p>

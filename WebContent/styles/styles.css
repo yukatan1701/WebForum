@@ -94,9 +94,29 @@ header {
     padding-bottom: 10px;
 }
 
+.user-page {
+	background-color:rgb(230, 230, 230);
+    padding: 10px;
+}
+
+.user-page h3 {
+	text-align: center;
+	font-size: 1.5em;
+}
+
+.user-page button {
+	margin: 10px 0;
+	padding: 5px;
+}
+
 .user-list a {
 	margin: 0px !important;
 	padding: 0px !important;
+}
+
+.add-user-button {
+	width: 20px;
+	height: 20px;
 }
 
 .link-container {
@@ -313,6 +333,40 @@ header {
 
 .new-post button {
     padding: 5px;
+}
+
+.new-user-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    padding: 10px;
+    background-color: silver;
+    border: 1px solid gray;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+    text-align: left;
+}
+
+.new-user-popup h3 {
+	font-size: 1em;
+	padding: 0;
+}
+
+.new-user-popup input {
+	width: 270px;
+	font-size: 0.8em;
+	padding: 2px 0;
+	margin: 5px 0 10px 0;
+}
+
+.new-user-popup select {
+	width: 100%;
+	padding: 2px 0;
+	margin-bottom: 10px;
+}
+
+.new-user-popup label {
+	font-weight: normal;
+	font-size: 0.8em;
 }
 
 .date-popup {

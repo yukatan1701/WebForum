@@ -19,6 +19,8 @@ import forum.Section;
 import forum.SectionService;
 import forum.User;
 import forum.UserService;
+import forum.enums.Permissions;
+import forum.enums.Status;
 
 @Controller
 public class UserListsController {
@@ -53,5 +55,15 @@ public class UserListsController {
 	@RequestMapping(value = "/user_lists")
 	public ModelAndView user_lists(@RequestParam("date_begin") String dateBegin, @RequestParam("date_end") String dateEnd) {
 		return loadPage(dateBegin, dateEnd);
+	}
+	
+	@RequestMapping(value= "/user_lists/add", method = RequestMethod.POST)
+	public String addUser(@RequestParam("login") String login, @RequestParam("password") String password,
+			@RequestParam("permissions") String perms) {
+		Permissions perm = perms.equals("user") ? Permissions.USER : Permissions.MODERATOR;
+		java.util.Date date = new java.util.Date();
+		User user = new User(login, Md5PasswordEncoder.getMD5(password), new Date(date.getTime()), perm, Status.NORMAL);
+		userService.addUser(user);
+		return "redirect:/user_lists";
 	}
 }

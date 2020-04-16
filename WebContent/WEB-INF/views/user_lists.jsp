@@ -17,7 +17,26 @@
         <div class="content">
         	<%@ include file="parts/header.jsp" %>
         	<div class="user-list">
-        		<h3><a href="${pageContext.servletContext.contextPath}/">Главная</a> | Списки пользователей<h3>
+        		<h3><a href="${pageContext.servletContext.contextPath}/">Главная</a> | Списки пользователей <button class="add-user-button" title="Добавить пользователя" onclick="hideOrShowShadowing('new-user-form')">+</button></h3>
+        		<div class="popup new-user-popup" id="new-user-form">
+            		<h3>Добавить пользователя</h3>
+            		<form method="post" action="user_lists/add">
+            			<label for="login">Логин:</label><br>
+            			<input type="text" id="login" name="login" placeholder="Введите логин" required><br>
+            			<label for="password">Пароль:</label><br>
+            			<input type="password" id="password" name="password" placeholder="Введите пароль" required><br>
+            			<label for="permissions">Права:</label><br>
+            			<select id="permissions" name="permissions" required>
+            				<option selected disabled>Выберите права</option>
+            				<option value="user">Обычный</option>
+            				<option value="moder">Модератор</option>
+            			</select>
+            			<div class="buttons">
+                            <button type="submit" class="add">Отправить</button>
+                            <button type="reset" class="cancel" onclick="closeForm('new-user-form')">Отмена</button>
+                        </div>
+            		</form>
+            	</div>
                 <h4>По активности в период ${dateBegin} - ${dateEnd} (<button class="date-change" onclick="hideOrShowShadowing('date-form')">изменить</button>): </h4>
                 
                 <div class="popup form-popup date-popup" id="date-form">
