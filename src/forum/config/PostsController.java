@@ -46,6 +46,7 @@ public class PostsController {
 		Date date = new Date();
 		Timestamp ts = new Timestamp(date.getTime());
 		Post p = new Post(topicService.findById(id), user, text, ts);
+		System.out.println(text);
 		this.postService.addPost(p);
 		return "redirect:/posts?topic_id=" + String.valueOf(id);
 	}

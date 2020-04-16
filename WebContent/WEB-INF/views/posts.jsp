@@ -10,6 +10,7 @@
 <head>
 	<link rel="stylesheet" type="text/css" href="${pageContext.servletContext.contextPath}/styles/styles.css" />
 	<script src="${pageContext.servletContext.contextPath}/scripts/forms.js"></script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>Тема</title>
 </head>
 
