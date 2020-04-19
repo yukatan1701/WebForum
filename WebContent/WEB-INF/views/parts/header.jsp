@@ -15,7 +15,7 @@
 					</c:choose>
 				</b>
 			</p>
-            <p>Статус: <b>нормальный</b></p>
+            <a href="user/my_page?login=${principal.username}">Мой профиль</a>
             <c:url value="/j_spring_security_logout" var="logoutUrl" />
             <a class="logout" href="${logoutUrl}">Выйти</a>
 		</div>

@@ -21,6 +21,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import forum.enums.Permissions;
 import forum.enums.Status;
 
 @Component
@@ -150,10 +151,14 @@ public class UserService implements UserDetailsService {
             throws UsernameNotFoundException, DataAccessException
     {
     	User user = findByLogin(username);
-        Collection<GrantedAuthority> auts = new ArrayList<GrantedAuthority>();
-        auts.add(new SimpleGrantedAuthority("ROLE_USER"));
-        if (user == null)
+    	if (user == null)
         	throw new UsernameNotFoundException("Failed to find username " + username);
+        Collection<GrantedAuthority> auts = new ArrayList<GrantedAuthority>();
+        if (user.getPermissions() == Permissions.USER) {
+        	auts.add(new SimpleGrantedAuthority("ROLE_USER"));
+        } else {
+        	auts.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+        }
         System.out.println("User: " + user.getLogin() + "; password: " + user.getPassword());
         UserDetails userDet = new org.springframework.security.core.userdetails.User(user.getLogin(), "{noop}" + user.getPassword(), true, true, true, true, auts) {};
         return userDet;

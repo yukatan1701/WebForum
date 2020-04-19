@@ -25,6 +25,7 @@ import forum.Section;
 import forum.SectionService;
 import forum.User;
 import forum.UserService;
+import forum.enums.Permissions;
 
 @Controller
 public class SectionsController {
@@ -38,20 +39,12 @@ public class SectionsController {
 		return "login";
 	}
 	
-	@RequestMapping(value = "/accessdenied", method = RequestMethod.GET)
-	public String loginerror(ModelMap model) {
-		model.addAttribute("error", "true");
-		return "denied";
-	}
-	
-	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
     public String defaultPage(ModelMap map) {
         return "redirect:/sections";
     }
-	 
-	@RequestMapping(value = "/sections", method = RequestMethod.GET)
-	public ModelAndView sections() {
+	
+	private ModelAndView loadPage(ModelAndView model) {
 		System.out.println(System.getProperty("catalina.base"));
 		System.out.println(System.getProperty("com.sun.aas.instanceRoot"));
 		LinkedHashMap<User, Integer> all_users = userService.getActiveUsers(Date.valueOf("2010-01-01"), Date.valueOf("2030-01-01"));
@@ -64,7 +57,7 @@ public class SectionsController {
 		    users.put(entry.getKey(), entry.getValue());
 		    limit--;
 		}
-		ModelAndView model = new ModelAndView("sections");
+		
 		model.addObject("userMap", users);
 		List<Section> sections = sectionService.findAll();
 		model.addObject("sectionList", sections);
@@ -72,14 +65,42 @@ public class SectionsController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/sections", method = RequestMethod.GET)
+	public ModelAndView sections(@RequestParam(value="error_type", required=false) String error) {
+		ModelAndView model = new ModelAndView("sections");
+		if (error != null) {
+			if (error.equals("bad_permissions")) {
+				model.addObject("add_section_error", "Недостаточно прав");
+			} else if (error.equals("bad_permissions_delete")) {
+				model.addObject("delete_section_error", "Недостаточно прав");
+			} else if (error.equals("existing_section")) {
+				model.addObject("add_section_error", "Секция с таким именем уже существует");
+			}
+		}
+		return loadPage(model);
+	}
+	
 	@RequestMapping(value= "/sections/add_section", method = RequestMethod.POST)
-	public String addSection(@ModelAttribute("section") Section s) {
-		this.sectionService.addSection(s);
+	public String addSection(@RequestParam("title") String title, @RequestParam("login") String login) {
+		User user = userService.findByLogin(login);
+		if (user.getPermissions() == Permissions.USER) {
+			return "redirect:/sections?error_type=bad_permissions";
+		}
+		try {
+			Section s = new Section(title);
+			this.sectionService.addSection(s);
+		} catch (org.hibernate.exception.ConstraintViolationException ex) {
+			return "redirect:/sections?error_type=existing_section";
+		}
 		return "redirect:/sections";
 	}
 	
 	@RequestMapping(value="/sections/delete_section")
-	public String deleteSection(@RequestParam("id") int id) {
+	public String deleteSection(@RequestParam("id") int id, @RequestParam("login") String login) {
+		User user = userService.findByLogin(login);
+		if (user.getPermissions() == Permissions.USER) {
+			return "redirect:/sections?error_type=bad_permissions_delete";
+		}
 		sectionService.deleteById(id);
 		return "redirect:/sections";       
 	}

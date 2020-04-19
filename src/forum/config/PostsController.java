@@ -23,6 +23,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import forum.*;
+import forum.enums.Permissions;
 
 @Controller
 public class PostsController {
@@ -47,8 +48,13 @@ public class PostsController {
 	
 	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/posts")
-	public ModelAndView posts(@RequestParam("topic_id") int id) {
+	public ModelAndView posts(@RequestParam("topic_id") int id, @RequestParam(value="error_type", required=false) String error) {
 		ModelAndView model = new ModelAndView("posts");
+		if (error != null) {
+			if (error.equals("bad_permissions")) {
+				model.addObject("delete_post_error", "Недостаточно прав");
+			}
+		}
 		Topic topic = topicService.findById(id);
 		List<Post> posts = new ArrayList<Post>();
 		topic.getPosts().forEach(post -> posts.add((Post) post));
@@ -98,7 +104,12 @@ public class PostsController {
 	}
 	
 	@RequestMapping(value="/posts/delete_post")
-	public String deleteTopic(@RequestParam("topic_id") int topic_id, @RequestParam("post_id") int post_id) {
+	public String deleteTopic(@RequestParam("topic_id") int topic_id, @RequestParam("post_id") int post_id,
+			@RequestParam("login") String login) {
+		User user = userService.findByLogin(login);
+		if (user.getPermissions() == Permissions.USER) {
+			return "redirect:/posts?topic_id=" + topic_id + "&error_type=bad_permissions";
+		}
 		postService.deleteById(post_id);
 		return "redirect:/posts?topic_id=" + topic_id;       
 	}

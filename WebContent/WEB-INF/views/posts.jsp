@@ -20,6 +20,9 @@
     	<%@ include file="parts/header.jsp" %>
     	<div class="sections">
             <h3><a href="${pageContext.servletContext.contextPath}/">Главная</a> | <a href="${pageContext.servletContext.contextPath}/topics?section_id=${topic.section.sectionId}">${topic.section.title}</a> | Сообщения в "${topic.title}"</h3>
+            <c:if test="${not empty delete_post_error}">
+            	<p class="error-message">Не удалось удалить сообщение. Причина: ${delete_post_error}</p>
+            </c:if>
             <ul>
                 <c:forEach var="post" items="${postList}" varStatus="status">
 	    			<li class="row">
@@ -46,7 +49,8 @@
 	                       	<h3>Подтверждение</h3>
 	                       	<p>Вы действительно хотите удалить этот пост?</p>
 	                       	<div class="buttons">
-	                           	<button type="submit" class="a-delete"><a href="posts/delete_post?topic_id=${topic.topicId}&amp;post_id=${post.postId}">Да</a></button>
+	                       		<sec:authentication var="principal" property="principal" />
+	                           	<button type="submit" class="a-delete"><a href="posts/delete_post?topic_id=${topic.topicId}&amp;post_id=${post.postId}&amp;login=${principal.username}">Да</a></button>
 	                           	<button type="reset" class="cancel" onclick="closeForm('delete-confirm-${post.postId}')">Отмена</button>
 	                       	</div>
 	                   	</div>

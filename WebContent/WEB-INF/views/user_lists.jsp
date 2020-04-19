@@ -31,14 +31,21 @@
             				<option value="user">Обычный</option>
             				<option value="moder">Модератор</option>
             			</select>
+            			 <sec:authentication var="principal" property="principal" />
+            			<input type="hidden" name="current_login" value="${principal.username}">
             			<div class="buttons">
                             <button type="submit" class="add">Отправить</button>
                             <button type="reset" class="cancel" onclick="closeForm('new-user-form')">Отмена</button>
                         </div>
             		</form>
             	</div>
+            	<c:if test="${not empty add_user_error}">
+                	<p class="error-message">Не удалось добавить пользователя. Причина: ${add_user_error}</p>
+                </c:if>
                 <h4>По активности в период ${dateBegin} - ${dateEnd} (<button class="date-change" onclick="hideOrShowShadowing('date-form')">изменить</button>): </h4>
-                
+                <c:if test="${not empty date_error}">
+                	<p class="error-message">Не удалось загрузить список по датам. Причина: ${date_error}</p>
+                </c:if>
                 <div class="popup form-popup date-popup" id="date-form">
                 	<h3>Выберите дату начала и дату конца периода:</h3>
                 	<form action="user_lists" method="post">

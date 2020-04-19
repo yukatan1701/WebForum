@@ -21,10 +21,15 @@
                 <p><b>Дата регистрации: </b>${user.dateOfRegistration}</p>
                 <p><b>Права: </b>${permissions}</p>
                 <p><b>Статус: </b>${status}</p>
+                <sec:authentication var="principal" property="principal" />
                 <form method="post" action="user/block">
                 	<input type="hidden" value="${user.userId}" name="id">
+                	<input type="hidden" value="${principal.username}" name="login">
                     <button type="submit">${blockButtonText}</button>
                 </form>
+                <c:if test="${not empty block_user_error}">
+                	<p class="error-message">Не удалось заблокировать пользователя. Причина: ${block_user_error}</p>
+                </c:if>
                 <a href="${pageContext.servletContext.contextPath}/">На главную</a>
             </div>
         </div>

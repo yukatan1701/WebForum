@@ -28,7 +28,8 @@
 	                       <h3>Подтверждение</h3>
 	                       <p>Вы действительно хотите удалить тему <b>${topic.title}?</b></p>
 	                       <div class="buttons">
-	                           <button type="submit" class="a-delete"><a href="topics/delete_topic?section_id=${section.sectionId}&amp;topic_id=${topic.topicId}">Да</a></button>
+	                       	   <sec:authentication var="principal" property="principal" />
+	                           <button type="submit" class="a-delete"><a href="topics/delete_topic?section_id=${section.sectionId}&amp;topic_id=${topic.topicId}&amp;login=${principal.username}">Да</a></button>
 	                           <button type="reset" class="cancel" onclick="closeForm('delete-confirm-${topic.topicId}')">Отмена</button>
 	                       </div>
 	                   </div>
@@ -36,18 +37,24 @@
               	</c:forEach>
             </ul>
             <button type="submit" onclick="hideOrShowShadowing('add-topic-form')">Добавить тему</button>
-                <div class="popup form-popup" id="add-topic-form">
-                    <form:form class="form-container" action="topics/add_topic" method="post">
-                        <h3>Добавить тему</h3>
-                        <input type="hidden" name="section_id" value="${section.sectionId}">
-                        <input type="text" placeholder="Введите название" id="topic-title"
-                            name="title" required><br>
-                        <div class="buttons">
-                            <button type="submit" class="add">Добавить</button>
-                            <button type="reset" class="cancel" onclick="closeForm('add-topic-form')">Отмена</button>
-                        </div>
-                    </form:form>
-                </div>
+            <div class="popup form-popup" id="add-topic-form">
+                <form:form class="form-container" action="topics/add_topic" method="post">
+                    <h3>Добавить тему</h3>
+                    <input type="hidden" name="section_id" value="${section.sectionId}">
+                    <input type="text" placeholder="Введите название" id="topic-title"
+                        name="title" required><br>
+                    <div class="buttons">
+                        <button type="submit" class="add">Добавить</button>
+                        <button type="reset" class="cancel" onclick="closeForm('add-topic-form')">Отмена</button>
+                    </div>
+                </form:form>
+            </div>
+            <c:if test="${not empty delete_topic_error}">
+            	<p class="error-message">Не удалось удалить тему. Причина: ${delete_topic_error}</p>
+            </c:if>
+            <c:if test="${not empty add_topic_error}">
+            	<p class="error-message">Не удалось создать тему. Причина: ${add_topic_error}</p>
+            </c:if>
         </div>
     </div>
 </body>

@@ -22,9 +22,19 @@ public class UserPageController {
 	@Autowired
 	private UserService userService;
 	
+	@RequestMapping(value="/user/my_page")
+	public String user(@RequestParam("login") String login) {
+		User user = userService.findByLogin(login);
+		int id = user.getUserId();
+		return "redirect:/user?id=" + id;
+	}
+	
 	@RequestMapping(value = "/user")
-	public ModelAndView user(@RequestParam("id") int id) {
+	public ModelAndView user(@RequestParam("id") int id, @RequestParam(value="error_type", required=false) String error) {
 		ModelAndView model = new ModelAndView("user");
+		if (error != null) {
+			model.addObject("block_user_error", "Недостаточно прав");
+		}
 		User user = userService.findById(id);
 		model.addObject("user", user);
 		String permissions = user.getPermissions() == Permissions.USER ? "обычный пользователь" : "модератор";
@@ -37,7 +47,11 @@ public class UserPageController {
 	}
 	
 	@RequestMapping(value= "/user/block", method = RequestMethod.POST)
-	public String blockUser(@RequestParam("id") int id) {
+	public String blockUser(@RequestParam("id") int id, @RequestParam("login") String login) {
+		User currentUser = userService.findByLogin(login);
+		if (currentUser.getPermissions() == Permissions.USER || currentUser.getLogin().equals("admin")) {
+			return "redirect:/user?id=" + id + "&error_type=bad_permissions";
+		}
 		User user = userService.findById(id);
 		if (user.getStatus() == Status.NORMAL) {
 			userService.blockUser(user);

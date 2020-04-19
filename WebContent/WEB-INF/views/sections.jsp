@@ -28,8 +28,9 @@
 	                        <div class="popup delete-popup" id="delete-confirm-${section.sectionId}">
 	                            <h3>Подтверждение</h3>
 	                            <p>Вы действительно хотите удалить раздел <b>${section.title}?</b></p>
+	                            <sec:authentication var="principal" property="principal" />
 	                            <div class="buttons">
-	                                <button type="submit" class="a-delete"><a href="sections/delete_section?id=${section.sectionId}">Да</a></button>
+	                                <button type="submit" class="a-delete"><a href="sections/delete_section?id=${section.sectionId}&amp;login=${principal.username}">Да</a></button>
 	                                <button type="reset" class="cancel" onclick="closeForm('delete-confirm-${section.sectionId}')">Отмена</button>
 	                            </div>
 	                        </div>
@@ -37,11 +38,19 @@
                     </c:forEach>
                 </ul>
                 <button type="submit" onclick="hideOrShowShadowing('add-section-form')">Добавить раздел</button>
+                <c:if test="${not empty add_section_error}">
+                	<p class="error-message">Не удалось добавить раздел. Причина: ${add_section_error}</p>
+                </c:if>
+                <c:if test="${not empty delete_section_error}">
+                	<p class="error-message">Не удалось удалить раздел. Причина: ${delete_section_error}</p>
+                </c:if>
                 <div class="popup form-popup" id="add-section-form">
-                    <form:form class="form-container" action="sections/add_section" method="post" modelAttribute="section">
+                    <form:form class="form-container" action="sections/add_section" method="post">
                         <h3>Добавить раздел</h3>
                         <input type="text" placeholder="Введите название" id="section-title"
                             name="title" path="title" required><br>
+                        <sec:authentication var="principal" property="principal" />
+                        <input type="hidden" name="login" value="${principal.username}">
                         <div class="buttons">
                             <button type="submit" class="add">Добавить</button>
                             <button type="reset" class="cancel" onclick="closeForm('add-section-form')">Отмена</button>

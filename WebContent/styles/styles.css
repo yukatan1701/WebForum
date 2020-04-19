@@ -464,3 +464,11 @@ header {
     color: maroon;
     text-align: center;
 }
+
+.error-message {
+	border: 1px solid red;
+    background-color: lightcoral;
+    padding: 5px;
+    color: maroon;
+    margin-top: 10px;
+}

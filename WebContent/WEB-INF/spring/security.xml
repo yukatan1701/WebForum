@@ -25,7 +25,7 @@
         <intercept-url pattern="/login" access="permitAll" />
         <intercept-url pattern="/styles/*" access="permitAll" />
         <intercept-url pattern="/scripts/*" access="permitAll" />
-        <intercept-url pattern="/**" access="hasRole('ROLE_USER')" />
+        <intercept-url pattern="/**" access="hasAnyRole('ROLE_USER', 'ROLE_ADMIN')" />
         <form-login login-page="/login"
         	default-target-url="/sections"
         	username-parameter="j_username"
