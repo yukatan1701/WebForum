@@ -20,25 +20,16 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 		this.sessionFactory = sessionFactory;
 	}
 	
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-	
-	public SessionFactory getSessionFactory() {
-		return sessionFactory;
-	}
-	
-	
 	@Override
     public void persist(User entity) {
 		logger.log(Level.INFO, "persisting User instance");
 		try {
-			this.sessionFactory.getCurrentSession().save(entity);
+			getCurrentSession().save(entity);
 			logger.log(Level.INFO, "persist successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "persist failed", re);
 			try {
-				this.sessionFactory.getCurrentSession().getTransaction().rollback();
+				getCurrentSession().getTransaction().rollback();
 			} catch (RuntimeException e) {
 				logger.log(Level.SEVERE, "rollback failed", e);
 			}
@@ -67,7 +58,7 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     public User findById(Integer id) {
 		logger.log(Level.INFO, "getting User instance with id: " + id);
 		try {
-			User user = (User) this.sessionFactory.getCurrentSession().get(User.class, id);
+			User user = (User) getCurrentSession().get(User.class, id);
 			if (user == null) {
 				logger.log(Level.INFO, "get successful, no instance found");
 			} else {
@@ -84,7 +75,7 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
 	public User findByLogin(String login) {
 		logger.log(Level.INFO, "getting User instance with login: " + login);
 		try {
-			Criteria criteria = this.sessionFactory.getCurrentSession().createCriteria(User.class);
+			Criteria criteria = getCurrentSession().createCriteria(User.class);
 			criteria.add(Restrictions.like("login", login));
 			User user = (User) criteria.uniqueResult();
 			return user;
@@ -98,12 +89,12 @@ public class UserDao extends DBSession implements DaoInterface<User, Integer> {
     public void delete(User entity) {
 		logger.log(Level.INFO, "deleting User instance");
 		try {
-			this.sessionFactory.getCurrentSession().delete(entity);
+			getCurrentSession().delete(entity);
 			logger.log(Level.INFO, "delete successful");
 		} catch (RuntimeException re) {
 			logger.log(Level.SEVERE, "delete failed", re);
 			try {
-				this.sessionFactory.getCurrentSession().getTransaction().rollback();
+				getCurrentSession().getTransaction().rollback();
 			} catch (RuntimeException e) {
 				logger.log(Level.SEVERE, "rollback failed", e);
 			}

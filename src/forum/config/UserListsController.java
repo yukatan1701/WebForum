@@ -70,6 +70,8 @@ public class UserListsController {
 				model.addObject("add_user_error", "Недостаточно прав");
 			} else if (error.equals("bad_date")) {
 				model.addObject("date_error", "Дата начала больше даты конца");
+			} else if (error.equals("user_already_exists")) {
+				model.addObject("add_existing_user_error", "Пользователь уже существует");
 			}
 		}
 		return loadPage(model, dateBegin, dateEnd);
@@ -85,7 +87,11 @@ public class UserListsController {
 		Permissions perm = perms.equals("user") ? Permissions.USER : Permissions.MODERATOR;
 		java.util.Date date = new java.util.Date();
 		User user = new User(login, Md5PasswordEncoder.getMD5(password), new Date(date.getTime()), perm, Status.NORMAL);
-		userService.addUser(user);
+		try {
+			userService.addUser(user);
+		} catch (org.hibernate.exception.ConstraintViolationException ex) {
+			return "redirect:/user_lists?error_type=user_already_exists";
+		}
 		return "redirect:/user_lists";
 	}
 }

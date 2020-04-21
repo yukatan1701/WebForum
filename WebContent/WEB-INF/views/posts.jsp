@@ -23,13 +23,26 @@
             <c:if test="${not empty delete_post_error}">
             	<p class="error-message">Не удалось удалить сообщение. Причина: ${delete_post_error}</p>
             </c:if>
+            <c:if test="${not empty delete_post_error_status}">
+            	<p class="error-message">Не удалось удалить сообщение. Причина: ${delete_post_error_status}</p>
+            </c:if>
+            <c:if test="${not empty add_post_error_status}">
+            	<p class="error-message">Не удалось добавить сообщение. Причина: ${add_post_error_status}</p>
+            </c:if>
             <ul>
                 <c:forEach var="post" items="${postList}" varStatus="status">
 	    			<li class="row">
 	    				<div class="column left">
                             <div class="user">
-                                <p class="username">${post.user.login}</p>
-                                <p class="usertype">обычный</p>
+                                <p class="username"><a href="user?id=${post.user.userId}">${post.user.login}</a></p>
+                                <p class="usertype">
+								<c:choose>
+									<c:when test = "${post.user.permissions == 'USER'}">
+										обычный
+									</c:when>
+									<c:otherwise>модератор</c:otherwise>
+								</c:choose>
+								</p>
                             </div>
                         </div>
                         <div class="column middle">

@@ -49,10 +49,13 @@ public class UserPageController {
 	@RequestMapping(value= "/user/block", method = RequestMethod.POST)
 	public String blockUser(@RequestParam("id") int id, @RequestParam("login") String login) {
 		User currentUser = userService.findByLogin(login);
-		if (currentUser.getPermissions() == Permissions.USER || currentUser.getLogin().equals("admin")) {
+		if (currentUser.getPermissions() == Permissions.USER) {
 			return "redirect:/user?id=" + id + "&error_type=bad_permissions";
 		}
 		User user = userService.findById(id);
+		if (user.getLogin().equals("admin")) {
+			return "redirect:/user?id=" + id + "&error_type=bad_permissions";
+		}
 		if (user.getStatus() == Status.NORMAL) {
 			userService.blockUser(user);
 		} else {

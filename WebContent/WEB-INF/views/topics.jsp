@@ -41,6 +41,8 @@
                 <form:form class="form-container" action="topics/add_topic" method="post">
                     <h3>Добавить тему</h3>
                     <input type="hidden" name="section_id" value="${section.sectionId}">
+                    <sec:authentication var="principal" property="principal" />
+                    <input type="hidden" name="login" value="${principal.username}">
                     <input type="text" placeholder="Введите название" id="topic-title"
                         name="title" required><br>
                     <div class="buttons">

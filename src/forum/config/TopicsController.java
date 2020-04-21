@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import forum.*;
 import forum.enums.Permissions;
+import forum.enums.Status;
 
 @Controller
 public class TopicsController {
@@ -34,6 +35,10 @@ public class TopicsController {
 				model.addObject("delete_topic_error", "Недостаточно прав");
 			} else if (error.equals("existing_topic")) {
 				model.addObject("add_topic_error", "Тема с таким именем уже существует");
+			} else if (error.equals("bad_status_delete")) {
+				model.addObject("delete_topic_error", "Аккаунт заблокирован");
+			} else if (error.equals("bad_status_add")) {
+				model.addObject("add_topic_error", "Аккаунт заблокирован");
 			}
 		}
 		Section section = sectionService.findById(id);
@@ -46,7 +51,12 @@ public class TopicsController {
 	}
 	
 	@RequestMapping(value= "/topics/add_topic", method = RequestMethod.POST)
-	public String addTopic(@RequestParam("section_id") int id, @RequestParam("title") String title) {
+	public String addTopic(@RequestParam("section_id") int id, @RequestParam("title") String title,
+			@RequestParam("login") String login) {
+		User user = userService.findByLogin(login);
+		if (user.getStatus() == Status.BLOCKED) {
+			return "redirect:/topics?section_id=" + id + "&error_type=bad_status_add";
+		}
 		Topic t = new Topic(sectionService.findById(id), title);
 		try {
 			this.topicService.addTopic(t);
@@ -62,6 +72,9 @@ public class TopicsController {
 		User user = userService.findByLogin(login);
 		if (user.getPermissions() == Permissions.USER) {
 			return "redirect:/topics?section_id=" + section_id + "&error_type=bad_permissions";
+		}
+		if (user.getStatus() == Status.BLOCKED) {
+			return "redirect:/topics?section_id=" + section_id + "&error_type=bad_status_delete";
 		}
 		topicService.deleteById(topic_id);
 		return "redirect:/topics?section_id=" + section_id;       

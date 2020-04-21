@@ -10,7 +10,7 @@ import java.sql.Timestamp;
 import java.util.LinkedHashMap;
 
 import org.testng.Assert;
-/*
+
 public class UserTest {
 	private Forum forum = new Forum();
 	
@@ -101,4 +101,4 @@ public class UserTest {
 		user = forum.userService.findByLogin("medved");
 		Assert.assertEquals(user.getStatus(), Status.NORMAL);
 	}
-}*/
+}

@@ -66,7 +66,7 @@ public class Attachment implements java.io.Serializable {
 
 	@Override
 	public String toString() {
-		return "Attachment [attachmentId=" + attachmentId + ", post=" + post + ", fileLink=" + fileLink + "]";
+		return "Attachment [attachmentId=" + attachmentId + ", post=" + ", fileLink=" + fileLink + "]";
 	}
 
 

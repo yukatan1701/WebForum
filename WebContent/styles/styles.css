@@ -30,9 +30,10 @@ button {
 
 header {
     display: block;
-    background-color: silver;
+    background-color: #4056a1;
     width: 100%;
     height: 130px;
+    color: #efe2ba;
 }
 
 .header-title {
@@ -58,19 +59,26 @@ header {
 .user-info-container {
     width: 90%;
     margin-top: 8%;
-    background-color: seashell;
+    background-color: #c5cbe3;
 }
 
 .user-info p {
     font-size: 0.9em;
     padding: 0 !important; 
     margin: 0;
+    color: #4056a1;
+}
+
+.user-info a {
+    margin: 0;
+    color: #4056a1;
+    font-weight: bold;
 }
 
 .user-info .username {
     font-size: 1em;
-    background-color: slategrey;
-    color: white;
+    background-color: #d79922;
+    color: #4056a1;
     padding: 2px;
     margin-bottom: 3px;
 }
@@ -78,7 +86,7 @@ header {
 .user-info .logout {
     display: inline-block;
     text-decoration: none;
-    background-color: darkslategray;
+    background-color: #f13c20;
     color: white;
     padding: 0px 9px;
     margin: 5px 0;
@@ -86,27 +94,41 @@ header {
 }
 
 .user-info .logout:hover {
-    background-color: slategray;
+    background-color: #f6816f;
 }
 
 .user-list {
-    background-color:rgb(230, 230, 230);
+    background-color: #efe2ba;
     padding-bottom: 10px;
 }
 
-.user-page {
-	background-color:rgb(230, 230, 230);
+.user-page button {
+    margin: 10px 0;
     padding: 10px;
+    border: none;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #f13c20;
+    color: #efe2ba;
+}
+
+.user-page button:hover {
+    background-color: #f6816f;
+}
+
+.user-page {
+	background-color: #efe2ba;
+    padding: 10px;
+}
+
+.user-page a {
+    color: #4056a1;
 }
 
 .user-page h3 {
 	text-align: center;
-	font-size: 1.5em;
-}
-
-.user-page button {
-	margin: 10px 0;
-	padding: 5px;
+    font-size: 1.5em;
+    color: #f13c20;
 }
 
 .user-list a {
@@ -116,17 +138,19 @@ header {
 
 .add-user-button {
 	width: 20px;
-	height: 20px;
-}
-
-.link-container {
-	margin: 0 10px;
+    height: 20px;
+    border: none;
+    border-radius: 50%;
+    background-color: #f13c20;
+    color: #efe2ba;
+    font-weight: bold;
 }
 
 .user-list h3{
     padding-top: 10px;
     text-align: center;
     font-size: 1.3em;
+    color: #f13c20;
 }
 
 .user-list h4 {
@@ -144,6 +168,7 @@ header {
 .user-list a {
     padding: 5px;
     margin: 10px;
+    color: #4056a1;
 }
 
 .user-info p {
@@ -163,7 +188,7 @@ header {
 .sections {
     margin: 0;
     padding: 0 10px 10px 10px;
-    background-color:rgb(230, 230, 230);
+    background-color: #efe2ba;
 }
 
 .sections h3 {
@@ -171,6 +196,7 @@ header {
     padding-top: 10px;
     margin: 0;
     text-align: center;
+    color: #f13c20;
 }
 
 .sections > ul {
@@ -180,15 +206,42 @@ header {
 }
 
 .sections > ul > li {
-    background-color: silver;
+    background-color: #d79922;
     border-radius: 5px;
-    padding: 10px;
     margin: 10px 0px 0px 0px;
+}
+
+.sections > ul > li:hover {
+    background-color: #e0a538;
+}
+
+.sections > ul > li.row {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.sections > ul > li > a {
+    display: inline-block;
+    width: 88%;
+    height: 100%;
+    padding: 10px;
+    color: #4056a1;
+    font-weight: bold;
+    text-decoration: none;
 }
 
 .sections > button {
     margin-top: 10px;
-    padding: 5px;
+    padding: 10px;
+    font-size: 0.9em;
+    background-color: #f13c20;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    color: #efe2ba;
+}
+
+.sections > button:hover {
+    background-color: #f6816f;
 }
 
 .sections ul .delete {
@@ -199,6 +252,7 @@ header {
     background: url('delete2.png') no-repeat;
     height: 25px;
     width: 25px;
+    margin: 10px 10px 10px 0;
     text-align: right;
     cursor: pointer;
 }
@@ -235,9 +289,20 @@ header {
     width: 4%;
 }
 
-.username {
+.user .username {
     font-weight: bold;
     font-size: 0.9em;
+    color: #d79922;
+}
+
+.user .username > a {
+    color: #d79922;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.user .username > a:hover {
+    color: #e0a538;
 }
 
 .usertype {
@@ -247,15 +312,20 @@ header {
 .user {
     border-radius: 3px;
     text-align: center;
-    background-color: seashell;
+    background-color: #4056a1;
     padding: 5px 0;
+    color: #efe2ba;
 }
+
+
 
 .message-date {
     padding: 2px 8px;
-    background-color: slategray;
-    color: seashell;
+    background-color: #4056a1;
+    color: #c5cbe3;
     font-size: 0.8em;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .img-attachment {
@@ -267,7 +337,9 @@ header {
 .message-text {
     padding: 8px;
     font-size: 0.9em;
-    background-color: seashell;
+    background-color: #c5cbe3;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
 }
 
 .sections ul .message-delete {
@@ -283,24 +355,29 @@ header {
 }
 
 .delete-popup {
-    border: 1px solid green;
     position: fixed;
     top: 50%;
     left: 50%;
     padding: 10px;
-    background-color: silver;
-    border: 1px solid gray;
+    background-color: #4056a1;
+    border: 1px solid #2c3b6d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     width: 270px;
 }
 
 .delete-popup h3 {
     padding: 0;
+    color: #d79922;
 }
 
 .delete-popup p {
     text-align: center;
     margin: 10px 0;
+    color: #efe2ba;
+}
+
+.delete-popup button:hover {
+    background-color: #e0a538;
 }
 
 .a-delete {
@@ -312,7 +389,16 @@ header {
     margin: 0;
     padding: 5px !important;
     text-decoration: none;
-    color:black;
+    color: #4056a1;
+}
+
+.popup button {
+    border: none;
+    border-radius: 5px;
+    background-color: #d79922;
+    color: #4056a1;
+    padding: 5px;
+    font-weight: bold;
 }
 
 .new-post {
@@ -332,7 +418,16 @@ header {
 }
 
 .new-post button {
-    padding: 5px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    color: #efe2ba;
+    background-color: #f13c20;
+    font-weight: bold;
+}
+
+.new-post button:hover {
+    background-color: #f6816f;
 }
 
 .new-user-popup {
@@ -340,15 +435,16 @@ header {
     top: 50%;
     left: 50%;
     padding: 10px;
-    background-color: silver;
-    border: 1px solid gray;
+    background-color: #4056a1;
+    border: 1px solid #2c3b6d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     text-align: left;
 }
 
 .new-user-popup h3 {
 	font-size: 1em;
-	padding: 0;
+    padding: 0;
+    color: #d79922;
 }
 
 .new-user-popup input {
@@ -366,7 +462,8 @@ header {
 
 .new-user-popup label {
 	font-weight: normal;
-	font-size: 0.8em;
+    font-size: 0.8em;
+    color: #d79922;
 }
 
 .date-popup {
@@ -383,7 +480,7 @@ header {
 	background: none;
 	font-size: 1em;
 	text-decoration: underline;
-	color: blue;
+	color: #4056a1;
 }
 
 .form-popup {
@@ -391,14 +488,15 @@ header {
     top: 50%;
     left: 50%;
     padding: 10px;
-    background-color: silver;
-    border: 1px solid gray;
+    background-color: #4056a1;
+    border: 1px solid #2c3b6d;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
     
 }
 
 .form-popup h3 {
     padding: 0;
+    color: #d79922;
 }
 
 .form-popup input {
@@ -428,14 +526,16 @@ header {
 .login-content {
     margin: 30px auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-    background-color: silver;
-    border: 1px solid gray;
+    background-color: #efe2ba;
+    border: 1px solid #d79922;
     width: 500px;
     text-align: center;
+    color: #4056a1;
 }
 
 .login-content h1 {
     margin: 10px;
+    color: #4056a1;
 }
 
 .login-content h2 {
@@ -444,15 +544,32 @@ header {
 }
 
 .login-content input {
-    padding: 5px;
+    padding: 10px;
     font-size: 1.1em;
     margin-bottom: 10px;
+    background-color: #4056a1;
+    border: none;
+    border-radius: 5px;
+    color: #efe2ba;
+}
+
+.login-content input::placeholder {
+    color: #c5cbe3;
 }
 
 .login-content button {
     font-size: 1.1em;
     padding: 10px;
     margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f13c20;
+    color: #efe2ba;
+    font-weight: bold;
+}
+
+.login-content button:hover {
+    background-color: #f6816f;
 }
 
 .login-content .error {
@@ -471,4 +588,28 @@ header {
     padding: 5px;
     color: maroon;
     margin-top: 10px;
+}
+
+.link-container {
+    margin: 0 10px;
+    display: inline-block;
+    background-color: #f13c20;
+    padding: 10px;
+    font-size: 0.9em;
+    color: #efe2ba;
+    border-radius: 5px;
+}
+
+.link-container:hover {
+    background-color: #f6816f;
+}
+
+.link-container > a {
+    color: #efe2ba;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.all-users {
+    margin: 0 10px;
 }

@@ -8,7 +8,7 @@ import forum.*;
 public class AttachmentTest {
 	
 	private Forum forum = new Forum();
-/*
+
 	@Test
 	public void testFindById() {
 		Attachment attachment = forum.attachmentService.findById(1);
@@ -17,7 +17,7 @@ public class AttachmentTest {
 		Assert.assertNull(attachment);
 	}
 	
-	@Test(expectedExceptions = java.lang.NullPointerException.class)
+	@Test(expectedExceptions = org.hibernate.exception.ConstraintViolationException.class)
 	public void testAddAttachmentWithNullFields() {
 		Attachment attachment = new Attachment(null, null);
 		forum.attachmentService.addAttachment(attachment);
@@ -31,5 +31,5 @@ public class AttachmentTest {
 		Attachment sameAttachment = forum.attachmentService.findById(attachment.getAttachmentId());
 		Assert.assertEquals(sameAttachment.toString(), attachment.toString());
 	}
-	*/
+	
 }

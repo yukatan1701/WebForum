@@ -39,9 +39,9 @@ public class DBSession {
         currentSession.close();
     }
     
-    private static SessionFactory getSessionFactory() {
+    public static SessionFactory getSessionFactory() {
 		try {
-			Configuration configuration = new Configuration().configure();
+			Configuration configuration = new Configuration().configure("hibernate_tests.cfg.xml");
 			SessionFactory sessionFactory = configuration.buildSessionFactory();
 			return sessionFactory;
 		} catch (Exception e) {

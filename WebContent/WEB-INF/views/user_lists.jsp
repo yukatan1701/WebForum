@@ -42,6 +42,9 @@
             	<c:if test="${not empty add_user_error}">
                 	<p class="error-message">Не удалось добавить пользователя. Причина: ${add_user_error}</p>
                 </c:if>
+                <c:if test="${not empty add_existing_user_error}">
+                	<p class="error-message">Не удалось добавить пользователя. Причина: ${add_existing_user_error}</p>
+                </c:if>
                 <h4>По активности в период ${dateBegin} - ${dateEnd} (<button class="date-change" onclick="hideOrShowShadowing('date-form')">изменить</button>): </h4>
                 <c:if test="${not empty date_error}">
                 	<p class="error-message">Не удалось загрузить список по датам. Причина: ${date_error}</p>
@@ -74,7 +77,7 @@
                     </c:forEach>
                 </ul>
                 <h4>Все пользователи:</h4>
-                <p class="link-container">
+                <p class="all-users">
 	                <c:forEach var="user" items="${userList}" varStatus="status">
 	                	<a href="user?id=${user.userId}">${user.login}</a>
 	                </c:forEach>

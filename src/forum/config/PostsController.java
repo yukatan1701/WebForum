@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import forum.*;
 import forum.enums.Permissions;
+import forum.enums.Status;
 
 @Controller
 public class PostsController {
@@ -53,6 +54,10 @@ public class PostsController {
 		if (error != null) {
 			if (error.equals("bad_permissions")) {
 				model.addObject("delete_post_error", "Недостаточно прав");
+			} else if (error.equals("bad_status_delete")) {
+				model.addObject("delete_post_error_status", "Аккаунт заблокирован");
+			} else if (error.equals("bad_status_add")) {
+				model.addObject("add_post_error_status", "Аккаунт заблокирован");
 			}
 		}
 		Topic topic = topicService.findById(id);
@@ -72,6 +77,9 @@ public class PostsController {
 	@RequestMapping(value= "/posts/add_post", method = RequestMethod.POST)
 	public String addPost(@RequestParam("file") MultipartFile[] files, @RequestParam("topic_id") int id, @RequestParam("username") String login, @RequestParam("text") String text) {
 		User user = userService.findByLogin(login);
+		if (user.getStatus() == Status.BLOCKED) {
+			return "redirect:/posts?topic_id=" + id + "&error_type=bad_status_add";
+		}
 		Date date = new Date();
 		Timestamp ts = new Timestamp(date.getTime());
 		String curTime = ts.toString().replace(':', '_').replace('-', '_').replace('.', '_').replace(' ', '_');
@@ -82,6 +90,9 @@ public class PostsController {
 		for (MultipartFile file: files) {
 			try {
 				byte[] bytes = file.getBytes();
+				if (file.getSize() == 0) {
+					continue;
+				}
 				File dir = new File(rootPath + File.separator + curTime);
 				if (!dir.exists()) {
 					dir.mkdirs();
@@ -109,6 +120,9 @@ public class PostsController {
 		User user = userService.findByLogin(login);
 		if (user.getPermissions() == Permissions.USER) {
 			return "redirect:/posts?topic_id=" + topic_id + "&error_type=bad_permissions";
+		}
+		if (user.getStatus() == Status.BLOCKED) {
+			return "redirect:/posts?topic_id=" + topic_id + "&error_type=bad_status_delete";
 		}
 		postService.deleteById(post_id);
 		return "redirect:/posts?topic_id=" + topic_id;       
