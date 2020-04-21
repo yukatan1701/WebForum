@@ -1,0 +1,3019 @@
+{
+  "id": "b095038d-97c9-4806-a54c-b93389226abc",
+  "version": "2.0",
+  "name": "WebForum",
+  "url": "http://127.0.0.1:8080/WebForum/",
+  "tests": [{
+    "id": "6a27b552-394a-4617-9af3-2f8c1958515b",
+    "name": "loginTest",
+    "commands": [{
+      "id": "90d5e377-00c3-43e7-b4b6-e80c1aec0180",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dead69f6-f339-450d-b271-5ecc933f326f",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f9b677f-d223-4143-ae46-11532bfd6e9e",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "57b5ecbd-2934-4b5d-8f10-ee5f95f1ab09",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "eef7665b-53a5-47a8-878a-6b1280a48513",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "64df837d-fed2-4249-81a3-85d7341d27eb",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.sections > h3",
+      "targets": [
+        ["css=.sections > h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Разделы форума')]", "xpath:innerText"]
+      ],
+      "value": "Разделы форума"
+    }]
+  }, {
+    "id": "4faee5a7-7c19-4e05-872b-9b09477f756d",
+    "name": "loginFailTest",
+    "commands": [{
+      "id": "083a4e93-c334-4f3c-8fe0-1e0ede76e72c",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3aafdc05-ea39-4f02-8edb-ba85d52d6315",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "c692decf-789d-42bc-9792-6fcf1cd29971",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "2eda4021-6aeb-4a80-87df-83e645286391",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moddder"
+    }, {
+      "id": "5e289960-7247-4e29-9381-f843b384dfc0",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ef79b5aa-561f-4e27-bdc0-717655ad6361",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error",
+      "targets": [
+        ["css=.error", "css:finder"],
+        ["xpath=//div/div", "xpath:position"]
+      ],
+      "value": "Неверное имя пользователя или пароль"
+    }]
+  }, {
+    "id": "d8ec61f3-071a-4345-8e77-ac8328bd007c",
+    "name": "addSection",
+    "commands": [{
+      "id": "79ee313e-1458-4c34-b42b-336fc56adc2e",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "5314138e-68e5-4e0b-a92e-fff5012ee8e2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1600x787",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3a158874-2a77-4766-9049-86be3158c310",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "ac0c6345-32f0-4517-abdf-9e6411e442bb",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "9eea354e-fed8-474f-bae4-4bd8df3a2ae0",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d74c91a1-a6bb-491e-8a12-d5439e82727a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[11]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить раздел')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4a155de7-53eb-469c-ac5a-c37844de35a5",
+      "comment": "",
+      "command": "click",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "485ea7af-d179-4166-8455-53289a7d82bb",
+      "comment": "",
+      "command": "type",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Новый"
+    }, {
+      "id": "c11a727d-bc37-46e0-9578-aafc22daca8d",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_DOWN}"
+    }, {
+      "id": "4abc3614-a87b-4c0a-abbb-498329d791a7",
+      "comment": "",
+      "command": "type",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Новый раздел"
+    }, {
+      "id": "68e45620-5565-41f7-a55c-e2116f471e5a",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add",
+      "targets": [
+        ["css=.add", "css:finder"],
+        ["xpath=(//button[@type='submit'])[12]", "xpath:attributes"],
+        ["xpath=//form[@id='command']/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2ac23b7b-b370-4da0-9668-f4173e1ef096",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "a3d3a87b-3e26-4aff-a417-7a62bc1fd565",
+    "name": "deleteSection",
+    "commands": [{
+      "id": "3e8ea141-7004-4f9e-be88-93997b10cb02",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/sections",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d4e9496d-2005-454c-8a5f-1b3239486052",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "232be96b-650a-4fc7-af1d-02bbc1c42108",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(6) > .delete",
+      "targets": [
+        ["css=li:nth-child(6) > .delete", "css:finder"],
+        ["xpath=(//button[@type='submit'])[11]", "xpath:attributes"],
+        ["xpath=//li[6]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "200810af-be41-40a1-888e-e2c020dbbf2b",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-28 a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Да')])[6]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-28']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'sections/delete_section?id=28&login=admin')]", "xpath:href"],
+        ["xpath=//li[6]/div/div/button/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c823a2f9-2c61-4540-b6b6-03b3ee127b94",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "7b62896a-3bd2-44f0-8100-9cf57f8172b0",
+    "name": "addExistingSection",
+    "commands": [{
+      "id": "44358640-7c73-4070-b369-a3c8c5d24fd9",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/sections",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a93a69f6-e5d6-4e81-92c0-3384e24a8af1",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "59c9c2fd-5abd-45e2-aae9-edc2e4d5c679",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[11]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить раздел')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "393d2459-dc58-4bab-bb6b-a80d69a94e63",
+      "comment": "",
+      "command": "click",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "11123f05-705b-48c2-a4c5-a944ebdd0b06",
+      "comment": "",
+      "command": "type",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "Кухня"
+    }, {
+      "id": "03521935-7173-4385-925a-fe1db5e04f02",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "55ec6dd7-b4b3-4e81-9612-c904149a4a8d",
+      "comment": "",
+      "command": "verifyText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось добавить раздел. Причина: Секция с таким именем уже существует')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось добавить раздел. Причина: Секция с таким именем уже существует"
+    }]
+  }, {
+    "id": "c1314e5a-8bc9-413f-825f-242a11a47aea",
+    "name": "addSectionFailPermission",
+    "commands": [{
+      "id": "06470040-a42d-4304-bd16-3476a36ebfba",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b9c0acae-1657-4106-b840-135cab6ada5b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8e1b6555-541c-455e-99a5-9c9d3933a627",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "a157ff15-3383-44c4-b089-2adc595d2851",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "377d7e6a-a5f2-490a-8e30-3adcfbbdf773",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4086bd6e-ebf1-46ae-bb98-1278be3c97d6",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[11]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить раздел')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0df3c93f-bcba-476a-8119-c3a15682421f",
+      "comment": "",
+      "command": "click",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8f83ff07-66db-4a5c-ab2e-e88af6401ec1",
+      "comment": "",
+      "command": "type",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "some section title"
+    }, {
+      "id": "998881ea-8297-43df-9c47-99c3f3fa3cef",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=section-title",
+      "targets": [
+        ["id=section-title", "id"],
+        ["name=title", "name"],
+        ["css=#section-title", "css:finder"],
+        ["xpath=//input[@id='section-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "6cfd79c4-9730-4c78-ab25-304f723256b7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось добавить раздел. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось добавить раздел. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "f19a730b-cc93-4c4f-ae49-e6706db1ee2b",
+    "name": "addUser",
+    "commands": [{
+      "id": "2ad5883c-6c97-4c06-b0af-9be207fd07c7",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "789fc121-4281-4939-8032-f1532c895f8b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "1d5c36f6-9abb-47e8-8e82-5cdbb866f00f",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "df17026c-0406-4b84-81f1-3a91cb16493f",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "40df8366-344b-4c52-9c39-4321cc6e6a4a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "7d8a06c2-7c4b-41fc-acde-d7430a53ef54",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8749601d-847c-4dff-9e37-bb3ff3b97012",
+      "comment": "",
+      "command": "click",
+      "target": "css=.user-list > h3",
+      "targets": [
+        ["css=.user-list > h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Главная | Списки пользователей +')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a2e7ef2a-5e77-47d8-9155-91ed8505145b",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-user-button",
+      "targets": [
+        ["css=.add-user-button", "css:finder"],
+        ["xpath=//button[@onclick=\"hideOrShowShadowing('new-user-form')\"]", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f1847e17-5282-4bfc-81f9-64c7b4eb6b2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=#new-user-form > form",
+      "targets": [
+        ["css=#new-user-form > form", "css:finder"],
+        ["xpath=//form[@action='user_lists/add']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form", "xpath:idRelative"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ef728cfb-2b89-4d20-bd7d-3c4efbed9479",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "41ecb3e8-2366-4f38-bef3-81203d50d955",
+      "comment": "",
+      "command": "type",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "uuuser"
+    }, {
+      "id": "b6b712d5-086e-40e7-b58b-dd7d1ab94f3c",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2e5e4645-be36-4166-814c-0249cd0c75f3",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "3333"
+    }, {
+      "id": "f9708d1a-6023-4dfc-97cf-6cccff89c343",
+      "comment": "",
+      "command": "click",
+      "target": "id=permissions",
+      "targets": [
+        ["id=permissions", "id"],
+        ["name=permissions", "name"],
+        ["css=#permissions", "css:finder"],
+        ["xpath=//select[@id='permissions']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "de8858d3-3086-4740-af00-778cb35d812b",
+      "comment": "",
+      "command": "select",
+      "target": "id=permissions",
+      "targets": [],
+      "value": "label=Обычный"
+    }, {
+      "id": "e18c8700-48ec-4737-bad8-b6d5f9a5c197",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='user']", "xpath:attributes"],
+        ["xpath=//select[@id='permissions']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Обычный')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3c55af99-a599-4ae6-85e7-2c20f54abc90",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttons:nth-child(13) > .add",
+      "targets": [
+        ["css=.buttons:nth-child(13) > .add", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a32bde2d-b779-40ac-a4f2-a22de00fe76e",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "ed2df047-4c23-4ba4-8026-3c79df678d96",
+    "name": "addExistingUser",
+    "commands": [{
+      "id": "b73b666f-3421-492a-a625-66fb303bc862",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "0af1dd39-1cc0-4a7b-aa64-a337061a99c4",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "70a021bd-9e24-433e-9bab-73cf7177ebb3",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "7646a34b-2482-4619-92cf-847ee1ece10d",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "5065aa60-2a04-4778-bef7-df6cb7a8916e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "704d77f8-2b1a-4285-8d74-39caef4518f8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "b3459ec3-44cf-4180-8896-eaae8e225edb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-user-button",
+      "targets": [
+        ["css=.add-user-button", "css:finder"],
+        ["xpath=//button[@onclick=\"hideOrShowShadowing('new-user-form')\"]", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "00644bc0-3506-4a5a-876c-8ef4b447b3fc",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8c2b5030-0c9d-45df-b6ac-54d20f1e14eb",
+      "comment": "",
+      "command": "type",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "372c66fe-01ed-4c66-93bf-09b2384a22cc",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "mmmm"
+    }, {
+      "id": "f9bc06c9-e684-49f8-bda9-a6971b170189",
+      "comment": "",
+      "command": "click",
+      "target": "id=permissions",
+      "targets": [
+        ["id=permissions", "id"],
+        ["name=permissions", "name"],
+        ["css=#permissions", "css:finder"],
+        ["xpath=//select[@id='permissions']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "750e2f09-5ed8-4de8-bf84-13dace97e82a",
+      "comment": "",
+      "command": "select",
+      "target": "id=permissions",
+      "targets": [],
+      "value": "label=Модератор"
+    }, {
+      "id": "ade5a346-a836-4046-be45-f6738bf494d5",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(3)",
+      "targets": [
+        ["css=option:nth-child(3)", "css:finder"],
+        ["xpath=//option[@value='moder']", "xpath:attributes"],
+        ["xpath=//select[@id='permissions']/option[3]", "xpath:idRelative"],
+        ["xpath=//option[3]", "xpath:position"],
+        ["xpath=//option[contains(.,'Модератор')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "9e4e15a9-5b57-46fb-9b45-989cb8e4055d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttons:nth-child(13) > .add",
+      "targets": [
+        ["css=.buttons:nth-child(13) > .add", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "566dc782-bb30-4483-a217-39ed998f12f1",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось добавить пользователя. Причина: Пользователь уже существует')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось добавить пользователя. Причина: Пользователь уже существует"
+    }]
+  }, {
+    "id": "b0258da0-14b6-4b6a-97b9-ecd957305a27",
+    "name": "checkPeriod",
+    "commands": [{
+      "id": "6df70d66-d714-4a1a-8268-42a49df1223d",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7b0eb7e0-168d-4ac7-9c3a-8d4e3b8e6b52",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "28727608-2bea-4dc8-a576-ae24e5cb253e",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "bd34fa31-169e-41b9-a9f2-b7f55b2b1ff4",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "e1659481-b483-440c-9f12-5512b61ef704",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "9e13edf5-5da5-4c2c-b12b-da0c352a6a7f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "144d5b74-96b3-4712-8f60-f853dc5ac76e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.date-change",
+      "targets": [
+        ["css=.date-change", "css:finder"],
+        ["xpath=//button[@onclick=\"hideOrShowShadowing('date-form')\"]", "xpath:attributes"],
+        ["xpath=//h4/button", "xpath:position"],
+        ["xpath=//button[contains(.,'изменить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d38d0b15-de6e-46f2-8116-642e48873985",
+      "comment": "",
+      "command": "click",
+      "target": "name=date_end",
+      "targets": [
+        ["name=date_end", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='date_end']", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4dc8443d-d566-4598-9309-bed5e5c1c4cd",
+      "comment": "",
+      "command": "type",
+      "target": "name=date_end",
+      "targets": [
+        ["name=date_end", "name"],
+        ["css=input:nth-child(2)", "css:finder"],
+        ["xpath=//input[@name='date_end']", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input[2]", "xpath:position"]
+      ],
+      "value": "2015-10-07"
+    }, {
+      "id": "a87c0429-e77b-4b2e-ab67-ebc656bf4dbb",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttons:nth-child(3) > .add",
+      "targets": [
+        ["css=.buttons:nth-child(3) > .add", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bf5223a5-d1f3-415c-b213-2d78acaf4001",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "41c085b1-5a09-4b7f-ac95-1f843dc8029b",
+    "name": "checkWrongPeriod",
+    "commands": [{
+      "id": "7e719be4-e695-444f-ac67-d93aac940185",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a8784610-f0ad-4834-badd-6e48d0450048",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "785cfc9c-c78a-4dd9-90ba-86883a044018",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "f230455b-0921-4269-836c-91d287757a4d",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "ee64bb7b-ed12-4205-a522-f1962038f75f",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a610abdb-3d05-4145-b97c-9397e93e366f",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "63c65ada-8a62-4c3a-b37f-8f9a68b31d7c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.date-change",
+      "targets": [
+        ["css=.date-change", "css:finder"],
+        ["xpath=//button[@onclick=\"hideOrShowShadowing('date-form')\"]", "xpath:attributes"],
+        ["xpath=//h4/button", "xpath:position"],
+        ["xpath=//button[contains(.,'изменить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c2e37793-5086-4003-b0fa-74cf9a7fda43",
+      "comment": "",
+      "command": "click",
+      "target": "name=date_begin",
+      "targets": [
+        ["name=date_begin", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='date_begin']", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "476c3d9e-95c0-46ee-8381-f14c667b165e",
+      "comment": "",
+      "command": "type",
+      "target": "name=date_begin",
+      "targets": [
+        ["name=date_begin", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='date_begin']", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/input", "xpath:idRelative"],
+        ["xpath=//div[2]/form/input", "xpath:position"]
+      ],
+      "value": "2016-05-13"
+    }, {
+      "id": "6ad4d7cb-de57-4f03-9816-e46ec8c3dc91",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttons:nth-child(3) > .add",
+      "targets": [
+        ["css=.buttons:nth-child(3) > .add", "css:finder"],
+        ["xpath=(//button[@type='submit'])[2]", "xpath:attributes"],
+        ["xpath=//div[@id='date-form']/form/div/button", "xpath:idRelative"],
+        ["xpath=//div[2]/form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "c28256d1-bf6b-4823-aba6-07e71b913814",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось загрузить список по датам. Причина: Дата начала больше даты конца')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось загрузить список по датам. Причина: Дата начала больше даты конца"
+    }]
+  }, {
+    "id": "8bb816b5-9d0a-417d-826c-973dcbcec387",
+    "name": "addTopic",
+    "commands": [{
+      "id": "9af451f1-0388-4543-a0ed-f4d68a7d6084",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "26c4c4c8-ff55-47da-944c-33abc34835d2",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8c85b8bf-f5e5-43c0-8a2c-32427e834e8c",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "863e6bc3-51ae-49c0-a296-050fe81d6d1e",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "aa434476-5b1c-41ab-986d-f12816d9bb2e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "c756aeb9-cb05-40f4-bedc-fc1587c82c3e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Кухня",
+      "targets": [
+        ["linkText=Кухня", "linkText"],
+        ["css=ul > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=5')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e54ebc9d-c887-4828-956e-ba661774c927",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Русская кухня",
+      "targets": [
+        ["linkText=Русская кухня", "linkText"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Русская кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'posts?topic_id=10')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Русская кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "76ea0578-a94b-4ef9-b087-9fd416803879",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Кухня",
+      "targets": [
+        ["linkText=Кухня", "linkText"],
+        ["css=a:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/WebForum/topics?section_id=5')]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "90235f7c-d52e-4cdb-842f-c89e12421179",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить тему')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "5fa6d2cf-969e-4985-8a34-194cdd08efdc",
+      "comment": "",
+      "command": "click",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5e1321ba-c5c9-4c68-aec9-1b05b9f39ca3",
+      "comment": "",
+      "command": "type",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Новая тема"
+    }, {
+      "id": "a20d4657-3067-4f84-b6e8-0a33b5e9017c",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add",
+      "targets": [
+        ["css=.add", "css:finder"],
+        ["xpath=(//button[@type='submit'])[6]", "xpath:attributes"],
+        ["xpath=//form[@id='command']/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "766ff1f6-a456-4520-8e02-047f1c832a06",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "650c014f-7be0-4964-af9a-0947105561d5",
+    "name": "addExistingTopic",
+    "commands": [{
+      "id": "edfe051a-8d08-4d87-a017-8bfa49605d9c",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f8db8a72-d8ca-4af1-87a3-ed750dd990a0",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dc95ab68-5d4e-45d7-a653-06344d62d05c",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admib"
+    }, {
+      "id": "9077357c-f48d-476f-ab27-3cd95cf51317",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "6e46ac36-c413-4e4c-8374-b98826a4eb7c",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "aeb7b255-2287-43f9-b508-25ec50f9acf1",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "05d1db55-41b7-42cb-a966-3140cb32d562",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Кухня",
+      "targets": [
+        ["linkText=Кухня", "linkText"],
+        ["css=ul > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=5')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "83dbe269-be26-427f-853f-9511c3ae7c87",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[7]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить тему')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8831aa7a-12d8-41f2-9b23-34e8e0fb8d3b",
+      "comment": "",
+      "command": "click",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "afb59536-627d-4e3b-b07c-49aef8c98dd0",
+      "comment": "",
+      "command": "type",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "Русская кухня"
+    }, {
+      "id": "b90de96d-5f12-4f25-ac4f-d4b425b2140a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "68bee4f5-a32c-4827-b9e0-5ed9f36d53f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось создать тему. Причина: Тема с таким именем уже существует')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось создать тему. Причина: Тема с таким именем уже существует"
+    }]
+  }, {
+    "id": "f1a45917-3b6a-476c-8867-9e5b6ef8d17e",
+    "name": "deleteTopic",
+    "commands": [{
+      "id": "e3e34386-caff-4c1f-a3a1-15e75ad99a0c",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1c41906-967c-46e8-b53f-c1ed3f2ca65c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "29cc9374-fcd8-4f33-9bc4-70a8dcbb4151",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "5550120b-a0cc-4b02-994b-7c2258145077",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "488669ac-1881-436c-bebb-b9a146d5ff41",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "d88b8dab-1b6f-40de-a7e4-6badbff6dcec",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Кухня",
+      "targets": [
+        ["linkText=Кухня", "linkText"],
+        ["css=ul > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=5')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f24ebad7-b57d-44e6-a35f-c5a5d4093699",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) > .delete",
+      "targets": [
+        ["css=li:nth-child(4) > .delete", "css:finder"],
+        ["xpath=(//button[@type='submit'])[7]", "xpath:attributes"],
+        ["xpath=//li[4]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4467221e-bf92-4f9b-b4e4-d47ee69216d8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-21 a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Да')])[4]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-21']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'topics/delete_topic?section_id=5&topic_id=21&login=admin')]", "xpath:href"],
+        ["xpath=//li[4]/div/div/button/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "726feb50-9aff-4aec-975a-de87c3da7b7e",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "78274600-04bb-40f5-a1fc-08bdddb6e869",
+    "name": "deleteTopicFail",
+    "commands": [{
+      "id": "dfd5be01-dc2e-4ec3-8c45-fe900448ff45",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14f1da1e-e8d9-4ed4-86d1-5c0893d84b8a",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "fbd122a5-2b29-4314-9aae-34869939e698",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "467dc718-0593-4644-a6c3-6d9d8888c12c",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "924e5ae3-fa86-4977-92da-4116e1b8201a",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "393afee6-ce18-4ea2-bbec-86172f317c72",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Музыка",
+      "targets": [
+        ["linkText=Кухня", "linkText"],
+        ["css=ul > li:nth-child(5) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Кухня')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=5')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Кухня')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "03319507-9a6c-4c64-bf72-390d20656757",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:first-child > .delete",
+      "targets": [
+        ["css=li:nth-child(1) > .delete", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "643d75df-de8a-47c2-8101-cd9dd6b6b3d5",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-20 a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да')]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-20']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'topics/delete_topic?section_id=5&topic_id=20&login=finland')]", "xpath:href"],
+        ["xpath=//button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5bdffee-fbd4-4d52-a93f-2e33a518c4dd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось удалить тему. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось удалить тему. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "9ab5c3f3-0a8b-4c11-8691-fb675821f60e",
+    "name": "addPost",
+    "commands": [{
+      "id": "ed865935-36c5-4224-8b67-1036433bae3d",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "aa3dbb3d-3181-4b61-b5d3-49c81fafec65",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "a11f9a66-86cb-4e11-b27e-a94d3c9adaf7",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "8d87eb71-ad38-4ed1-b74e-35f8375099b7",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "6ed88627-d617-46d2-a868-87264653600e",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "412f55e1-eeb1-4372-82d1-51982827287d",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Игры",
+      "targets": [
+        ["linkText=Игры", "linkText"],
+        ["css=ul > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Игры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=4')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Игры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec1de894-e4cd-44c7-a557-83de58db8f47",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Action-adventure",
+      "targets": [
+        ["linkText=Action-adventure", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Action-adventure')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'posts?topic_id=8')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Action-adventure')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c105f16f-5549-4d56-9328-ffaa20bdd9a0",
+      "comment": "",
+      "command": "click",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "f3a99780-62bd-4edb-b841-97e769db116a",
+      "comment": "",
+      "command": "type",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "всем привет"
+    }, {
+      "id": "fcbe38e7-8e7c-487c-b84b-9d184f295760",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(7)",
+      "targets": [
+        ["css=button:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[7]", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a5729b7d-3f4a-40d6-b86c-520b3ff4ce75",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.row:nth-child(4) .message-text",
+      "targets": [
+        ["css=.row:nth-child(4) .message-text", "css:finder"],
+        ["xpath=//li[4]/div[2]/div[2]", "xpath:position"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "8b96abbc-87d5-416f-8f9e-405018f5cb62",
+    "name": "deletePost",
+    "commands": [{
+      "id": "d05cb6c1-d0d9-4f09-926f-6ec7b338d33d",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3e8aa3fa-d9a5-44e7-89a0-80c9070bcba6",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "8afc2b2d-b261-4c7c-8058-dc4dda189a49",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "319d8cf2-91f0-4914-9ddf-d544e5cdf4af",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "c71bdb45-83fd-4706-b286-4b1c11c7c748",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4ddc55bb-a9c6-4d1b-a264-2ae7f2537cf8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Игры",
+      "targets": [
+        ["linkText=Игры", "linkText"],
+        ["css=ul > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Игры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=4')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Игры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "42f596e4-a79e-4291-a507-271e021483a6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Action-adventure",
+      "targets": [
+        ["linkText=Action-adventure", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Action-adventure')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'posts?topic_id=8')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Action-adventure')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e89db316-7eeb-4be3-a5a4-fab31e244a2f",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(4) .message-delete",
+      "targets": [
+        ["css=.row:nth-child(4) .message-delete", "css:finder"],
+        ["xpath=(//button[@type='submit'])[7]", "xpath:attributes"],
+        ["xpath=//li[4]/div[3]/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "6ec41bd6-b263-45a9-9232-5ab48d62237e",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-40 a", "css:finder"],
+        ["xpath=(//a[contains(text(),'Да')])[4]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-40']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'posts/delete_post?topic_id=8&post_id=40&login=admin')]", "xpath:href"],
+        ["xpath=//li[4]/div[4]/div/button/a", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "65c9a806-c7dc-4dc3-8f2b-3eba532535a6",
+      "comment": "",
+      "command": "verifyElementNotPresent",
+      "target": "css=.error-message",
+      "targets": [],
+      "value": ""
+    }]
+  }, {
+    "id": "c57a4ab7-fc02-4507-8877-ebfb293e5c9c",
+    "name": "deletePostFail",
+    "commands": [{
+      "id": "d1b93d5b-ac7e-4971-bba8-13e5490c70b4",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "bcd30eca-e665-448d-980f-2d8c1c2f33e5",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d3859c81-afc7-4cee-98f5-b2eb20823679",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "03767b74-cd0c-43e2-b02e-87de5100b415",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "22b8cdfe-05ab-4e64-bd43-fc021435adf7",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "e60f2004-6b0f-4e85-a1ff-e37bbdc3c016",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Игры",
+      "targets": [
+        ["linkText=Игры", "linkText"],
+        ["css=ul > li:nth-child(4) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Игры')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=4')]", "xpath:href"],
+        ["xpath=//li[4]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Игры')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "778429f3-8725-4b9d-8f71-690629ede519",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Action-adventure",
+      "targets": [
+        ["linkText=Action-adventure", "linkText"],
+        ["css=li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Action-adventure')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'posts?topic_id=8')]", "xpath:href"],
+        ["xpath=//li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Action-adventure')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "81b1542c-38c3-4d44-9318-f40dce3b6fd6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.row:nth-child(1) .message-delete",
+      "targets": [
+        ["css=.row:nth-child(1) .message-delete", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ac67306b-358e-425f-8aea-312bf6e59c20",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-9 a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да')]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-9']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'posts/delete_post?topic_id=8&post_id=9&login=finland')]", "xpath:href"],
+        ["xpath=//button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "189f9478-356b-48d7-8622-e046de420427",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось удалить сообщение. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось удалить сообщение. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "983ac3af-bfba-47cc-9ea1-dad75effc3e8",
+    "name": "blockUser",
+    "commands": [{
+      "id": "e5f07acc-fd7a-4d7e-8a4a-a2318fab0e13",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "23ed480d-bfcd-4ce1-8c11-e3eb33873204",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7cf431c9-a7b2-4ca1-8556-82401cae003f",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "6bd4892c-7434-4a7c-9b44-4b910b015ed1",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "d41f4b26-9020-46c6-b6bd-ae8b8db014f4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "b576810c-380b-47b0-83fa-87f6a6e011e8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=vasya777",
+      "targets": [
+        ["linkText=vasya777", "linkText"],
+        ["css=ol > li:nth-child(2) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'vasya777')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user?id=2')]", "xpath:href"],
+        ["xpath=//ol/li[2]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'vasya777')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "37d66d2a-a84e-40d3-8053-85df9a5589e9",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Заблокировать')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d409195e-0379-4672-964a-257af92218ab",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(4)",
+      "targets": [
+        ["css=p:nth-child(4)", "css:finder"],
+        ["xpath=//body/div[2]/div/p[3]", "xpath:position"],
+        ["xpath=//p[contains(.,'Статус: заблокирован')]", "xpath:innerText"]
+      ],
+      "value": "Статус: заблокирован"
+    }, {
+      "id": "d500c801-43d5-4cd9-ac80-38b2bf2257db",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Разблокировать')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd491b6e-5ac0-4fa1-b54e-b7e987a93471",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=p:nth-child(4)",
+      "targets": [
+        ["css=p:nth-child(4)", "css:finder"],
+        ["xpath=//body/div[2]/div/p[3]", "xpath:position"],
+        ["xpath=//p[contains(.,'Статус: нормальный')]", "xpath:innerText"]
+      ],
+      "value": "Статус: нормальный"
+    }]
+  }, {
+    "id": "d15b40ca-4965-439d-9665-3c8436a0779e",
+    "name": "blockAdmin",
+    "commands": [{
+      "id": "e1a59cb1-e8d5-447f-853b-37c1f202de18",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "06dae0c4-f214-4ccc-bd9d-e268fd6d27ed",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9e3fbbc4-055a-4176-99f5-6362e5f567ed",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "101c6331-2196-49bc-b9fa-3fd1b4472936",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "7ae9619b-47ac-45b4-8454-bd1df27c3ace",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "fad2701c-08be-4863-86a6-4caaf6fee6e1",
+      "comment": "",
+      "command": "click",
+      "target": "css=.link-container",
+      "targets": [
+        ["css=.link-container", "css:finder"],
+        ["xpath=//div[2]/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "7df750af-6585-41f1-9408-b5257b956948",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0d1299a8-5dc3-48ba-a21a-b2f43f488071",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=admin",
+      "targets": [
+        ["linkText=admin", "linkText"],
+        ["css=li:nth-child(1) > a:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'admin')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user?id=1')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'admin')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "a4772bed-facb-4a74-b807-c6b45d348b20",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Заблокировать')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2c33834b-1683-46b2-8c76-d8086084754d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//p[4]", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось заблокировать пользователя. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось заблокировать пользователя. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "1c1831e8-c13f-451a-8512-593ea7e332c6",
+    "name": "blockUserFail",
+    "commands": [{
+      "id": "af98feed-9375-4542-9843-2e5b574cf92e",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "243defe9-9727-4ef6-b1e4-0c30ab04b96c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x694",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "3f00357c-96b2-472a-af16-be84fa6b6846",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "e44bd55e-d8c8-405b-934b-d6444500867d",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "76b68b94-df1f-435f-971d-53801e801aeb",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "ca6374bd-b88e-4f40-bf18-6ffc4376cc35",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "bb3a81f2-b5b8-4e37-8ea0-130377000c4d",
+      "comment": "",
+      "command": "click",
+      "target": "css=a:nth-child(7)",
+      "targets": [
+        ["css=a:nth-child(7)", "css:finder"],
+        ["xpath=(//a[contains(text(),'vasya777')])[3]", "xpath:link"],
+        ["xpath=(//a[contains(@href, 'user?id=2')])[3]", "xpath:href"],
+        ["xpath=//a[7]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "438ef97c-86e9-45b4-abcd-7e40edcfbea4",
+      "comment": "",
+      "command": "click",
+      "target": "css=button",
+      "targets": [
+        ["css=button", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'Заблокировать')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "62597702-87d2-426f-9e86-036943f51b71",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//p[4]", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось заблокировать пользователя. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось заблокировать пользователя. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "a1a158e4-2d92-4519-bc3a-a8fd1771efec",
+    "name": "addPostFailStatus",
+    "commands": [{
+      "id": "8cbdbabb-156c-45ec-916a-00e7c6fa472c",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "60859e2b-619d-4c01-818d-0fb9cfdb5c29",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x695",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9f28b114-cf58-4893-9cc6-89d5f155776b",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "belarus"
+    }, {
+      "id": "db9f00c7-8e77-4f6f-8da5-6d4bed453668",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "traktor"
+    }, {
+      "id": "3cee6c21-affb-4dee-8480-a8d54aefb890",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "a460fe55-ba65-420c-95fd-3cde72bb6a70",
+      "comment": "",
+      "command": "click",
+      "target": "css=.sections",
+      "targets": [
+        ["css=.sections", "css:finder"],
+        ["xpath=//body/div[2]/div", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fee51ad6-4e8c-4dfc-959f-130e3d025610",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Музыка",
+      "targets": [
+        ["linkText=Музыка", "linkText"],
+        ["css=ul > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Музыка')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=1')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Музыка')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8b2311d3-f295-470d-9267-c344f568bbd8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Отечественный шансон",
+      "targets": [
+        ["linkText=Отечественный шансон", "linkText"],
+        ["css=li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Отечественный шансон')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'posts?topic_id=2')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Отечественный шансон')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "43afaeaf-b7c1-416c-a103-f5d482614bc3",
+      "comment": "",
+      "command": "click",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e5273166-4dcf-4cb2-a730-123222844d6c",
+      "comment": "",
+      "command": "type",
+      "target": "name=text",
+      "targets": [
+        ["name=text", "name"],
+        ["css=textarea", "css:finder"],
+        ["xpath=//textarea[@name='text']", "xpath:attributes"],
+        ["xpath=//textarea", "xpath:position"]
+      ],
+      "value": "ffff"
+    }, {
+      "id": "eb948310-2302-45f5-9e8b-df9c7953964a",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(7)",
+      "targets": [
+        ["css=button:nth-child(7)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[13]", "xpath:attributes"],
+        ["xpath=//form/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8dd7af3c-0707-4c7e-92d7-a5192dfd0a51",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось добавить сообщение. Причина: Аккаунт заблокирован')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось добавить сообщение. Причина: Аккаунт заблокирован"
+    }]
+  }, {
+    "id": "6aafdf77-a99d-4913-b837-387726e37778",
+    "name": "addTopicFailStatus",
+    "commands": [{
+      "id": "c636b875-6bf1-4003-8fa9-eec6f50d181d",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "11ad9413-e91a-4a01-b452-0bafce90c8de",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "827x695",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9403a2e3-59bc-4851-9a0d-449137d02f6f",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "belarus"
+    }, {
+      "id": "638f9c05-6ebb-4a5c-a716-f4d97e548c00",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "traktor"
+    }, {
+      "id": "cad2dd59-c1e7-4410-85f3-1b34fe12fef2",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "07643133-75ae-4bf3-a331-4173df0a25d4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Музыка",
+      "targets": [
+        ["linkText=Музыка", "linkText"],
+        ["css=ul > li:nth-child(1) > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Музыка')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'topics?section_id=1')]", "xpath:href"],
+        ["xpath=//li/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Музыка')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0910d1cb-2625-48d0-93d7-83df1ab622a5",
+      "comment": "",
+      "command": "click",
+      "target": "css=button:nth-child(3)",
+      "targets": [
+        ["css=button:nth-child(3)", "css:finder"],
+        ["xpath=(//button[@type='submit'])[5]", "xpath:attributes"],
+        ["xpath=//div[2]/div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Добавить тему')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3b4043cb-c61c-4584-9b24-57ae03adac99",
+      "comment": "",
+      "command": "click",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "999fb2b9-acb9-4c56-99d5-efad77a408c0",
+      "comment": "",
+      "command": "type",
+      "target": "id=topic-title",
+      "targets": [
+        ["id=topic-title", "id"],
+        ["name=title", "name"],
+        ["css=#topic-title", "css:finder"],
+        ["xpath=//input[@id='topic-title']", "xpath:attributes"],
+        ["xpath=//form[@id='command']/input[3]", "xpath:idRelative"],
+        ["xpath=//input[3]", "xpath:position"]
+      ],
+      "value": "my theme"
+    }, {
+      "id": "11ff1c79-8ef4-405f-bde8-875df1e00683",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add",
+      "targets": [
+        ["css=.add", "css:finder"],
+        ["xpath=(//button[@type='submit'])[6]", "xpath:attributes"],
+        ["xpath=//form[@id='command']/div/button", "xpath:idRelative"],
+        ["xpath=//form/div/button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64c7e3ba-6765-45d0-b007-501a299cf141",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось создать тему. Причина: Аккаунт заблокирован')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось создать тему. Причина: Аккаунт заблокирован"
+    }]
+  }, {
+    "id": "e8422fb7-66b7-4a83-9818-00f5dbc4db82",
+    "name": "deleteSectionFailPermission",
+    "commands": [{
+      "id": "d9609b38-71e7-41e3-ba0f-477ac8a8cfe8",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2892b614-ff5c-470d-b270-e6f603e9502d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "797x640",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "9fabb118-3351-403c-afaa-decd1efc6bd1",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "f0459ab9-af04-4855-a35b-334163f80ba4",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "ff99cb7b-68b4-41fb-908f-587c4f85c7ac",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "4a14ff91-ad59-428c-b4e9-5149c7ec45aa",
+      "comment": "",
+      "command": "click",
+      "target": "css=li:nth-child(1) > .delete",
+      "targets": [
+        ["css=li:nth-child(1) > .delete", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0e4150be-eca9-4e38-ad01-470b2a64f945",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Да",
+      "targets": [
+        ["linkText=Да", "linkText"],
+        ["css=#delete-confirm-1 a", "css:finder"],
+        ["xpath=//a[contains(text(),'Да')]", "xpath:link"],
+        ["xpath=//div[@id='delete-confirm-1']/div/button/a", "xpath:idRelative"],
+        ["xpath=//a[contains(@href, 'sections/delete_section?id=1&login=finland')]", "xpath:href"],
+        ["xpath=//button/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Да')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f5802d5e-1c04-48d9-8ad3-f89d1e35f48d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось удалить раздел. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось удалить раздел. Причина: Недостаточно прав"
+    }]
+  }, {
+    "id": "2de55fd3-3bfd-4069-9b20-3878b180c404",
+    "name": "logoutTest",
+    "commands": [{
+      "id": "b657bfaf-c97d-4bdb-952f-d0eca5627fbe",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "7fd25fc8-ef44-4c39-9fb1-d8b00cc0559b",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "791x746",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "4593eaa1-6a18-443f-9a0d-a1f37358c8ad",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "admin"
+    }, {
+      "id": "68bcf114-1a16-4e67-bf78-0bf051c03250",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "moder"
+    }, {
+      "id": "065cffec-e50e-489d-a12d-737b419adbe4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "99f4c484-065b-4ff6-b6a0-bb07223085ce",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Выйти",
+      "targets": [
+        ["linkText=Выйти", "linkText"],
+        ["css=.logout", "css:finder"],
+        ["xpath=//a[contains(text(),'Выйти')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/WebForum/j_spring_security_logout')]", "xpath:href"],
+        ["xpath=//div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Выйти')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1c848a50-e5b0-417d-a156-a6857f36651c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=h1",
+      "targets": [
+        ["css=h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Добро пожаловать на форум!')]", "xpath:innerText"]
+      ],
+      "value": "Добро пожаловать на форум!"
+    }]
+  }, {
+    "id": "18a40575-5884-4221-893a-710aeac45f18",
+    "name": "addUserFail",
+    "commands": [{
+      "id": "fd4d8e0a-6660-43c5-915f-d39b19fa6b6b",
+      "comment": "",
+      "command": "open",
+      "target": "http://127.0.0.1:8080/WebForum/login?auth=failure",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "dbb96129-42d0-4adb-b2cf-d1794dbebd01",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "741x693",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "de244c32-64cd-4200-b4a8-01f7c0e74e75",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_username",
+      "targets": [
+        ["name=j_username", "name"],
+        ["css=input:nth-child(1)", "css:finder"],
+        ["xpath=//input[@name='j_username']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "finland"
+    }, {
+      "id": "a1cd1092-708b-4dd5-8024-b5dda29c735a",
+      "comment": "",
+      "command": "type",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "helsinki"
+    }, {
+      "id": "1b8edddc-090c-4095-b357-7adfa70035c4",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "name=j_password",
+      "targets": [
+        ["name=j_password", "name"],
+        ["css=input:nth-child(3)", "css:finder"],
+        ["xpath=//input[@name='j_password']", "xpath:attributes"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "e7c7a5cc-9ce0-4fe5-8f49-fc8c0d565017",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Подробнее...",
+      "targets": [
+        ["linkText=Подробнее...", "linkText"],
+        ["css=.link-container > a", "css:finder"],
+        ["xpath=//a[contains(text(),'Подробнее...')]", "xpath:link"],
+        ["xpath=//a[contains(@href, 'user_lists')]", "xpath:href"],
+        ["xpath=//div[2]/p/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Подробнее...')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "3d019429-caff-4b1f-9e8f-c26434783abe",
+      "comment": "",
+      "command": "click",
+      "target": "css=.add-user-button",
+      "targets": [
+        ["css=.add-user-button", "css:finder"],
+        ["xpath=//button[@onclick=\"hideOrShowShadowing('new-user-form')\"]", "xpath:attributes"],
+        ["xpath=//button", "xpath:position"],
+        ["xpath=//button[contains(.,'+')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6a2f325d-8c42-4fc4-bfd3-3a4f30c11fa8",
+      "comment": "",
+      "command": "click",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0bdfb7a7-06b6-449e-83fe-ccc10d55310b",
+      "comment": "",
+      "command": "type",
+      "target": "id=login",
+      "targets": [
+        ["id=login", "id"],
+        ["name=login", "name"],
+        ["css=#login", "css:finder"],
+        ["xpath=//input[@id='login']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input", "xpath:idRelative"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "fff"
+    }, {
+      "id": "9ebb5bdc-04fa-4a1a-943d-77bbadc81357",
+      "comment": "",
+      "command": "click",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bfa684f2-e557-4548-ab01-247c61b7411a",
+      "comment": "",
+      "command": "type",
+      "target": "id=password",
+      "targets": [
+        ["id=password", "id"],
+        ["name=password", "name"],
+        ["css=#password", "css:finder"],
+        ["xpath=//input[@id='password']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/input[2]", "xpath:idRelative"],
+        ["xpath=//input[2]", "xpath:position"]
+      ],
+      "value": "ssss"
+    }, {
+      "id": "b1e51dce-9c14-478e-807d-289d75e31541",
+      "comment": "",
+      "command": "click",
+      "target": "id=permissions",
+      "targets": [
+        ["id=permissions", "id"],
+        ["name=permissions", "name"],
+        ["css=#permissions", "css:finder"],
+        ["xpath=//select[@id='permissions']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/select", "xpath:idRelative"],
+        ["xpath=//select", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1634af90-a67b-448e-ad66-404eb472e963",
+      "comment": "",
+      "command": "select",
+      "target": "id=permissions",
+      "targets": [],
+      "value": "label=Обычный"
+    }, {
+      "id": "d09fb3ea-4c60-4f5b-b63f-7cf17d3147ed",
+      "comment": "",
+      "command": "click",
+      "target": "css=option:nth-child(2)",
+      "targets": [
+        ["css=option:nth-child(2)", "css:finder"],
+        ["xpath=//option[@value='user']", "xpath:attributes"],
+        ["xpath=//select[@id='permissions']/option[2]", "xpath:idRelative"],
+        ["xpath=//option[2]", "xpath:position"],
+        ["xpath=//option[contains(.,'Обычный')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "70a56929-8bb4-4b25-8fa2-819130677ea9",
+      "comment": "",
+      "command": "click",
+      "target": "css=.buttons:nth-child(13) > .add",
+      "targets": [
+        ["css=.buttons:nth-child(13) > .add", "css:finder"],
+        ["xpath=//button[@type='submit']", "xpath:attributes"],
+        ["xpath=//div[@id='new-user-form']/form/div/button", "xpath:idRelative"],
+        ["xpath=//div/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Отправить')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "d5a97aa6-f10c-475b-9651-4dd8891a98f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.error-message",
+      "targets": [
+        ["css=.error-message", "css:finder"],
+        ["xpath=//body/div[2]/div/p", "xpath:position"],
+        ["xpath=//p[contains(.,'Не удалось добавить пользователя. Причина: Недостаточно прав')]", "xpath:innerText"]
+      ],
+      "value": "Не удалось добавить пользователя. Причина: Недостаточно прав"
+    }]
+  }],
+  "suites": [{
+    "id": "68c77455-01f2-4b50-9cc0-87530ea448cd",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": []
+  }],
+  "urls": ["http://127.0.0.1:8080/", "http://127.0.0.1:8080/WebForum", "http://127.0.0.1:8080/WebForum/"],
+  "plugins": []
+}

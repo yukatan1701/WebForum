@@ -1,17 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="9" passed="9">
+<testng-results skipped="0" failed="1" ignored="0" total="31" passed="30">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="203" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+  <suite name="DAOTests" duration-ms="1632" started-at="2020-04-21T14:01:28 MSK" finished-at="2020-04-21T14:01:30 MSK">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="203" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+    <test name="UserTest" duration-ms="1632" started-at="2020-04-21T14:01:28 MSK" finished-at="2020-04-21T14:01:30 MSK">
       <class name="forum.test.TopicTest">
-        <test-method status="PASS" signature="testAddTopic()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testAddTopic" duration-ms="120" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+        <test-method status="PASS" signature="testAddExistingTopic()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testAddExistingTopic" duration-ms="12" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <exception class="java.lang.RuntimeException">
+            <message>
+              <![CDATA[Topic 'Отечественный шансон' already exists in section 'Музыка'.]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.RuntimeException: Topic 'Отечественный шансон' already exists in section 'Музыка'.
+at forum.TopicService.addTopic(Unknown Source)
+at forum.test.TopicTest.testAddExistingTopic(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.RuntimeException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddExistingTopic -->
+        <test-method status="PASS" signature="testAddTopic()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testAddTopic" duration-ms="19" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddTopic -->
-        <test-method status="PASS" signature="testAddTopicInEmptySection()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testAddTopicInEmptySection" duration-ms="7" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+        <test-method status="PASS" signature="testAddTopicInEmptySection()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testAddTopicInEmptySection" duration-ms="7" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
           <exception class="org.hibernate.TransientPropertyValueException">
             <message>
               <![CDATA[Not-null property references a transient value - transient instance must be saved before current operation : forum.Topic.section -> forum.Section]]>
@@ -24,10 +66,10 @@ at org.hibernate.internal.SessionImpl.checkNoUnresolvedActionsAfterOperation(Ses
 at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:631)
 at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
 at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
-at forum.TopicDao.persist(TopicDao.java:20)
-at forum.TopicService.persist(TopicService.java:30)
-at forum.TopicService.addTopic(TopicService.java:109)
-at forum.test.TopicTest.testAddTopicInEmptySection(TopicTest.java:31)
+at forum.TopicDao.persist(Unknown Source)
+at forum.TopicService.persist(Unknown Source)
+at forum.TopicService.addTopic(Unknown Source)
+at forum.test.TopicTest.testAddTopicInEmptySection(Unknown Source)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -53,116 +95,24 @@ at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
 at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
 at org.testng.TestNG.runSuites(TestNG.java:1032)
 at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
 ]]>
             </full-stacktrace>
           </exception> <!-- org.hibernate.TransientPropertyValueException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddTopicInEmptySection -->
-        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testFindById" duration-ms="10" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindById -->
-        <test-method status="PASS" signature="testFindByTitle()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testFindByTitle" duration-ms="4" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindByTitle -->
-        <test-method status="PASS" signature="testFindByTitleNull()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testFindByTitleNull" duration-ms="1" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
-          <exception class="java.lang.NullPointerException">
-            <full-stacktrace>
-              <![CDATA[java.lang.NullPointerException
-at forum.TopicService.findByTitle(TopicService.java:53)
-at forum.test.TopicTest.testFindByTitleNull(TopicTest.java:56)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1257)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.NullPointerException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testFindByTitleNull -->
-        <test-method status="PASS" signature="testAddExistingTopic()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testAddExistingTopic" duration-ms="6" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
-          <exception class="java.lang.RuntimeException">
-            <message>
-              <![CDATA[Topic 'Отечественный шансон' already exists in section 'Музыка'.]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.RuntimeException: Topic 'Отечественный шансон' already exists in section 'Музыка'.
-at forum.TopicService.addTopic(TopicService.java:107)
-at forum.test.TopicTest.testAddExistingTopic(TopicTest.java:50)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-at java.lang.reflect.Method.invoke(Method.java:498)
-at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
-at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
-at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
-at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
-at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
-at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
-at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
-at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
-at java.util.ArrayList.forEach(ArrayList.java:1257)
-at org.testng.TestRunner.privateRun(TestRunner.java:770)
-at org.testng.TestRunner.run(TestRunner.java:591)
-at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
-at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
-at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
-at org.testng.SuiteRunner.run(SuiteRunner.java:304)
-at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
-at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
-at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
-at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
-at org.testng.TestNG.runSuites(TestNG.java:1032)
-at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.RuntimeException -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- testAddExistingTopic -->
-        <test-method status="PASS" signature="testAddTopicInNullSection()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testAddTopicInNullSection" duration-ms="0" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+        <test-method status="PASS" signature="testAddTopicInNullSection()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testAddTopicInNullSection" duration-ms="0" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
           <exception class="java.lang.RuntimeException">
             <message>
               <![CDATA[Failed to check if topic is in section: topic or section is null.]]>
             </message>
             <full-stacktrace>
               <![CDATA[java.lang.RuntimeException: Failed to check if topic is in section: topic or section is null.
-at forum.TopicDao.ifTopicInSection(TopicDao.java:122)
-at forum.TopicService.addTopic(TopicService.java:106)
-at forum.test.TopicTest.testAddTopicInNullSection(TopicTest.java:24)
+at forum.TopicDao.ifTopicInSection(Unknown Source)
+at forum.TopicService.addTopic(Unknown Source)
+at forum.test.TopicTest.testAddTopicInNullSection(Unknown Source)
 at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -188,24 +138,608 @@ at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
 at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
 at org.testng.TestNG.runSuites(TestNG.java:1032)
 at org.testng.TestNG.run(TestNG.java:1000)
-at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
-at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
 ]]>
             </full-stacktrace>
           </exception> <!-- java.lang.RuntimeException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testAddTopicInNullSection -->
-        <test-method status="PASS" signature="testIfTopicInSection()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testIfTopicInSection" duration-ms="10" started-at="2020-04-20T20:42:08 MSK" finished-at="2020-04-20T20:42:08 MSK">
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testFindById" duration-ms="12" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="testFindByTitle()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testFindByTitle" duration-ms="6" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByTitle -->
+        <test-method status="PASS" signature="testFindByTitleNull()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testFindByTitleNull" duration-ms="1" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <exception class="java.lang.NullPointerException">
+            <full-stacktrace>
+              <![CDATA[java.lang.NullPointerException
+at forum.TopicService.findByTitle(Unknown Source)
+at forum.test.TopicTest.testFindByTitleNull(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.NullPointerException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByTitleNull -->
+        <test-method status="PASS" signature="testIfTopicInSection()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testIfTopicInSection" duration-ms="21" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testIfTopicInSection -->
-        <test-method status="PASS" signature="testDeleteTopic()[pri:0, instance:forum.test.TopicTest@1fd9893c]" name="testDeleteTopic" duration-ms="17" started-at="2020-04-20T20:42:08 MSK" depends-on-methods="forum.test.TopicTest.testAddTopic" finished-at="2020-04-20T20:42:08 MSK">
+        <test-method status="PASS" signature="testDeleteTopic()[pri:0, instance:forum.test.TopicTest@7cff3f1d]" name="testDeleteTopic" duration-ms="28" started-at="2020-04-21T14:01:30 MSK" depends-on-methods="forum.test.TopicTest.testAddTopic" finished-at="2020-04-21T14:01:30 MSK">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- testDeleteTopic -->
       </class> <!-- forum.test.TopicTest -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+      <class name="forum.test.PostTest">
+        <test-method status="PASS" signature="testAddPost()[pri:0, instance:forum.test.PostTest@6401188a]" name="testAddPost" duration-ms="38" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddPost -->
+        <test-method status="PASS" signature="testAddPostWithNullFields()[pri:0, instance:forum.test.PostTest@6401188a]" name="testAddPostWithNullFields" duration-ms="2" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <exception class="org.hibernate.PropertyValueException">
+            <message>
+              <![CDATA[not-null property references a null or transient value : forum.Post.topic]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Post.topic
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:72)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.PostDao.persist(Unknown Source)
+at forum.PostService.persist(Unknown Source)
+at forum.PostService.addPost(Unknown Source)
+at forum.test.PostTest.testAddPostWithNullFields(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.PropertyValueException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddPostWithNullFields -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.PostTest@6401188a]" name="testFindById" duration-ms="9" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+      </class> <!-- forum.test.PostTest -->
+      <class name="forum.test.SectionTest">
+        <test-method status="PASS" signature="testAddExistingSection()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testAddExistingSection" duration-ms="11" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <exception class="org.hibernate.exception.ConstraintViolationException">
+            <message>
+              <![CDATA[could not execute statement]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.exception.ConstraintViolationException: could not execute statement
+at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+at org.hibernate.dialect.identity.GetGeneratedKeysDelegate.executeAndExtract(GetGeneratedKeysDelegate.java:57)
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:43)
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3133)
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3737)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:84)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.SectionDao.persist(Unknown Source)
+at forum.SectionService.persist(Unknown Source)
+at forum.SectionService.addSection(Unknown Source)
+at forum.test.SectionTest.testAddExistingSection(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "section_title_key"
+  Подробности: Ключ "(title)=(Игры)" уже существует.
+at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2510)
+at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2245)
+at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:311)
+at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:447)
+at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:368)
+at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:159)
+at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
+at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+... 53 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.exception.ConstraintViolationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddExistingSection -->
+        <test-method status="PASS" signature="testAddNotNullSection()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testAddNotNullSection" duration-ms="125" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNotNullSection -->
+        <test-method status="PASS" signature="testAddNullSection()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testAddNullSection" duration-ms="2" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <exception class="org.hibernate.PropertyValueException">
+            <message>
+              <![CDATA[not-null property references a null or transient value : forum.Section.title]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Section.title
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:72)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.SectionDao.persist(Unknown Source)
+at forum.SectionService.persist(Unknown Source)
+at forum.SectionService.addSection(Unknown Source)
+at forum.test.SectionTest.testAddNullSection(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.PropertyValueException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNullSection -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testFindById" duration-ms="19" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="testFindByTitle()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testFindByTitle" duration-ms="14" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByTitle -->
+        <test-method status="PASS" signature="testGetUsersBySections()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testGetUsersBySections" duration-ms="51" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetUsersBySections -->
+        <test-method status="PASS" signature="testDeleteSection()[pri:0, instance:forum.test.SectionTest@30a7653e]" name="testDeleteSection" duration-ms="37" started-at="2020-04-21T14:01:30 MSK" depends-on-methods="forum.test.SectionTest.testAddNotNullSection" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteSection -->
+      </class> <!-- forum.test.SectionTest -->
+      <class name="forum.test.UserTest">
+        <test-method status="PASS" signature="testAddNotNullUser()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testAddNotNullUser" duration-ms="315" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNotNullUser -->
+        <test-method status="PASS" signature="testAddNullUser()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testAddNullUser" duration-ms="8" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <exception class="org.hibernate.PropertyValueException">
+            <message>
+              <![CDATA[not-null property references a null or transient value : forum.User.login]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.User.login
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:72)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.UserDao.persist(Unknown Source)
+at forum.UserService.persist(Unknown Source)
+at forum.UserService.addUser(Unknown Source)
+at forum.test.UserTest.testAddNullUser(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.PropertyValueException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddNullUser -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testFindById" duration-ms="35" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+        <test-method status="PASS" signature="testMD5()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testMD5" duration-ms="10" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testMD5 -->
+        <test-method status="PASS" signature="testAddExistingUser()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testAddExistingUser" duration-ms="137" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <exception class="org.hibernate.exception.ConstraintViolationException">
+            <message>
+              <![CDATA[could not execute statement]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.exception.ConstraintViolationException: could not execute statement
+at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:109)
+at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
+at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:113)
+at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:99)
+at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:200)
+at org.hibernate.dialect.identity.GetGeneratedKeysDelegate.executeAndExtract(GetGeneratedKeysDelegate.java:57)
+at org.hibernate.id.insert.AbstractReturningDelegate.performInsert(AbstractReturningDelegate.java:43)
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3133)
+at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:3737)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:84)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.UserDao.persist(Unknown Source)
+at forum.UserService.persist(Unknown Source)
+at forum.UserService.addUser(Unknown Source)
+at forum.test.UserTest.testAddExistingUser(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+Caused by: org.postgresql.util.PSQLException: ОШИБКА: повторяющееся значение ключа нарушает ограничение уникальности "user_login_key"
+  Подробности: Ключ "(login)=(finland)" уже существует.
+at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2510)
+at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2245)
+at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:311)
+at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:447)
+at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:368)
+at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:159)
+at org.postgresql.jdbc.PgPreparedStatement.executeUpdate(PgPreparedStatement.java:125)
+at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197)
+... 53 more
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.exception.ConstraintViolationException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddExistingUser -->
+        <test-method status="PASS" signature="testBlockUnblockUser()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testBlockUnblockUser" duration-ms="70" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testBlockUnblockUser -->
+        <test-method status="PASS" signature="testFindByLogin()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testFindByLogin" duration-ms="18" started-at="2020-04-21T14:01:29 MSK" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindByLogin -->
+        <test-method status="PASS" signature="testDeleteUser()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testDeleteUser" duration-ms="40" started-at="2020-04-21T14:01:29 MSK" depends-on-methods="forum.test.UserTest.testAddNotNullUser" finished-at="2020-04-21T14:01:29 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testDeleteUser -->
+        <test-method status="FAIL" signature="testGetActiveUsers()[pri:0, instance:forum.test.UserTest@7a65a360]" name="testGetActiveUsers" duration-ms="255" started-at="2020-04-21T14:01:29 MSK" depends-on-methods="forum.test.UserTest.testDeleteUser" finished-at="2020-04-21T14:01:29 MSK">
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [6] but found [7]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [6] but found [7]
+at org.testng.Assert.fail(Assert.java:97)
+at org.testng.Assert.assertEqualsImpl(Assert.java:136)
+at org.testng.Assert.assertEquals(Assert.java:118)
+at org.testng.Assert.assertEquals(Assert.java:839)
+at org.testng.Assert.assertEquals(Assert.java:849)
+at forum.test.UserTest.testGetActiveUsers(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testGetActiveUsers -->
+      </class> <!-- forum.test.UserTest -->
+      <class name="forum.test.AttachmentTest">
+        <test-method status="PASS" signature="testAddAttachment()[pri:0, instance:forum.test.AttachmentTest@33a8c9c9]" name="testAddAttachment" duration-ms="20" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddAttachment -->
+        <test-method status="PASS" signature="testAddAttachmentWithNullFields()[pri:0, instance:forum.test.AttachmentTest@33a8c9c9]" name="testAddAttachmentWithNullFields" duration-ms="1" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <exception class="org.hibernate.PropertyValueException">
+            <message>
+              <![CDATA[not-null property references a null or transient value : forum.Attachment.post]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.hibernate.PropertyValueException: not-null property references a null or transient value : forum.Attachment.post
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:111)
+at org.hibernate.engine.internal.Nullability.checkNullability(Nullability.java:55)
+at org.hibernate.action.internal.AbstractEntityInsertAction.nullifyTransientReferencesIfNotAlready(AbstractEntityInsertAction.java:116)
+at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:72)
+at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:645)
+at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:282)
+at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:263)
+at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:317)
+at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:330)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:287)
+at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:193)
+at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:123)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.saveWithGeneratedOrRequestedId(DefaultSaveOrUpdateEventListener.java:194)
+at org.hibernate.event.internal.DefaultSaveEventListener.saveWithGeneratedOrRequestedId(DefaultSaveEventListener.java:38)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.entityIsTransient(DefaultSaveOrUpdateEventListener.java:179)
+at org.hibernate.event.internal.DefaultSaveEventListener.performSaveOrUpdate(DefaultSaveEventListener.java:32)
+at org.hibernate.event.internal.DefaultSaveOrUpdateEventListener.onSaveOrUpdate(DefaultSaveOrUpdateEventListener.java:75)
+at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:102)
+at org.hibernate.internal.SessionImpl.fireSave(SessionImpl.java:630)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:623)
+at org.hibernate.internal.SessionImpl.save(SessionImpl.java:618)
+at forum.AttachmentDao.persist(Unknown Source)
+at forum.AttachmentService.persist(Unknown Source)
+at forum.AttachmentService.addAttachment(Unknown Source)
+at forum.test.AttachmentTest.testAddAttachmentWithNullFields(Unknown Source)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+at java.lang.reflect.Method.invoke(Method.java:498)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.util.ArrayList.forEach(ArrayList.java:1257)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.TestNG.privateMain(TestNG.java:1326)
+at org.testng.TestNG.main(TestNG.java:1294)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.hibernate.PropertyValueException -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testAddAttachmentWithNullFields -->
+        <test-method status="PASS" signature="testFindById()[pri:0, instance:forum.test.AttachmentTest@33a8c9c9]" name="testFindById" duration-ms="38" started-at="2020-04-21T14:01:30 MSK" finished-at="2020-04-21T14:01:30 MSK">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testFindById -->
+      </class> <!-- forum.test.AttachmentTest -->
+    </test> <!-- UserTest -->
+  </suite> <!-- DAOTests -->
 </testng-results>

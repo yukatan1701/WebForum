@@ -1,0 +1,10 @@
+forum.AttachmentService=org.springframework.stereotype.Component
+forum.PostService=org.springframework.stereotype.Component
+forum.SectionService=org.springframework.stereotype.Component
+forum.TopicService=org.springframework.stereotype.Component
+forum.UserService=org.springframework.stereotype.Component
+forum.config.PostsController=org.springframework.stereotype.Component
+forum.config.SectionsController=org.springframework.stereotype.Component
+forum.config.TopicsController=org.springframework.stereotype.Component
+forum.config.UserListsController=org.springframework.stereotype.Component
+forum.config.UserPageController=org.springframework.stereotype.Component

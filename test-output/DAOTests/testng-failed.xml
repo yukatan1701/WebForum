@@ -5,7 +5,9 @@
     <classes>
       <class name="forum.test.UserTest">
         <methods>
-          <include name="testSHA512"/>
+          <include name="testGetActiveUsers"/>
+          <include name="testAddNotNullUser"/>
+          <include name="testDeleteUser"/>
         </methods>
       </class> <!-- forum.test.UserTest -->
     </classes>

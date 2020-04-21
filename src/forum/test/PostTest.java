@@ -19,7 +19,7 @@ public class PostTest {
 		Assert.assertNull(post);
 	}
 	
-	@Test(expectedExceptions = org.hibernate.exception.ConstraintViolationException.class)
+	@Test(expectedExceptions = org.hibernate.PropertyValueException.class)
 	public void testAddPostWithNullFields() {
 		Post post = new Post(null, null, null, null);
 		forum.postService.addPost(post);

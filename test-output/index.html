@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,8 +37,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" class="navigator-link" panel-name="suite-Default_suite">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" class="navigator-link" panel-name="suite-DAOTests">
+              <span class="suite-name border-failed">DAOTests</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,37 +48,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="test-xml-Default_suite">
-                    <span>testng-customsuite.xml</span>
+                  <a href="#" class="navigator-link " panel-name="test-xml-DAOTests">
+                    <span>testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="testlist-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="testlist-DAOTests">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="group-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="group-DAOTests">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="times-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="times-DAOTests">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="reporter-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="reporter-DAOTests">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="ignored-methods-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="ignored-methods-DAOTests">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" class="navigator-link " panel-name="chronological-Default_suite">
+                  <a href="#" class="navigator-link " panel-name="chronological-DAOTests">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -91,61 +91,180 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">9 methods,   9 passed</span>
+                    <span class="method-stats">31 methods, 1 failed,   30 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-DAOTests" class="hide-methods failed suite-DAOTests"> (hide)</a> <!-- hide-methods failed suite-DAOTests -->
+                      <a href="#" panel-name="suite-DAOTests" class="show-methods failed suite-DAOTests"> (show)</a> <!-- show-methods failed suite-DAOTests -->
+                    </span>
+                    <div class="method-list-content failed suite-DAOTests">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testGetActiveUsers">testGetActiveUsers</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-DAOTests -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-DAOTests" class="hide-methods passed suite-DAOTests"> (hide)</a> <!-- hide-methods passed suite-DAOTests -->
+                      <a href="#" panel-name="suite-DAOTests" class="show-methods passed suite-DAOTests"> (show)</a> <!-- show-methods passed suite-DAOTests -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content passed suite-DAOTests">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testAddExistingTopic">testAddExistingTopic</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.AttachmentTest" hash-for-method="testAddAttachment">testAddAttachment</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testAddTopic">testAddTopic</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.AttachmentTest" hash-for-method="testAddAttachmentWithNullFields">testAddAttachmentWithNullFields</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testAddTopicInEmptySection">testAddTopicInEmptySection</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testAddExistingSection">testAddExistingSection</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testAddTopicInNullSection">testAddTopicInNullSection</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testAddExistingTopic">testAddExistingTopic</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testDeleteTopic">testDeleteTopic</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testAddExistingUser">testAddExistingUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testAddNotNullSection">testAddNotNullSection</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testFindByTitle">testFindByTitle</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testAddNotNullUser">testAddNotNullUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testFindByTitleNull">testFindByTitleNull</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testAddNullSection">testAddNullSection</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Default_suite" title="forum.test.TopicTest" hash-for-method="testIfTopicInSection">testIfTopicInSection</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testAddNullUser">testAddNullUser</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.PostTest" hash-for-method="testAddPost">testAddPost</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.PostTest" hash-for-method="testAddPostWithNullFields">testAddPostWithNullFields</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testAddTopic">testAddTopic</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testAddTopicInEmptySection">testAddTopicInEmptySection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testAddTopicInNullSection">testAddTopicInNullSection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testBlockUnblockUser">testBlockUnblockUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testDeleteSection">testDeleteSection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testDeleteTopic">testDeleteTopic</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testDeleteUser">testDeleteUser</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.PostTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.AttachmentTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testFindById">testFindById</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testFindByLogin">testFindByLogin</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testFindByTitle">testFindByTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testFindByTitle">testFindByTitle</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testFindByTitleNull">testFindByTitleNull</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.SectionTest" hash-for-method="testGetUsersBySections">testGetUsersBySections</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.TopicTest" hash-for-method="testIfTopicInSection">testIfTopicInSection</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img width="3%" src="passed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-DAOTests" title="forum.test.UserTest" hash-for-method="testMD5">testMD5</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content passed suite-DAOTests -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -156,8 +275,121 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+        <div panel-name="suite-DAOTests" class="panel DAOTests">
+          <div class="suite-DAOTests-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">forum.test.UserTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetActiveUsers">
+                  </a> <!-- testGetActiveUsers -->
+                  <span class="method-name">testGetActiveUsers</span>
+                  <div class="stack-trace">java.lang.AssertionError: expected [6] but found [7]
+	at forum.test.UserTest.testGetActiveUsers(Unknown Source)
+	at java.util.ArrayList.forEach(ArrayList.java:1257)
+... Removed 31 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DAOTests-class-failed -->
+          <div class="suite-DAOTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">forum.test.UserTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddExistingUser">
+                  </a> <!-- testAddExistingUser -->
+                  <span class="method-name">testAddExistingUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddNotNullUser">
+                  </a> <!-- testAddNotNullUser -->
+                  <span class="method-name">testAddNotNullUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddNullUser">
+                  </a> <!-- testAddNullUser -->
+                  <span class="method-name">testAddNullUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testBlockUnblockUser">
+                  </a> <!-- testBlockUnblockUser -->
+                  <span class="method-name">testBlockUnblockUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteUser">
+                  </a> <!-- testDeleteUser -->
+                  <span class="method-name">testDeleteUser</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindById">
+                  </a> <!-- testFindById -->
+                  <span class="method-name">testFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindByLogin">
+                  </a> <!-- testFindByLogin -->
+                  <span class="method-name">testFindByLogin</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testMD5">
+                  </a> <!-- testMD5 -->
+                  <span class="method-name">testMD5</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DAOTests-class-passed -->
+          <div class="suite-DAOTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">forum.test.PostTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddPost">
+                  </a> <!-- testAddPost -->
+                  <span class="method-name">testAddPost</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddPostWithNullFields">
+                  </a> <!-- testAddPostWithNullFields -->
+                  <span class="method-name">testAddPostWithNullFields</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindById">
+                  </a> <!-- testFindById -->
+                  <span class="method-name">testFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DAOTests-class-passed -->
+          <div class="suite-DAOTests-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
               <span class="class-name">forum.test.TopicTest</span>
@@ -227,162 +459,442 @@
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
-        </div> <!-- panel Default_suite -->
-        <div panel-name="test-xml-Default_suite" class="panel">
+          </div> <!-- suite-DAOTests-class-passed -->
+          <div class="suite-DAOTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">forum.test.AttachmentTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddAttachment">
+                  </a> <!-- testAddAttachment -->
+                  <span class="method-name">testAddAttachment</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddAttachmentWithNullFields">
+                  </a> <!-- testAddAttachmentWithNullFields -->
+                  <span class="method-name">testAddAttachmentWithNullFields</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindById">
+                  </a> <!-- testFindById -->
+                  <span class="method-name">testFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DAOTests-class-passed -->
+          <div class="suite-DAOTests-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">forum.test.SectionTest</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddExistingSection">
+                  </a> <!-- testAddExistingSection -->
+                  <span class="method-name">testAddExistingSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddNotNullSection">
+                  </a> <!-- testAddNotNullSection -->
+                  <span class="method-name">testAddNotNullSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testAddNullSection">
+                  </a> <!-- testAddNullSection -->
+                  <span class="method-name">testAddNullSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testDeleteSection">
+                  </a> <!-- testDeleteSection -->
+                  <span class="method-name">testDeleteSection</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindById">
+                  </a> <!-- testFindById -->
+                  <span class="method-name">testFindById</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testFindByTitle">
+                  </a> <!-- testFindByTitle -->
+                  <span class="method-name">testFindByTitle</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="testGetUsersBySections">
+                  </a> <!-- testGetUsersBySections -->
+                  <span class="method-name">testGetUsersBySections</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-DAOTests-class-passed -->
+        </div> <!-- panel DAOTests -->
+        <div panel-name="test-xml-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/tmp/testng-eclipse-1251561383/testng-customsuite.xml</span>
+            <span class="header-content">/home/yukatan/Web/eclipse/WebForum/testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Default suite&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; verbose=&quot;2&quot; name=&quot;Default test&quot;&gt;
+&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;DAOTests&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;UserTest&quot;&gt;
     &lt;classes&gt;
+      &lt;class name=&quot;forum.test.UserTest&quot;/&gt;
+      &lt;class name=&quot;forum.test.SectionTest&quot;/&gt;
       &lt;class name=&quot;forum.test.TopicTest&quot;/&gt;
+      &lt;class name=&quot;forum.test.PostTest&quot;/&gt;
+      &lt;class name=&quot;forum.test.AttachmentTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
-&lt;/suite&gt; &lt;!-- Default suite --&gt;
+  &lt;/test&gt; &lt;!-- UserTest --&gt;
+&lt;/suite&gt; &lt;!-- DAOTests --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Default_suite" class="panel">
+        <div panel-name="testlist-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Default suite</span>
+            <span class="header-content">Tests for DAOTests</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">UserTest (5 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Default_suite" class="panel">
+        <div panel-name="group-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Default suite</span>
+            <span class="header-content">Groups for DAOTests</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Default_suite" class="panel">
+        <div panel-name="times-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Default suite</span>
+            <span class="header-content">Times for DAOTests</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Default_suite');
-function tableData_Default_suite() {
+suiteTableInitFunctions.push('tableData_DAOTests');
+function tableData_DAOTests() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(9);
+data.addRows(31);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testAddTopic')
-data.setCell(0, 2, 'forum.test.TopicTest')
-data.setCell(0, 3, 120);
+data.setCell(0, 1, 'testAddNotNullUser')
+data.setCell(0, 2, 'forum.test.UserTest')
+data.setCell(0, 3, 315);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testDeleteTopic')
-data.setCell(1, 2, 'forum.test.TopicTest')
-data.setCell(1, 3, 17);
+data.setCell(1, 1, 'testGetActiveUsers')
+data.setCell(1, 2, 'forum.test.UserTest')
+data.setCell(1, 3, 255);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testIfTopicInSection')
-data.setCell(2, 2, 'forum.test.TopicTest')
-data.setCell(2, 3, 10);
+data.setCell(2, 1, 'testAddExistingUser')
+data.setCell(2, 2, 'forum.test.UserTest')
+data.setCell(2, 3, 137);
 data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testFindById')
-data.setCell(3, 2, 'forum.test.TopicTest')
-data.setCell(3, 3, 10);
+data.setCell(3, 1, 'testAddNotNullSection')
+data.setCell(3, 2, 'forum.test.SectionTest')
+data.setCell(3, 3, 125);
 data.setCell(4, 0, 4)
-data.setCell(4, 1, 'testAddTopicInEmptySection')
-data.setCell(4, 2, 'forum.test.TopicTest')
-data.setCell(4, 3, 7);
+data.setCell(4, 1, 'testBlockUnblockUser')
+data.setCell(4, 2, 'forum.test.UserTest')
+data.setCell(4, 3, 70);
 data.setCell(5, 0, 5)
-data.setCell(5, 1, 'testAddExistingTopic')
-data.setCell(5, 2, 'forum.test.TopicTest')
-data.setCell(5, 3, 6);
+data.setCell(5, 1, 'testGetUsersBySections')
+data.setCell(5, 2, 'forum.test.SectionTest')
+data.setCell(5, 3, 51);
 data.setCell(6, 0, 6)
-data.setCell(6, 1, 'testFindByTitle')
-data.setCell(6, 2, 'forum.test.TopicTest')
-data.setCell(6, 3, 4);
+data.setCell(6, 1, 'testDeleteUser')
+data.setCell(6, 2, 'forum.test.UserTest')
+data.setCell(6, 3, 40);
 data.setCell(7, 0, 7)
-data.setCell(7, 1, 'testFindByTitleNull')
-data.setCell(7, 2, 'forum.test.TopicTest')
-data.setCell(7, 3, 1);
+data.setCell(7, 1, 'testFindById')
+data.setCell(7, 2, 'forum.test.AttachmentTest')
+data.setCell(7, 3, 38);
 data.setCell(8, 0, 8)
-data.setCell(8, 1, 'testAddTopicInNullSection')
-data.setCell(8, 2, 'forum.test.TopicTest')
-data.setCell(8, 3, 0);
-window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+data.setCell(8, 1, 'testAddPost')
+data.setCell(8, 2, 'forum.test.PostTest')
+data.setCell(8, 3, 38);
+data.setCell(9, 0, 9)
+data.setCell(9, 1, 'testDeleteSection')
+data.setCell(9, 2, 'forum.test.SectionTest')
+data.setCell(9, 3, 37);
+data.setCell(10, 0, 10)
+data.setCell(10, 1, 'testFindById')
+data.setCell(10, 2, 'forum.test.UserTest')
+data.setCell(10, 3, 35);
+data.setCell(11, 0, 11)
+data.setCell(11, 1, 'testDeleteTopic')
+data.setCell(11, 2, 'forum.test.TopicTest')
+data.setCell(11, 3, 28);
+data.setCell(12, 0, 12)
+data.setCell(12, 1, 'testIfTopicInSection')
+data.setCell(12, 2, 'forum.test.TopicTest')
+data.setCell(12, 3, 21);
+data.setCell(13, 0, 13)
+data.setCell(13, 1, 'testAddAttachment')
+data.setCell(13, 2, 'forum.test.AttachmentTest')
+data.setCell(13, 3, 20);
+data.setCell(14, 0, 14)
+data.setCell(14, 1, 'testAddTopic')
+data.setCell(14, 2, 'forum.test.TopicTest')
+data.setCell(14, 3, 19);
+data.setCell(15, 0, 15)
+data.setCell(15, 1, 'testFindById')
+data.setCell(15, 2, 'forum.test.SectionTest')
+data.setCell(15, 3, 19);
+data.setCell(16, 0, 16)
+data.setCell(16, 1, 'testFindByLogin')
+data.setCell(16, 2, 'forum.test.UserTest')
+data.setCell(16, 3, 18);
+data.setCell(17, 0, 17)
+data.setCell(17, 1, 'testFindByTitle')
+data.setCell(17, 2, 'forum.test.SectionTest')
+data.setCell(17, 3, 14);
+data.setCell(18, 0, 18)
+data.setCell(18, 1, 'testAddExistingTopic')
+data.setCell(18, 2, 'forum.test.TopicTest')
+data.setCell(18, 3, 12);
+data.setCell(19, 0, 19)
+data.setCell(19, 1, 'testFindById')
+data.setCell(19, 2, 'forum.test.TopicTest')
+data.setCell(19, 3, 12);
+data.setCell(20, 0, 20)
+data.setCell(20, 1, 'testAddExistingSection')
+data.setCell(20, 2, 'forum.test.SectionTest')
+data.setCell(20, 3, 11);
+data.setCell(21, 0, 21)
+data.setCell(21, 1, 'testMD5')
+data.setCell(21, 2, 'forum.test.UserTest')
+data.setCell(21, 3, 10);
+data.setCell(22, 0, 22)
+data.setCell(22, 1, 'testFindById')
+data.setCell(22, 2, 'forum.test.PostTest')
+data.setCell(22, 3, 9);
+data.setCell(23, 0, 23)
+data.setCell(23, 1, 'testAddNullUser')
+data.setCell(23, 2, 'forum.test.UserTest')
+data.setCell(23, 3, 8);
+data.setCell(24, 0, 24)
+data.setCell(24, 1, 'testAddTopicInEmptySection')
+data.setCell(24, 2, 'forum.test.TopicTest')
+data.setCell(24, 3, 7);
+data.setCell(25, 0, 25)
+data.setCell(25, 1, 'testFindByTitle')
+data.setCell(25, 2, 'forum.test.TopicTest')
+data.setCell(25, 3, 6);
+data.setCell(26, 0, 26)
+data.setCell(26, 1, 'testAddPostWithNullFields')
+data.setCell(26, 2, 'forum.test.PostTest')
+data.setCell(26, 3, 2);
+data.setCell(27, 0, 27)
+data.setCell(27, 1, 'testAddNullSection')
+data.setCell(27, 2, 'forum.test.SectionTest')
+data.setCell(27, 3, 2);
+data.setCell(28, 0, 28)
+data.setCell(28, 1, 'testFindByTitleNull')
+data.setCell(28, 2, 'forum.test.TopicTest')
+data.setCell(28, 3, 1);
+data.setCell(29, 0, 29)
+data.setCell(29, 1, 'testAddAttachmentWithNullFields')
+data.setCell(29, 2, 'forum.test.AttachmentTest')
+data.setCell(29, 3, 1);
+data.setCell(30, 0, 30)
+data.setCell(30, 1, 'testAddTopicInNullSection')
+data.setCell(30, 2, 'forum.test.TopicTest')
+data.setCell(30, 3, 0);
+window.suiteTableData['DAOTests']= { tableData: data, tableDiv: 'times-div-DAOTests'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 175 ms</span>
-              <div id="times-div-Default_suite">
-              </div> <!-- times-div-Default_suite -->
+              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <div id="times-div-DAOTests">
+              </div> <!-- times-div-DAOTests -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Default_suite" class="panel">
+        <div panel-name="reporter-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Default suite</span>
+            <span class="header-content">Reporter output for DAOTests</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Default_suite" class="panel">
+        <div panel-name="ignored-methods-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Default_suite" class="panel">
+        <div panel-name="chronological-DAOTests" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">forum.test.TopicTest</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">forum.test.UserTest</div> <!-- chronological-class-name -->
               <div class="test-method">
-                <span class="method-name">testAddTopic</span>
+                <span class="method-name">testAddNotNullUser</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testAddTopicInEmptySection</span>
-                <span class="method-start">122 ms</span>
+                <span class="method-name">testAddNullUser</span>
+                <span class="method-start">318 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testFindById</span>
-                <span class="method-start">131 ms</span>
+                <span class="method-start">326 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testMD5</span>
+                <span class="method-start">362 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddExistingUser</span>
+                <span class="method-start">372 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testBlockUnblockUser</span>
+                <span class="method-start">509 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindByLogin</span>
+                <span class="method-start">580 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDeleteUser</span>
+                <span class="method-start">604 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <img src="failed.png">
+                </img>
+                <span class="method-name">testGetActiveUsers</span>
+                <span class="method-start">645 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">forum.test.SectionTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAddExistingSection</span>
+                <span class="method-start">903 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddNotNullSection</span>
+                <span class="method-start">915 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddNullSection</span>
+                <span class="method-start">1041 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindById</span>
+                <span class="method-start">1044 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testFindByTitle</span>
-                <span class="method-start">142 ms</span>
+                <span class="method-start">1063 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
-                <span class="method-name">testFindByTitleNull</span>
-                <span class="method-start">147 ms</span>
+                <span class="method-name">testGetUsersBySections</span>
+                <span class="method-start">1078 ms</span>
               </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testDeleteSection</span>
+                <span class="method-start">1130 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">forum.test.TopicTest</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">testAddExistingTopic</span>
-                <span class="method-start">149 ms</span>
+                <span class="method-start">1168 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddTopic</span>
+                <span class="method-start">1181 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddTopicInEmptySection</span>
+                <span class="method-start">1201 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testAddTopicInNullSection</span>
-                <span class="method-start">156 ms</span>
+                <span class="method-start">1208 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindById</span>
+                <span class="method-start">1209 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindByTitle</span>
+                <span class="method-start">1221 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindByTitleNull</span>
+                <span class="method-start">1227 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testIfTopicInSection</span>
-                <span class="method-start">157 ms</span>
+                <span class="method-start">1228 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">testDeleteTopic</span>
-                <span class="method-start">168 ms</span>
+                <span class="method-start">1250 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">forum.test.PostTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAddPost</span>
+                <span class="method-start">1279 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddPostWithNullFields</span>
+                <span class="method-start">1318 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindById</span>
+                <span class="method-start">1321 ms</span>
+              </div> <!-- test-method -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">forum.test.AttachmentTest</div> <!-- chronological-class-name -->
+              <div class="test-method">
+                <span class="method-name">testAddAttachment</span>
+                <span class="method-start">1331 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testAddAttachmentWithNullFields</span>
+                <span class="method-start">1352 ms</span>
+              </div> <!-- test-method -->
+              <div class="test-method">
+                <span class="method-name">testFindById</span>
+                <span class="method-start">1354 ms</span>
               </div> <!-- test-method -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

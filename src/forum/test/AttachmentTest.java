@@ -17,7 +17,7 @@ public class AttachmentTest {
 		Assert.assertNull(attachment);
 	}
 	
-	@Test(expectedExceptions = org.hibernate.exception.ConstraintViolationException.class)
+	@Test(expectedExceptions = org.hibernate.PropertyValueException.class)
 	public void testAddAttachmentWithNullFields() {
 		Attachment attachment = new Attachment(null, null);
 		forum.attachmentService.addAttachment(attachment);

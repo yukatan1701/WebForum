@@ -5,16 +5,18 @@
 	<property name="jdbc.driver.jar" value="postgresql-42.2.10.jar"/>
 	<property name="dbname" value="web_forum"></property>
 	
+	<property name="src.dir" location="src"/>
+	<property name="build.dir" location="bin"/>
+	<property name="lib.dir" location="lib"/>
+	<property name="web_lib.dir" location="WebContent/WEB-INF/lib"/>
+	<property name="classes" location="${build}/classes"/>
+	
     <property name="sql.driver" value="org.postgresql.Driver"/>
     <property name="sql.url" value="jdbc:postgresql://localhost:5432/"/>
     <property name="sql.user" value="postgres"/>
     <property name="sql.pass" value="436813"/>
-    <property name="sql.classpath" value="lib/${jdbc.driver.jar}"/>
+    <property name="sql.classpath" value="${lib.dir}/${jdbc.driver.jar}"/>
 	
-	<property name="src.dir" location="src"/>
-	<property name="build.dir" location="bin"/>
-	<property name="lib.dir" location="lib"/>
-	<property name="classes" location="${build}/classes"/>
 	
 	<path id="libraries">
 	  <fileset dir="${lib.dir}">
@@ -23,7 +25,7 @@
 	</path>
 	
 	<path id="toolslib">
-		<fileset dir="lib">
+		<fileset dir="${lib.dir}">
 			<include name="**/*.jar"/>
 		</fileset>
 		<fileset dir="${src.dir}/forum">
@@ -112,6 +114,22 @@
             <annotationconfiguration configurationfile="${src}/hibernate.cfg.xml"/>
             <hbm2dao destdir="${build.dir}"/>           
         </hibernatetool>
+    </target>
+    
+    <target name="war" depends="clean, compile">
+    	<mkdir dir="WebContent/WEB-INF/classes"/>
+    	<copy includeemptydirs="false" todir="WebContent/WEB-INF/classes">
+            <fileset dir="${build.dir}">
+		        <include name="**/*.class"/>
+		        <include name="**/*.xml"/>
+            </fileset>
+    	</copy>
+    	
+    	<war destfile="WebForum.war" webxml="WebContent/WEB-INF/web.xml">
+    		<fileset dir="WebContent"/>
+    		<lib dir="${web_lib.dir}" />
+    		<classes dir="WebContent/WEB-INF/classes" />
+		</war>
     </target>
 	
 	<target name="testng" depends="compile">

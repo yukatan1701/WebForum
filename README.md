@@ -10,7 +10,11 @@ ant setupDB
 ```
 ant testng
 ```
-3. Drop database:
+3. Make 'war' file:
+```
+ant war
+```
+4. Drop database:
 ```
 ant dropDB
 ```
